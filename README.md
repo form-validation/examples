@@ -2,6 +2,8 @@
 
 A collection of useful [FormValidation](https://formvalidation.io) examples
 
+![FormValidation](/assets/screenshot.png)
+
 ## Integrate with JavaScript frameworks
 
 * [Integrate with Mithril](mithril/index.html) ([doc](https://formvalidation.io/guide/examples/integrating-with-mithril))
