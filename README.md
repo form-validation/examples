@@ -4,6 +4,12 @@ A collection of useful [FormValidation](https://formvalidation.io) examples
 
 ![FormValidation](/assets/screenshot.png)
 
+## Alias plugin
+
+Use the [Alias plugin](https://formvalidation.io/guide/plugins/alias) to use multiple instances of the same validator.
+
+* Basic example: [source](plugin-alias/basic.html), [live demo](https://formvalidation.io/guide/plugins/alias)
+
 ## Bootstrap plugin
 
 Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap) to validate the [Bootstrap 4](https://getbootstrap.com) form.
