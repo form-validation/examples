@@ -74,6 +74,12 @@ Use the [DefaultSubmit plugin](https://formvalidation.io/guide/plugins/default-s
 * Basic example: [source](plugin-default-submit/basic.html)
 * Prevent form from submitting when pressing the Enter key: [source](plugin-default-submit/prevent-submit-on-enter.html)
 
+## Excluded plugin
+
+Use the [Excluded plugin](https://formvalidation.io/guide/plugins/excluded) to ignore validations on particular field.
+
+* Basic example: [source](plugin-excluded/basic.html), [live demo](https://formvalidation.io/guide/plugins/excluded)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
