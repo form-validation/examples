@@ -175,6 +175,12 @@ Use the [Tachyons plugin](https://formvalidation.io/guide/plugins/tachyons) to v
 * Tachyons stacked form: [source](plugin-tachyons/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
 * Use multiple fields in the same row: [source](plugin-tachyons/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
 
+## Tooltip plugin
+
+Use the [Tooltip plugin](https://formvalidation.io/guide/plugins/tooltip) to show error messages in tooltips.
+
+* Basic example: [source](plugin-tooltip/basic.html), [live demo](https://formvalidation.io/guide/plugins/tooltip)
+
 ## Transformer plugin
 
 Use the [Transformer plugin](https://formvalidation.io/guide/plugins/transformer) to modify the field value before doing validation.
