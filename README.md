@@ -113,6 +113,14 @@ Use the [Materialize plugin](https://formvalidation.io/guide/plugins/materialize
 * Materialize stacked form: [source](plugin-materialize/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/materialize)
 * Use multiple fields in the same row: [source](plugin-materialize/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/materialize)
 
+## Milligram plugin
+
+Use the [Milligram plugin](https://formvalidation.io/guide/plugins/milligram) to validate the [Milligram](https://milligram.io) form.
+
+* Milligram horizontal form: [source](plugin-milligram/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/milligram)
+* Milligram stacked form: [source](plugin-milligram/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/milligram)
+* Use multiple fields in the same row: [source](plugin-milligram/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/milligram)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
