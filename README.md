@@ -175,6 +175,12 @@ Use the [Tachyons plugin](https://formvalidation.io/guide/plugins/tachyons) to v
 * Tachyons stacked form: [source](plugin-tachyons/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
 * Use multiple fields in the same row: [source](plugin-tachyons/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
 
+## Turret plugin
+
+Use the [Turret plugin](https://formvalidation.io/guide/plugins/turret) to validate the [turretcss](https://turretcss.com) form.
+
+* turretcss stacked form: [source](plugin-turret/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/turret)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
