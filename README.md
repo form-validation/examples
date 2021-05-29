@@ -175,6 +175,14 @@ Use the [Tachyons plugin](https://formvalidation.io/guide/plugins/tachyons) to v
 * Tachyons stacked form: [source](plugin-tachyons/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
 * Use multiple fields in the same row: [source](plugin-tachyons/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
 
+## Trigger plugin
+
+Use the [Trigger plugin](https://formvalidation.io/guide/plugins/trigger) to indicate the events which the validation will be executed when these events are triggered.
+
+* Basic example: [source](plugin-trigger/basic.html), [live demo](https://formvalidation.io/guide/plugins/trigger)
+* Pending validation for a given number of seconds: [source](plugin-trigger/pending-validation.html), [live demo](https://formvalidation.io/guide/examples/pending-validation-for-a-given-number-of-seconds)
+* Performing validation if field value exceed given number of characters: [source](plugin-trigger/threshold-option.html), [live demo](https://formvalidation.io/guide/examples/performing-validation-if-field-value-exceed-given-number-of-characters)
+
 ## Turret plugin
 
 Use the [Turret plugin](https://formvalidation.io/guide/plugins/turret) to validate the [turretcss](https://turretcss.com) form.
