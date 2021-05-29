@@ -181,6 +181,14 @@ Use the [Turret plugin](https://formvalidation.io/guide/plugins/turret) to valid
 
 * turretcss stacked form: [source](plugin-turret/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/turret)
 
+## UiKit plugin
+
+Use the [Uikit plugin](https://formvalidation.io/guide/plugins/uikit) to validate the [Uikit](https://getuikit.com) form.
+
+* Uikit horizontal form: [source](plugin-uikit/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/uikit)
+* Uikit stacked form: [source](plugin-uikit/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/uikit)
+* Use multiple fields in the same row: [source](plugin-uikit/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/uikit)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
