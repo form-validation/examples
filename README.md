@@ -151,6 +151,14 @@ Use the [Semantic plugin](https://formvalidation.io/guide/plugins/semantic) to v
 * Semantic UI stacked form: [source](plugin-semantic/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
 * Use multiple fields in the same row: [source](plugin-semantic/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
 
+## Shoelace plugin
+
+Use the [Shoelace plugin](https://formvalidation.io/guide/plugins/shoelace) to validate the [Shoelace](https://shoelace.style) form.
+
+* Shoelace horizontal form: [source](plugin-shoelace/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/shoelace)
+* Shoelace stacked form: [source](plugin-shoelace/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/shoelace)
+* Use multiple fields in the same row: [source](plugin-shoelace/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/shoelace)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
