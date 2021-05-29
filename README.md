@@ -159,6 +159,14 @@ Use the [Shoelace plugin](https://formvalidation.io/guide/plugins/shoelace) to v
 * Shoelace stacked form: [source](plugin-shoelace/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/shoelace)
 * Use multiple fields in the same row: [source](plugin-shoelace/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/shoelace)
 
+## Spectre plugin
+
+Use the [Spectre plugin](https://formvalidation.io/guide/plugins/spectre) to validate the [Spectre](https://picturepan2.github.io/spectre) form.
+
+* Spectre horizontal form: [source](plugin-spectre/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
+* Spectre stacked form: [source](plugin-spectre/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
+* Use multiple fields in the same row: [source](plugin-spectre/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
