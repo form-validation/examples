@@ -167,6 +167,14 @@ Use the [Spectre plugin](https://formvalidation.io/guide/plugins/spectre) to val
 * Spectre stacked form: [source](plugin-spectre/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
 * Use multiple fields in the same row: [source](plugin-spectre/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
 
+## Tachyons plugin
+
+Use the [Tachyons plugin](https://formvalidation.io/guide/plugins/tachyons) to validate the [Tachyons](https://tachyons.io) form.
+
+* Tachyons horizontal form: [source](plugin-tachyons/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
+* Tachyons stacked form: [source](plugin-tachyons/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
+* Use multiple fields in the same row: [source](plugin-tachyons/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
