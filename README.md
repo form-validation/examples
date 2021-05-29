@@ -100,6 +100,12 @@ Use the [Mailgun plugin](https://formvalidation.io/guide/plugins/mailgun) to val
 
 * Basic example: [source](plugin-mailgun/basic.html)
 
+## MandatoryIcon plugin
+
+Use the [MandatoryIcon plugin](https://formvalidation.io/guide/plugins/mandatory-icon) to show required icons for mandatory fields.
+
+* Basic example: [source](plugin-mandatory-icon/basic.html)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
