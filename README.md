@@ -88,6 +88,12 @@ Use the [Foundation plugin](https://formvalidation.io/guide/plugins/foundation) 
 * Foundation stacked form: [source](plugin-foundation/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
 * Use multiple fields in the same row: [source](plugin-foundation/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
 
+## L10n plugin
+
+Use the [L10n plugin](https://formvalidation.io/guide/plugins/l10n) to support multiple locales for error messages.
+
+* Switch between different locales: [source](plugin-l10n/switch-locales.html), [live demo](https://formvalidation.io/guide/plugins/l10n)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
