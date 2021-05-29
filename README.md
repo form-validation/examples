@@ -61,6 +61,12 @@ Use the [Bulma plugin](https://formvalidation.io/guide/plugins/bulma) to validat
 * Bulma stacked form: [source](plugin-bulma/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bulma)
 * Use multiple fields in the same row: [source](plugin-bulma/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bulma)
 
+## Declarative plugin
+
+Use the [Declarative plugin](https://formvalidation.io/guide/plugins/declarative) to declare validator options via HTML attributes.
+
+* Basic example: [source](plugin-declarative/basic.html), [live demo](https://formvalidation.io/guide/plugins/declarative)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
