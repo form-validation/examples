@@ -121,6 +121,14 @@ Use the [Milligram plugin](https://formvalidation.io/guide/plugins/milligram) to
 * Milligram stacked form: [source](plugin-milligram/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/milligram)
 * Use multiple fields in the same row: [source](plugin-milligram/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/milligram)
 
+## Mini plugin
+
+Use the [Mini plugin](https://formvalidation.io/guide/plugins/mini) to validate the [mini.css](https://minicss.org) form.
+
+* Mini horizontal form: [source](plugin-mini/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/mini)
+* Mini stacked form: [source](plugin-mini/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/mini)
+* Use multiple fields in the same row: [source](plugin-mini/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/mini)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
