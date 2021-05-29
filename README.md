@@ -155,15 +155,19 @@ Use the [Recaptcha plugin](https://formvalidation.io/guide/plugins/recaptcha) to
 
 * Invisible reCAPTCHA: [source](plugin-recaptcha/invisible-recaptcha.html), [live demo](https://formvalidation.io/guide/plugins/recaptcha)
 * reCAPTCHA widget: [source](plugin-recaptcha/recaptcha-widget.html), [live demo](https://formvalidation.io/guide/plugins/recaptcha)
+* Backend verification using php `curl`: [source](plugin-recaptcha/verificationWithCurl.php)
+
+## Recaptcha3Token plugin
+
+Use the [Recaptcha3Token plugin](https://formvalidation.io/guide/plugins/recaptcha3-token) to send the Google reCAPTCHA v3 token to the back-end when the form is valid.
+
+* Basic example: [source](plugin-recaptcha3-token/basic.html)
 
 ## Recaptcha3 plugin
 
 Use the [Recaptcha3 plugin](https://formvalidation.io/guide/plugins/recaptcha3) to show and validate a Google reCAPTCHA v3.
 
 * Basic example: [source](plugin-recaptcha3/basic.html), [live demo](https://formvalidation.io/guide/plugins/recaptcha3)
-* Use with the [Excluded plugin](https://formvalidation.io/guide/plugins/excluded): [source](plugin-recaptcha3/use-with-excluded-plugin.html)
-* Backend verification using php `curl`: [source](plugin-recaptcha3/verificationWithCurl.php)
-* Backend verification using php `file_get_contents`: [source](plugin-recaptcha3/verificationWithFileContents.php)
 
 ## Semantic plugin
 
