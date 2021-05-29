@@ -175,6 +175,15 @@ Use the [Tachyons plugin](https://formvalidation.io/guide/plugins/tachyons) to v
 * Tachyons stacked form: [source](plugin-tachyons/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
 * Use multiple fields in the same row: [source](plugin-tachyons/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
 
+## Transformer plugin
+
+Use the [Transformer plugin](https://formvalidation.io/guide/plugins/transformer) to modify the field value before doing validation.
+
+* Use with numeric validator: [source](plugin-transformer/transform-number.html), [live demo](https://formvalidation.io/guide/plugins/transformer)
+* Use with phone validator: [source](plugin-transformer/transform-phone-number.html), [live demo](https://formvalidation.io/guide/plugins/transformer)
+* Use with uri validator: [source](plugin-transformer/transform-uri.html), [live demo](https://formvalidation.io/guide/plugins/transformer)
+* Use with WYSIWYG editors: [source](plugin-transformer/transform-editor-content.html), [live demo](https://formvalidation.io/guide/plugins/transformer)
+
 ## Trigger plugin
 
 Use the [Trigger plugin](https://formvalidation.io/guide/plugins/trigger) to indicate the events which the validation will be executed when these events are triggered.
