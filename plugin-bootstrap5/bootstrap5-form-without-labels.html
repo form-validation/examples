@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="en">
 <head>
-    <title>FormValidation example - Validate a Bootstrap 5 inline form</title>
+    <title>FormValidation example - Validate a Bootstrap 5 form without labels</title>
     <meta charset="utf-8">
     <meta content="width=device-width,initial-scale=1" name="viewport">
 
@@ -13,17 +13,14 @@
 </head>
 <body>
     <div class="container">
-        <form id="demoForm" method="POST" class="fv-plugins-bootstrap5-form-inline row row-cols-lg-auto g-3">
-            <div class="col-12">
-                <label class="visually-hidden">Username</label>
+        <form id="demoForm" method="POST">
+            <div class="mb-3">
                 <input type="text" class="form-control" name="username" placeholder="Username" style="width: 100%;" />
             </div>
-            <div class="col-12">
-                <label class="visually-hidden">Password</label>
+            <div class="mb-3">
                 <input type="password" class="form-control" name="password" placeholder="Password" style="width: 100%;" />
             </div>
-
-            <div class="col-12">            
+            <div class="mb-3">           
                 <button type="submit" class="btn btn-primary">Sign in</button>
             </div>
         </form>
@@ -68,7 +65,7 @@ document.addEventListener('DOMContentLoaded', function(e) {
             plugins: {
                 trigger: new FormValidation.plugins.Trigger(),
                 bootstrap: new FormValidation.plugins.Bootstrap5({
-                    rowSelector: '.col-12',
+                    rowSelector: '.mb-3',
                 }),
                 submitButton: new FormValidation.plugins.SubmitButton(),
                 icon: new FormValidation.plugins.Icon({
