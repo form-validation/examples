@@ -129,17 +129,18 @@ Use the [Mini plugin](https://formvalidation.io/guide/plugins/mini) to validate 
 * Mini stacked form: [source](plugin-mini/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/mini)
 * Use multiple fields in the same row: [source](plugin-mini/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/mini)
 
+## Mui plugin
+
+Use the [Mui plugin](https://formvalidation.io/guide/plugins/mui) to validate the [MUI](https://muicss.com) form.
+
+* MUI stacked form: [source](plugin-mui/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/mui)
+* Use multiple fields in the same row: [source](plugin-mui/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/mui)
+
 ## PasswordStrength plugin
 
 Use the [PasswordStrength plugin](https://formvalidation.io/guide/plugins/password-strength) to check the strength of a password.
 
 * Basic example: [source](plugin-password-strength/basic.html), [live demo](https://formvalidation.io/guide/plugins/password-strength)
-
-## Sequence plugin
-
-Use the [Sequence plugin](https://formvalidation.io/guide/plugins/sequence) to stop performing remaining validators if there is a validator that the field does not pass.
-
-* Basic example: [source](plugin-sequence/basic.html), [live demo](https://formvalidation.io/guide/plugins/sequence)
 
 ## Pure plugin
 
@@ -147,6 +148,13 @@ Use the [Pure plugin](https://formvalidation.io/guide/plugins/pure) to validate 
 
 * Pure horizontal form: [source](plugin-pure/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/pure)
 * Pure stacked form: [source](plugin-pure/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/pure)
+
+## Recaptcha plugin
+
+Use the [Recaptcha plugin](https://formvalidation.io/guide/plugins/recaptcha) to show and validate a Google reCAPTCHA v2.
+
+* Invisible reCAPTCHA: [source](plugin-recaptcha/invisible-recaptcha.html), [live demo](https://formvalidation.io/guide/plugins/recaptcha)
+* reCAPTCHA widget: [source](plugin-recaptcha/recaptcha-widget.html), [live demo](https://formvalidation.io/guide/plugins/recaptcha)
 
 ## Semantic plugin
 
