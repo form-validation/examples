@@ -67,6 +67,13 @@ Use the [Declarative plugin](https://formvalidation.io/guide/plugins/declarative
 
 * Basic example: [source](plugin-declarative/basic.html), [live demo](https://formvalidation.io/guide/plugins/declarative)
 
+## DefaultSubmit plugin
+
+Use the [DefaultSubmit plugin](https://formvalidation.io/guide/plugins/default-submit) to submit the form if all fields are valid after clicking the Submit button.
+
+* Basic example: [source](plugin-default-submit/basic.html)
+* Prevent form from submitting when pressing the Enter key: [source](plugin-default-submit/prevent-submit-on-enter.html)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
