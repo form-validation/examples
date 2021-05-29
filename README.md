@@ -80,6 +80,14 @@ Use the [Excluded plugin](https://formvalidation.io/guide/plugins/excluded) to i
 
 * Basic example: [source](plugin-excluded/basic.html), [live demo](https://formvalidation.io/guide/plugins/excluded)
 
+## Foundation plugin
+
+Use the [Foundation plugin](https://formvalidation.io/guide/plugins/foundation) to validate the [Foundation](https://foundation.zurb.com) form.
+
+* Foundation horizontal form: [source](plugin-foundation/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
+* Foundation stacked form: [source](plugin-foundation/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
+* Use multiple fields in the same row: [source](plugin-foundation/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
