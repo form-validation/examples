@@ -106,6 +106,13 @@ Use the [MandatoryIcon plugin](https://formvalidation.io/guide/plugins/mandatory
 
 * Basic example: [source](plugin-mandatory-icon/basic.html)
 
+## Materialize plugin
+
+Use the [Materialize plugin](https://formvalidation.io/guide/plugins/materialize) to validate the [Materialize](https://materializecss.com) form.
+
+* Materialize stacked form: [source](plugin-materialize/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/materialize)
+* Use multiple fields in the same row: [source](plugin-materialize/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/materialize)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
