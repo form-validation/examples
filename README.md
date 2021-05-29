@@ -10,6 +10,12 @@ Use the [Alias plugin](https://formvalidation.io/guide/plugins/alias) to use mul
 
 * Basic example: [source](plugin-alias/basic.html), [live demo](https://formvalidation.io/guide/plugins/alias)
 
+## Aria plugin
+
+Use the [Aria plugin](https://formvalidation.io/guide/plugins/aria) to add ARIA attributes based on the field validity.
+
+* Basic example: [source](plugin-aria/basic.html), [live demo](https://formvalidation.io/guide/plugins/aria)
+
 ## Bootstrap plugin
 
 Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap) to validate the [Bootstrap 4](https://getbootstrap.com) form.
