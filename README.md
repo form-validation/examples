@@ -88,6 +88,21 @@ Use the [Foundation plugin](https://formvalidation.io/guide/plugins/foundation) 
 * Foundation stacked form: [source](plugin-foundation/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
 * Use multiple fields in the same row: [source](plugin-foundation/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
 
+## Icon plugin
+
+Use the [Icon plugin](https://formvalidation.io/guide/plugins/icon) to display various icons based on the field validity.
+
+* Adjust icon position: [source](plugin-icon/adjust-icon-position.html), [live demo](https://formvalidation.io/guide/examples/adjusting-icon-position/)
+* Show icons in custom area: [source](plugin-icon/show-icons-custom-area.html), [live demo](https://formvalidation.io/guide/examples/showing-icons-in-custom-area/)
+* Use FontAwesome icons: [source](plugin-icon/use-font-awesome-icons.html), [live demo](https://formvalidation.io/guide/examples/using-fontawesome-icons/)
+* Use Glyphicons icons: [source](plugin-icon/use-glyphicons-icons.html), [live demo](https://formvalidation.io/guide/examples/using-glyphicons-icons/)
+* Use Material Design icons 1: [source](plugin-icon/use-material-design-icons-css.html), [live demo](https://formvalidation.io/guide/examples/using-material-design-icons/)
+* Use Material Design icons 2: [source](plugin-icon/use-material-design-icons-event.html), [live demo](https://formvalidation.io/guide/examples/using-material-design-icons/)
+* Use Semantic UI framework icons: [source](plugin-icon/use-semantic-ui-framework-icons.html), [live demo](https://formvalidation.io/guide/examples/using-semantic-ui-framework-icons/)
+* Use Spectre framework icons: [source](plugin-icon/use-spectre-framework-icons.html), [live demo](https://formvalidation.io/guide/examples/using-spectre-framework-icons/)
+* Use SVG icons: [source](plugin-icon/use-svg-icons.html), [live demo](https://formvalidation.io/guide/examples/using-svg-icons/)
+* Use UiKit framework icons: [source](plugin-icon/use-uikit-framework-icons.html), [live demo](https://formvalidation.io/guide/examples/using-svg-icons/)
+
 ## J plugin
 
 Use the [J plugin](https://formvalidation.io/guide/plugins/j) to use FormValidation as a jQuery plugin.
