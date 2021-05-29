@@ -26,22 +26,32 @@ Use the [AutoFocus plugin](https://formvalidation.io/guide/plugins/auto-focus) t
 
 Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap) to validate the [Bootstrap 4](https://getbootstrap.com) form.
 
-* Bootstrap 4 form without labels: [source](plugin-bootstrap/bootstrap-form-without-labels.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
-* Bootstrap 4 horizontal form: [source](plugin-bootstrap/bootstrap-horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
-* Bootstrap 4 inline form: [source](plugin-bootstrap/bootstrap-inline-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
-* Bootstrap 4 stacked form: [source](plugin-bootstrap/bootstrap-stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
-* Use multiple fields in the same row: [source](plugin-bootstrap/bootstrap-multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+* Bootstrap 4 form without labels: [source](plugin-bootstrap/form-without-labels.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+* Bootstrap 4 horizontal form: [source](plugin-bootstrap/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+* Bootstrap 4 inline form: [source](plugin-bootstrap/inline-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+* Bootstrap 4 stacked form: [source](plugin-bootstrap/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+* Use multiple fields in the same row: [source](plugin-bootstrap/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+
+## Bootstrap3 plugin
+
+Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap3) to validate the [Bootstrap 3](https://getbootstrap.com) form.
+
+* Bootstrap 3 form without labels: [source](plugin-bootstrap3/form-without-labels.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
+* Bootstrap 3 horizontal form: [source](plugin-bootstrap3/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
+* Bootstrap 3 inline form: [source](plugin-bootstrap3/inline-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
+* Bootstrap 3 stacked form: [source](plugin-bootstrap3/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
+* Use multiple fields in the same row: [source](plugin-bootstrap3/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
 
 ## Bootstrap5 plugin
 
 Use the [Bootstrap5 plugin](https://formvalidation.io/guide/plugins/bootstrap5) to validate the [Bootstrap 5](https://getbootstrap.com) form.
 
-* Bootstrap 5 form without labels: [source](plugin-bootstrap5/bootstrap5-form-without-labels.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
-* Bootstrap 5 horizontal form: [source](plugin-bootstrap5/bootstrap5-horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
-* Bootstrap 5 inline form: [source](plugin-bootstrap5/bootstrap5-inline-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
-* Bootstrap 5 stacked form: [source](plugin-bootstrap5/bootstrap5-stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
-* Use multiple fields in the same row: [source](plugin-bootstrap5/bootstrap5-multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
-* Use with Bootstrap 5 form icons: [source](plugin-bootstrap5/bootstrap5-icons.html)
+* Bootstrap 5 form without labels: [source](plugin-bootstrap5/form-without-labels.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
+* Bootstrap 5 horizontal form: [source](plugin-bootstrap5/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
+* Bootstrap 5 inline form: [source](plugin-bootstrap5/inline-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
+* Bootstrap 5 stacked form: [source](plugin-bootstrap5/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
+* Use multiple fields in the same row: [source](plugin-bootstrap5/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
+* Use Bootstrap 5 validation icons: [source](plugin-bootstrap5/validation-icons.html)
 
 ## Integrate with JavaScript frameworks
 
