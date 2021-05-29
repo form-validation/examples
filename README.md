@@ -88,6 +88,107 @@ Use the [Foundation plugin](https://formvalidation.io/guide/plugins/foundation) 
 * Foundation stacked form: [source](plugin-foundation/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
 * Use multiple fields in the same row: [source](plugin-foundation/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
 
+## L10n plugin
+
+Use the [L10n plugin](https://formvalidation.io/guide/plugins/l10n) to support multiple locales for error messages.
+
+* Switch between different locales: [source](plugin-l10n/switch-locales.html), [live demo](https://formvalidation.io/guide/plugins/l10n)
+
+## Mailgun plugin
+
+Use the [Mailgun plugin](https://formvalidation.io/guide/plugins/mailgun) to validate an email address by using [Mailgun API](http://www.mailgun.com).
+
+* Basic example: [source](plugin-mailgun/basic.html)
+
+## MandatoryIcon plugin
+
+Use the [MandatoryIcon plugin](https://formvalidation.io/guide/plugins/mandatory-icon) to show required icons for mandatory fields.
+
+* Basic example: [source](plugin-mandatory-icon/basic.html)
+
+## Materialize plugin
+
+Use the [Materialize plugin](https://formvalidation.io/guide/plugins/materialize) to validate the [Materialize](https://materializecss.com) form.
+
+* Materialize stacked form: [source](plugin-materialize/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/materialize)
+* Use multiple fields in the same row: [source](plugin-materialize/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/materialize)
+
+## Milligram plugin
+
+Use the [Milligram plugin](https://formvalidation.io/guide/plugins/milligram) to validate the [Milligram](https://milligram.io) form.
+
+* Milligram horizontal form: [source](plugin-milligram/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/milligram)
+* Milligram stacked form: [source](plugin-milligram/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/milligram)
+* Use multiple fields in the same row: [source](plugin-milligram/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/milligram)
+
+## Mini plugin
+
+Use the [Mini plugin](https://formvalidation.io/guide/plugins/mini) to validate the [mini.css](https://minicss.org) form.
+
+* Mini horizontal form: [source](plugin-mini/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/mini)
+* Mini stacked form: [source](plugin-mini/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/mini)
+* Use multiple fields in the same row: [source](plugin-mini/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/mini)
+
+## Mui plugin
+
+Use the [Mui plugin](https://formvalidation.io/guide/plugins/mui) to validate the [MUI](https://muicss.com) form.
+
+* MUI stacked form: [source](plugin-mui/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/mui)
+* Use multiple fields in the same row: [source](plugin-mui/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/mui)
+
+## Pure plugin
+
+Use the [Pure plugin](https://formvalidation.io/guide/plugins/pure) to validate the [PureCSS](https://purecss.io) form.
+
+* Pure horizontal form: [source](plugin-pure/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/pure)
+* Pure stacked form: [source](plugin-pure/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/pure)
+
+## Semantic plugin
+
+Use the [Semantic plugin](https://formvalidation.io/guide/plugins/semantic) to validate the [Semantic UI](https://semantic-ui.com) form.
+
+* Semantic UI horizontal form: [source](plugin-semantic/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
+* Semantic UI stacked form: [source](plugin-semantic/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
+* Use multiple fields in the same row: [source](plugin-semantic/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
+
+## Shoelace plugin
+
+Use the [Shoelace plugin](https://formvalidation.io/guide/plugins/shoelace) to validate the [Shoelace](https://shoelace.style) form.
+
+* Shoelace horizontal form: [source](plugin-shoelace/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/shoelace)
+* Shoelace stacked form: [source](plugin-shoelace/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/shoelace)
+* Use multiple fields in the same row: [source](plugin-shoelace/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/shoelace)
+
+## Spectre plugin
+
+Use the [Spectre plugin](https://formvalidation.io/guide/plugins/spectre) to validate the [Spectre](https://picturepan2.github.io/spectre) form.
+
+* Spectre horizontal form: [source](plugin-spectre/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
+* Spectre stacked form: [source](plugin-spectre/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
+* Use multiple fields in the same row: [source](plugin-spectre/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
+
+## Tachyons plugin
+
+Use the [Tachyons plugin](https://formvalidation.io/guide/plugins/tachyons) to validate the [Tachyons](https://tachyons.io) form.
+
+* Tachyons horizontal form: [source](plugin-tachyons/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
+* Tachyons stacked form: [source](plugin-tachyons/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
+* Use multiple fields in the same row: [source](plugin-tachyons/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
+
+## Turret plugin
+
+Use the [Turret plugin](https://formvalidation.io/guide/plugins/turret) to validate the [turretcss](https://turretcss.com) form.
+
+* turretcss stacked form: [source](plugin-turret/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/turret)
+
+## UiKit plugin
+
+Use the [Uikit plugin](https://formvalidation.io/guide/plugins/uikit) to validate the [Uikit](https://getuikit.com) form.
+
+* Uikit horizontal form: [source](plugin-uikit/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/uikit)
+* Uikit stacked form: [source](plugin-uikit/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/uikit)
+* Use multiple fields in the same row: [source](plugin-uikit/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/uikit)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
