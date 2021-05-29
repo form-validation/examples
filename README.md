@@ -173,6 +173,12 @@ Use the [SubmitButton plugin](https://formvalidation.io/guide/plugins/submit-but
 
 * Basic example: [source](plugin-submit-button/basic.html), [live demo](https://formvalidation.io/guide/plugins/submit-button)
 
+## StartEndDate plugin
+
+Use the [StartEndDate plugin](https://formvalidation.io/guide/plugins/start-end-date) to validate start and end dates.
+
+* Basic example: [source](plugin-start-end-date/basic.html), [live demo](https://formvalidation.io/guide/plugins/start-end-date)
+
 ## Tachyons plugin
 
 Use the [Tachyons plugin](https://formvalidation.io/guide/plugins/tachyons) to validate the [Tachyons](https://tachyons.io) form.
