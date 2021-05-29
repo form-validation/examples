@@ -151,6 +151,12 @@ Use the [Semantic plugin](https://formvalidation.io/guide/plugins/semantic) to v
 * Semantic UI stacked form: [source](plugin-semantic/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
 * Use multiple fields in the same row: [source](plugin-semantic/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
 
+## Sequence plugin
+
+Use the [Sequence plugin](https://formvalidation.io/guide/plugins/sequence) to stop performing remaining validators if there is a validator that the field does not pass.
+
+* Basic example: [source](plugin-sequence/basic.html), [live demo](https://formvalidation.io/guide/plugins/sequence)
+
 ## Shoelace plugin
 
 Use the [Shoelace plugin](https://formvalidation.io/guide/plugins/shoelace) to validate the [Shoelace](https://shoelace.style) form.
