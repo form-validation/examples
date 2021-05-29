@@ -1,3 +1,4 @@
+<!doctype html>
 <html lang="en">
 <head>
     <title>FormValidation example - Validate a Bootstrap 5 horizontal form</title>
@@ -11,81 +12,67 @@
 	<link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
 </head>
 <body>
-    <div class="container">
-        <form id="demoForm" method="POST">
-            <div class="mb-3 row">
-                <label class="col-md-3 col-form-label">Full name</label>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" name="firstName" placeholder="First name" />
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" name="lastName" placeholder="Last name" />
+    <form id="demoForm" method="POST">
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Product name</label>
+            <div class="col-sm-4">
+                <input type="text" class="form-control" name="name" />
+            </div>
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Price</label>
+            <div class="col-sm-5">
+                <div class="input-group">
+                    <span class="input-group-text">$</span>
+                    <input type="text" class="form-control" name="price" />
                 </div>
             </div>
-        
-            <div class="mb-3 row">
-                <label class="col-md-3 col-form-label">Username</label>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" name="username" />
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Size</label>
+            <div class="col-sm-6">
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" name="size[]" value="s" />
+                    <label class="form-check-label">S</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" name="size[]" value="m" />
+                    <label class="form-check-label">M</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" name="size[]" value="l" />
+                    <label class="form-check-label">L</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="checkbox" class="form-check-input" name="size[]" value="xl" />
+                    <label class="form-check-label">XL</label>
                 </div>
             </div>
-        
-            <div class="mb-3 row">
-                <label class="col-md-3 col-form-label">Email address</label>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" name="email" />
+        </div>
+
+        <div class="mb-3 row">
+            <label class="col-sm-3 col-form-label">Available in store</label>
+            <div class="col-sm-6">
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" name="availability" value="yes" />
+                    <label class="form-check-label">Yes</label>
+                </div>
+                <div class="form-check form-check-inline">
+                    <input type="radio" class="form-check-input" name="availability" value="no" />
+                    <label class="form-check-label">No</label>
                 </div>
             </div>
-        
-            <div class="mb-3 row">
-                <label class="col-md-3 col-form-label">Password</label>
-                <div class="col-md-5">
-                    <input type="password" class="form-control" name="password" />
-                </div>
+        </div>
+
+        <div class="mb-3 row">
+            <div class="col-sm-9 offset-sm-3">
+                <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+                <button type="submit" class="btn btn-primary">Add product</button>
             </div>
-        
-            <div class="mb-3 row">
-                <label class="col-md-3 col-form-label">Gender</label>
-                <div class="col-md-6">
-                    <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input" name="gender" value="male" />
-                        <label class="form-check-label">Male</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input" name="gender" value="female" />
-                        <label class="form-check-label">Female</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input" name="gender" value="other" />
-                        <label class="form-check-label">Other</label>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="mb-3 row">
-                <label class="col-md-3 col-form-label" id="captchaOperation"></label>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" name="captcha" />
-                </div>
-            </div>
-        
-            <div class="mb-3 row">
-                <div class="col-md-6 offset-md-3">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="agree" value="agree" />
-                        <label class="form-check-label">Agree with the terms and conditions</label>
-                    </div>
-                </div>
-            </div>
-        
-            <div class="mb-3 row">
-                <div class="col-md-9 offset-md-3">
-                    <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
-                    <button type="button" class="btn btn-default" id="resetButton">Reset</button>
-                </div>
-            </div>
-        </form>
-    </div>
+        </div>
+    </form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
 
@@ -95,125 +82,63 @@
 
 <script>
 document.addEventListener('DOMContentLoaded', function(e) {
-    // Generate a simple captcha
-    const randomNumber = function(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    };
-    const random = [randomNumber(1, 100), randomNumber(1, 200)];
-    document.getElementById('captchaOperation').innerHTML = [random[0], '+', random[1], '='].join(' ');
-
-    const form = document.getElementById('demoForm');
-    const fv = FormValidation.formValidation(form, {
-        fields: {
-            firstName: {
-                validators: {
-                    notEmpty: {
-                        message: 'The first name is required'
-                    }
-                }
-            },
-            lastName: {
-                validators: {
-                    notEmpty: {
-                        message: 'The last name is required'
-                    }
-                }
-            },
-            username: {
-                validators: {
-                    notEmpty: {
-                        message: 'The username is required'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'The username must be more than 6 and less than 30 characters long'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9_]+$/,
-                        message: 'The username can only consist of alphabetical, number and underscore'
-                    }
-                }
-            },
-            email: {
-                validators: {
-                    notEmpty: {
-                        message: 'The email address is required'
-                    },
-                    emailAddress: {
-                        message: 'The input is not a valid email address'
-                    }
-                }
-            },
-            password: {
-                validators: {
-                    notEmpty: {
-                        message: 'The password is required'
-                    },
-                    stringLength: {
-                        min: 8,
-                        message: 'The password must have at least 8 characters'
-                    },
-                    different: {
-                        message: 'The password cannot be the same as username',
-                        compare: function() {
-                            return form.querySelector('[name="username"]').value;
+    FormValidation.formValidation(
+        document.getElementById('demoForm'),
+        {
+            fields: {
+                name: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The name is required'
+                        },
+                        stringLength: {
+                            min: 6,
+                            max: 30,
+                            message: 'The name must be more than 6 and less than 30 characters long'
+                        },
+                        regexp: {
+                            regexp: /^[a-zA-Z0-9_]+$/,
+                            message: 'The name can only consist of alphabetical, number and underscore'
                         }
                     }
-                }
-            },
-            gender: {
-                validators: {
-                    notEmpty: {
-                        message: 'The gender is required'
-                    }
-                }
-            },
-            captcha: {
-                validators: {
-                    callback: {
-                        message: 'Wrong answer',
-                        callback: function(input) {
-                            const items = document.getElementById('captchaOperation').innerHTML.split(' ');
-                            const sum = parseInt(items[0]) + parseInt(items[2]);
-                            return input.value == sum;
+                },
+                price: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The price is required'
+                        },
+                        numeric: {
+                            message: 'The price must be a number'
                         }
                     }
-                }
+                },
+                'size[]': {
+                    validators: {
+                        notEmpty: {
+                            message: 'The size is required'
+                        }
+                    }
+                },
+                availability: {
+                    validators: {
+                        notEmpty: {
+                            message: 'The availability option is required'
+                        }
+                    }
+                },
             },
-            agree: {
-                validators: {
-                    notEmpty: {
-                        message: 'You must agree with the terms and conditions'
-                    }
-                }
-            }
-        },
-        plugins: {
-            trigger: new FormValidation.plugins.Trigger(),
-            submitButton: new FormValidation.plugins.SubmitButton(),
-            bootstrap: new FormValidation.plugins.Bootstrap5({
-                rowSelector: function(field, ele) {
-                    switch (field) {
-                        case 'firstName': 
-                        case 'lastName':
-                            return '.col-md-4';
-                        default:
-                            return '.row';
-                    }
-                }
-            }),
-            icon: new FormValidation.plugins.Icon({
-                valid: 'fa fa-check',
-                invalid: 'fa fa-times',
-                validating: 'fa fa-refresh'
-            }),
+            plugins: {
+                trigger: new FormValidation.plugins.Trigger(),
+                bootstrap5: new FormValidation.plugins.Bootstrap5(),
+                submitButton: new FormValidation.plugins.SubmitButton(),
+                icon: new FormValidation.plugins.Icon({
+                    valid: 'fa fa-check',
+                    invalid: 'fa fa-times',
+                    validating: 'fa fa-refresh'
+                }),
+            },
         }
-    });
-
-    document.getElementById('resetButton').addEventListener('click', function() {
-        fv.resetForm(true);
-    });
+    );
 });
 </script>
 </body>
