@@ -53,6 +53,14 @@ Use the [Bootstrap5 plugin](https://formvalidation.io/guide/plugins/bootstrap5) 
 * Use multiple fields in the same row: [source](plugin-bootstrap5/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
 * Use Bootstrap 5 validation icons: [source](plugin-bootstrap5/validation-icons.html)
 
+## Bulma plugin
+
+Use the [Bulma plugin](https://formvalidation.io/guide/plugins/bulma) to validate the [Bulma](https://bulma.io) form.
+
+* Bulma horizontal form: [source](plugin-bulma/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bulma)
+* Bulma stacked form: [source](plugin-bulma/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bulma)
+* Use multiple fields in the same row: [source](plugin-bulma/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bulma)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
