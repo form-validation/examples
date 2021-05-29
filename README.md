@@ -167,6 +167,12 @@ Use the [Spectre plugin](https://formvalidation.io/guide/plugins/spectre) to val
 * Spectre stacked form: [source](plugin-spectre/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
 * Use multiple fields in the same row: [source](plugin-spectre/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
 
+## SubmitButton plugin
+
+Use the [SubmitButton plugin](https://formvalidation.io/guide/plugins/submit-button) to validate the form when pressing its Submit button automatically.
+
+* Basic example: [source](plugin-submit-button/basic.html), [live demo](https://formvalidation.io/guide/plugins/submit-button)
+
 ## Tachyons plugin
 
 Use the [Tachyons plugin](https://formvalidation.io/guide/plugins/tachyons) to validate the [Tachyons](https://tachyons.io) form.
