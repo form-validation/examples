@@ -94,6 +94,12 @@ Use the [L10n plugin](https://formvalidation.io/guide/plugins/l10n) to support m
 
 * Switch between different locales: [source](plugin-l10n/switch-locales.html), [live demo](https://formvalidation.io/guide/plugins/l10n)
 
+## Mailgun plugin
+
+Use the [Mailgun plugin](https://formvalidation.io/guide/plugins/mailgun) to validate an email address by using [Mailgun API](http://www.mailgun.com).
+
+* Basic example: [source](plugin-mailgun/basic.html)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
