@@ -136,6 +136,13 @@ Use the [Mui plugin](https://formvalidation.io/guide/plugins/mui) to validate th
 * MUI stacked form: [source](plugin-mui/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/mui)
 * Use multiple fields in the same row: [source](plugin-mui/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/mui)
 
+## Pure plugin
+
+Use the [Pure plugin](https://formvalidation.io/guide/plugins/pure) to validate the [PureCSS](https://purecss.io) form.
+
+* Pure horizontal form: [source](plugin-pure/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/pure)
+* Pure stacked form: [source](plugin-pure/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/pure)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
