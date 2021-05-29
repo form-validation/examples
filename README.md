@@ -16,6 +16,12 @@ Use the [Aria plugin](https://formvalidation.io/guide/plugins/aria) to add ARIA 
 
 * Basic example: [source](plugin-aria/basic.html), [live demo](https://formvalidation.io/guide/plugins/aria)
 
+## AutoFocus plugin
+
+Use the [AutoFocus plugin](https://formvalidation.io/guide/plugins/auto-focus) to focus on the first invalid element when submit form.
+
+* Basic example: [source](plugin-auto-focus/basic.html), [live demo](https://formvalidation.io/guide/plugins/auto-focus)
+
 ## Bootstrap plugin
 
 Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap) to validate the [Bootstrap 4](https://getbootstrap.com) form.
