@@ -4,25 +4,31 @@ A collection of useful [FormValidation](https://formvalidation.io) examples
 
 ![FormValidation](/assets/screenshot.png)
 
-## Alias plugin
+## APIs examples
+
+* Clearing field when clicking the icon: [source](clearing-field-when-clicking-the-icon/example.html), [live demo](https://formvalidation.io/guide/examples/clearing-field-when-clicking-the-icon)
+
+## Plugin examples
+
+### Alias plugin
 
 Use the [Alias plugin](https://formvalidation.io/guide/plugins/alias) to use multiple instances of the same validator.
 
 * Basic example: [source](plugin-alias/basic.html), [live demo](https://formvalidation.io/guide/plugins/alias)
 
-## Aria plugin
+### Aria plugin
 
 Use the [Aria plugin](https://formvalidation.io/guide/plugins/aria) to add ARIA attributes based on the field validity.
 
 * Basic example: [source](plugin-aria/basic.html), [live demo](https://formvalidation.io/guide/plugins/aria)
 
-## AutoFocus plugin
+### AutoFocus plugin
 
 Use the [AutoFocus plugin](https://formvalidation.io/guide/plugins/auto-focus) to focus on the first invalid element when submit form.
 
 * Basic example: [source](plugin-auto-focus/basic.html), [live demo](https://formvalidation.io/guide/plugins/auto-focus)
 
-## Bootstrap plugin
+### Bootstrap plugin
 
 Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap) to validate the [Bootstrap 4](https://getbootstrap.com) form.
 
@@ -32,7 +38,7 @@ Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap) to
 * Bootstrap 4 stacked form: [source](plugin-bootstrap/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
 * Use multiple fields in the same row: [source](plugin-bootstrap/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
 
-## Bootstrap3 plugin
+### Bootstrap3 plugin
 
 Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap3) to validate the [Bootstrap 3](https://getbootstrap.com) form.
 
@@ -42,7 +48,7 @@ Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap3) t
 * Bootstrap 3 stacked form: [source](plugin-bootstrap3/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
 * Use multiple fields in the same row: [source](plugin-bootstrap3/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
 
-## Bootstrap5 plugin
+### Bootstrap5 plugin
 
 Use the [Bootstrap5 plugin](https://formvalidation.io/guide/plugins/bootstrap5) to validate the [Bootstrap 5](https://getbootstrap.com) form.
 
@@ -53,7 +59,7 @@ Use the [Bootstrap5 plugin](https://formvalidation.io/guide/plugins/bootstrap5) 
 * Use multiple fields in the same row: [source](plugin-bootstrap5/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
 * Use Bootstrap 5 validation icons: [source](plugin-bootstrap5/validation-icons.html)
 
-## Bulma plugin
+### Bulma plugin
 
 Use the [Bulma plugin](https://formvalidation.io/guide/plugins/bulma) to validate the [Bulma](https://bulma.io) form.
 
@@ -61,26 +67,26 @@ Use the [Bulma plugin](https://formvalidation.io/guide/plugins/bulma) to validat
 * Bulma stacked form: [source](plugin-bulma/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bulma)
 * Use multiple fields in the same row: [source](plugin-bulma/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bulma)
 
-## Declarative plugin
+### Declarative plugin
 
 Use the [Declarative plugin](https://formvalidation.io/guide/plugins/declarative) to declare validator options via HTML attributes.
 
 * Basic example: [source](plugin-declarative/basic.html), [live demo](https://formvalidation.io/guide/plugins/declarative)
 
-## DefaultSubmit plugin
+### DefaultSubmit plugin
 
 Use the [DefaultSubmit plugin](https://formvalidation.io/guide/plugins/default-submit) to submit the form if all fields are valid after clicking the Submit button.
 
 * Basic example: [source](plugin-default-submit/basic.html)
 * Prevent form from submitting when pressing the Enter key: [source](plugin-default-submit/prevent-submit-on-enter.html)
 
-## Excluded plugin
+### Excluded plugin
 
 Use the [Excluded plugin](https://formvalidation.io/guide/plugins/excluded) to ignore validations on particular field.
 
 * Basic example: [source](plugin-excluded/basic.html), [live demo](https://formvalidation.io/guide/plugins/excluded)
 
-## Foundation plugin
+### Foundation plugin
 
 Use the [Foundation plugin](https://formvalidation.io/guide/plugins/foundation) to validate the [Foundation](https://foundation.zurb.com) form.
 
@@ -88,7 +94,7 @@ Use the [Foundation plugin](https://formvalidation.io/guide/plugins/foundation) 
 * Foundation stacked form: [source](plugin-foundation/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
 * Use multiple fields in the same row: [source](plugin-foundation/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
 
-## Icon plugin
+### Icon plugin
 
 Use the [Icon plugin](https://formvalidation.io/guide/plugins/icon) to display various icons based on the field validity.
 
@@ -103,38 +109,38 @@ Use the [Icon plugin](https://formvalidation.io/guide/plugins/icon) to display v
 * Use SVG icons: [source](plugin-icon/use-svg-icons.html), [live demo](https://formvalidation.io/guide/examples/using-svg-icons/)
 * Use UiKit framework icons: [source](plugin-icon/use-uikit-framework-icons.html), [live demo](https://formvalidation.io/guide/examples/using-svg-icons/)
 
-## J plugin
+### J plugin
 
 Use the [J plugin](https://formvalidation.io/guide/plugins/j) to use FormValidation as a jQuery plugin.
 
 * Basic example: [source](plugin-j/basic.html)
 
-## L10n plugin
+### L10n plugin
 
 Use the [L10n plugin](https://formvalidation.io/guide/plugins/l10n) to support multiple locales for error messages.
 
 * Switch between different locales: [source](plugin-l10n/switch-locales.html), [live demo](https://formvalidation.io/guide/plugins/l10n)
 
-## Mailgun plugin
+### Mailgun plugin
 
 Use the [Mailgun plugin](https://formvalidation.io/guide/plugins/mailgun) to validate an email address by using [Mailgun API](http://www.mailgun.com).
 
 * Basic example: [source](plugin-mailgun/basic.html)
 
-## MandatoryIcon plugin
+### MandatoryIcon plugin
 
 Use the [MandatoryIcon plugin](https://formvalidation.io/guide/plugins/mandatory-icon) to show required icons for mandatory fields.
 
 * Basic example: [source](plugin-mandatory-icon/basic.html)
 
-## Materialize plugin
+### Materialize plugin
 
 Use the [Materialize plugin](https://formvalidation.io/guide/plugins/materialize) to validate the [Materialize](https://materializecss.com) form.
 
 * Materialize stacked form: [source](plugin-materialize/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/materialize)
 * Use multiple fields in the same row: [source](plugin-materialize/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/materialize)
 
-## Milligram plugin
+### Milligram plugin
 
 Use the [Milligram plugin](https://formvalidation.io/guide/plugins/milligram) to validate the [Milligram](https://milligram.io) form.
 
@@ -142,7 +148,7 @@ Use the [Milligram plugin](https://formvalidation.io/guide/plugins/milligram) to
 * Milligram stacked form: [source](plugin-milligram/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/milligram)
 * Use multiple fields in the same row: [source](plugin-milligram/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/milligram)
 
-## Mini plugin
+### Mini plugin
 
 Use the [Mini plugin](https://formvalidation.io/guide/plugins/mini) to validate the [mini.css](https://minicss.org) form.
 
@@ -150,27 +156,27 @@ Use the [Mini plugin](https://formvalidation.io/guide/plugins/mini) to validate 
 * Mini stacked form: [source](plugin-mini/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/mini)
 * Use multiple fields in the same row: [source](plugin-mini/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/mini)
 
-## Mui plugin
+### Mui plugin
 
 Use the [Mui plugin](https://formvalidation.io/guide/plugins/mui) to validate the [MUI](https://muicss.com) form.
 
 * MUI stacked form: [source](plugin-mui/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/mui)
 * Use multiple fields in the same row: [source](plugin-mui/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/mui)
 
-## PasswordStrength plugin
+### PasswordStrength plugin
 
 Use the [PasswordStrength plugin](https://formvalidation.io/guide/plugins/password-strength) to check the strength of a password.
 
 * Basic example: [source](plugin-password-strength/basic.html), [live demo](https://formvalidation.io/guide/plugins/password-strength)
 
-## Pure plugin
+### Pure plugin
 
 Use the [Pure plugin](https://formvalidation.io/guide/plugins/pure) to validate the [PureCSS](https://purecss.io) form.
 
 * Pure horizontal form: [source](plugin-pure/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/pure)
 * Pure stacked form: [source](plugin-pure/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/pure)
 
-## Recaptcha plugin
+### Recaptcha plugin
 
 Use the [Recaptcha plugin](https://formvalidation.io/guide/plugins/recaptcha) to show and validate a Google reCAPTCHA v2.
 
@@ -178,19 +184,19 @@ Use the [Recaptcha plugin](https://formvalidation.io/guide/plugins/recaptcha) to
 * reCAPTCHA widget: [source](plugin-recaptcha/recaptcha-widget.html), [live demo](https://formvalidation.io/guide/plugins/recaptcha)
 * Backend verification using php `curl`: [source](plugin-recaptcha/verificationWithCurl.php)
 
-## Recaptcha3Token plugin
+### Recaptcha3Token plugin
 
 Use the [Recaptcha3Token plugin](https://formvalidation.io/guide/plugins/recaptcha3-token) to send the Google reCAPTCHA v3 token to the back-end when the form is valid.
 
 * Basic example: [source](plugin-recaptcha3-token/basic.html)
 
-## Recaptcha3 plugin
+### Recaptcha3 plugin
 
 Use the [Recaptcha3 plugin](https://formvalidation.io/guide/plugins/recaptcha3) to show and validate a Google reCAPTCHA v3.
 
 * Basic example: [source](plugin-recaptcha3/basic.html), [live demo](https://formvalidation.io/guide/plugins/recaptcha3)
 
-## Semantic plugin
+### Semantic plugin
 
 Use the [Semantic plugin](https://formvalidation.io/guide/plugins/semantic) to validate the [Semantic UI](https://semantic-ui.com) form.
 
@@ -198,13 +204,13 @@ Use the [Semantic plugin](https://formvalidation.io/guide/plugins/semantic) to v
 * Semantic UI stacked form: [source](plugin-semantic/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
 * Use multiple fields in the same row: [source](plugin-semantic/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
 
-## Sequence plugin
+### Sequence plugin
 
 Use the [Sequence plugin](https://formvalidation.io/guide/plugins/sequence) to stop performing remaining validators if there is a validator that the field does not pass.
 
 * Basic example: [source](plugin-sequence/basic.html), [live demo](https://formvalidation.io/guide/plugins/sequence)
 
-## Shoelace plugin
+### Shoelace plugin
 
 Use the [Shoelace plugin](https://formvalidation.io/guide/plugins/shoelace) to validate the [Shoelace](https://shoelace.style) form.
 
@@ -212,7 +218,7 @@ Use the [Shoelace plugin](https://formvalidation.io/guide/plugins/shoelace) to v
 * Shoelace stacked form: [source](plugin-shoelace/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/shoelace)
 * Use multiple fields in the same row: [source](plugin-shoelace/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/shoelace)
 
-## Spectre plugin
+### Spectre plugin
 
 Use the [Spectre plugin](https://formvalidation.io/guide/plugins/spectre) to validate the [Spectre](https://picturepan2.github.io/spectre) form.
 
@@ -220,19 +226,19 @@ Use the [Spectre plugin](https://formvalidation.io/guide/plugins/spectre) to val
 * Spectre stacked form: [source](plugin-spectre/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
 * Use multiple fields in the same row: [source](plugin-spectre/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/spectre)
 
-## SubmitButton plugin
+### SubmitButton plugin
 
 Use the [SubmitButton plugin](https://formvalidation.io/guide/plugins/submit-button) to validate the form when pressing its Submit button automatically.
 
 * Basic example: [source](plugin-submit-button/basic.html), [live demo](https://formvalidation.io/guide/plugins/submit-button)
 
-## StartEndDate plugin
+### StartEndDate plugin
 
 Use the [StartEndDate plugin](https://formvalidation.io/guide/plugins/start-end-date) to validate start and end dates.
 
 * Basic example: [source](plugin-start-end-date/basic.html), [live demo](https://formvalidation.io/guide/plugins/start-end-date)
 
-## Tachyons plugin
+### Tachyons plugin
 
 Use the [Tachyons plugin](https://formvalidation.io/guide/plugins/tachyons) to validate the [Tachyons](https://tachyons.io) form.
 
@@ -240,13 +246,13 @@ Use the [Tachyons plugin](https://formvalidation.io/guide/plugins/tachyons) to v
 * Tachyons stacked form: [source](plugin-tachyons/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
 * Use multiple fields in the same row: [source](plugin-tachyons/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/tachyons)
 
-## Tooltip plugin
+### Tooltip plugin
 
 Use the [Tooltip plugin](https://formvalidation.io/guide/plugins/tooltip) to show error messages in tooltips.
 
 * Basic example: [source](plugin-tooltip/basic.html), [live demo](https://formvalidation.io/guide/plugins/tooltip)
 
-## Transformer plugin
+### Transformer plugin
 
 Use the [Transformer plugin](https://formvalidation.io/guide/plugins/transformer) to modify the field value before doing validation.
 
@@ -255,7 +261,7 @@ Use the [Transformer plugin](https://formvalidation.io/guide/plugins/transformer
 * Use with uri validator: [source](plugin-transformer/transform-uri.html), [live demo](https://formvalidation.io/guide/plugins/transformer)
 * Use with WYSIWYG editors: [source](plugin-transformer/transform-editor-content.html), [live demo](https://formvalidation.io/guide/plugins/transformer)
 
-## Trigger plugin
+### Trigger plugin
 
 Use the [Trigger plugin](https://formvalidation.io/guide/plugins/trigger) to indicate the events which the validation will be executed when these events are triggered.
 
@@ -263,13 +269,13 @@ Use the [Trigger plugin](https://formvalidation.io/guide/plugins/trigger) to ind
 * Pending validation for a given number of seconds: [source](plugin-trigger/pending-validation.html), [live demo](https://formvalidation.io/guide/examples/pending-validation-for-a-given-number-of-seconds)
 * Performing validation if field value exceed given number of characters: [source](plugin-trigger/threshold-option.html), [live demo](https://formvalidation.io/guide/examples/performing-validation-if-field-value-exceed-given-number-of-characters)
 
-## Turret plugin
+### Turret plugin
 
 Use the [Turret plugin](https://formvalidation.io/guide/plugins/turret) to validate the [turretcss](https://turretcss.com) form.
 
 * turretcss stacked form: [source](plugin-turret/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/turret)
 
-## UiKit plugin
+### UiKit plugin
 
 Use the [Uikit plugin](https://formvalidation.io/guide/plugins/uikit) to validate the [Uikit](https://getuikit.com) form.
 
@@ -277,7 +283,7 @@ Use the [Uikit plugin](https://formvalidation.io/guide/plugins/uikit) to validat
 * Uikit stacked form: [source](plugin-uikit/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/uikit)
 * Use multiple fields in the same row: [source](plugin-uikit/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/uikit)
 
-## Wizard plugin
+### Wizard plugin
 
 Use the [Wizard plugin](https://formvalidation.io/guide/plugins/wizard) to validate multiple steps form.
 
