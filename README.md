@@ -189,6 +189,12 @@ Use the [Uikit plugin](https://formvalidation.io/guide/plugins/uikit) to validat
 * Uikit stacked form: [source](plugin-uikit/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/uikit)
 * Use multiple fields in the same row: [source](plugin-uikit/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/uikit)
 
+## Wizard plugin
+
+Use the [Wizard plugin](https://formvalidation.io/guide/plugins/wizard) to validate multiple steps form.
+
+* Basic example: [source](plugin-wizard/basic.html), [live demo](https://formvalidation.io/guide/plugins/wizard)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
