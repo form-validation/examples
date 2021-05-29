@@ -1,33 +1,35 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-    <title>FormValidation demo</title>
+    <title>FormValidation example - Validate a Bootstrap form without labels</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
-	
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
     <!-- Replace with your path -->
     <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
 </head>
 <body>
-    <div class="container">
-        <form id="demoForm" method="POST">
-            <div class="mb-3">
-                <input type="text" class="form-control" name="username" placeholder="Username" style="width: 100%;" />
-            </div>
-            <div class="mb-3">
-                <input type="password" class="form-control" name="password" placeholder="Password" style="width: 100%;" />
-            </div>
-            <div class="mb-3">           
-                <button type="submit" class="btn btn-primary">Sign in</button>
-            </div>
-        </form>
-    </div>
+    <form id="demoForm" method="POST">
+        <div class="form-group">
+            <input type="text" class="form-control" name="username" placeholder="Username" />
+        </div>
+
+        <div class="form-group">
+            <input type="password" class="form-control" name="password" placeholder="Password" />
+        </div>
+
+        <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+        <button type="submit" class="btn btn-primary">Sign in</button>
+    </form>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
 
 <!-- Replace with your path -->
-<script src="/vendors/formvalidation/dist/js/FormValidation.js"></script>
-<script src="/vendors/formvalidation/dist/js/plugins/Bootstrap5.js"></script>
+<script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+<script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>
 
 <script>
 document.addEventListener('DOMContentLoaded', function(e) {
@@ -61,14 +63,12 @@ document.addEventListener('DOMContentLoaded', function(e) {
             },
             plugins: {
                 trigger: new FormValidation.plugins.Trigger(),
-                bootstrap: new FormValidation.plugins.Bootstrap5({
-                    rowSelector: '.mb-3',
-                }),
+                bootstrap: new FormValidation.plugins.Bootstrap(),
                 submitButton: new FormValidation.plugins.SubmitButton(),
                 icon: new FormValidation.plugins.Icon({
                     valid: 'fa fa-check',
                     invalid: 'fa fa-times',
-                    validating: 'fa fa-refresh',
+                    validating: 'fa fa-refresh'
                 }),
             },
         }
