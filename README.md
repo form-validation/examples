@@ -129,6 +129,13 @@ Use the [Mini plugin](https://formvalidation.io/guide/plugins/mini) to validate 
 * Mini stacked form: [source](plugin-mini/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/mini)
 * Use multiple fields in the same row: [source](plugin-mini/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/mini)
 
+## Mui plugin
+
+Use the [Mui plugin](https://formvalidation.io/guide/plugins/mui) to validate the [MUI](https://muicss.com) form.
+
+* MUI stacked form: [source](plugin-mui/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/mui)
+* Use multiple fields in the same row: [source](plugin-mui/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/mui)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
