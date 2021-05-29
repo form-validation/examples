@@ -4,26 +4,89 @@ A collection of useful [FormValidation](https://formvalidation.io) examples
 
 ![FormValidation](/assets/screenshot.png)
 
+## Alias plugin
+
+Use the [Alias plugin](https://formvalidation.io/guide/plugins/alias) to use multiple instances of the same validator.
+
+* Basic example: [source](plugin-alias/basic.html), [live demo](https://formvalidation.io/guide/plugins/alias)
+
+## Aria plugin
+
+Use the [Aria plugin](https://formvalidation.io/guide/plugins/aria) to add ARIA attributes based on the field validity.
+
+* Basic example: [source](plugin-aria/basic.html), [live demo](https://formvalidation.io/guide/plugins/aria)
+
+## AutoFocus plugin
+
+Use the [AutoFocus plugin](https://formvalidation.io/guide/plugins/auto-focus) to focus on the first invalid element when submit form.
+
+* Basic example: [source](plugin-auto-focus/basic.html), [live demo](https://formvalidation.io/guide/plugins/auto-focus)
+
 ## Bootstrap plugin
 
 Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap) to validate the [Bootstrap 4](https://getbootstrap.com) form.
 
-* Bootstrap 4 form without labels: [source](plugin-bootstrap/bootstrap-form-without-labels.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
-* Bootstrap 4 horizontal form: [source](plugin-bootstrap/bootstrap-horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
-* Bootstrap 4 inline form: [source](plugin-bootstrap/bootstrap-inline-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
-* Bootstrap 4 stacked form: [source](plugin-bootstrap/bootstrap-stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
-* Use multiple fields in the same row: [source](plugin-bootstrap/bootstrap-multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+* Bootstrap 4 form without labels: [source](plugin-bootstrap/form-without-labels.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+* Bootstrap 4 horizontal form: [source](plugin-bootstrap/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+* Bootstrap 4 inline form: [source](plugin-bootstrap/inline-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+* Bootstrap 4 stacked form: [source](plugin-bootstrap/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+* Use multiple fields in the same row: [source](plugin-bootstrap/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap)
+
+## Bootstrap3 plugin
+
+Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap3) to validate the [Bootstrap 3](https://getbootstrap.com) form.
+
+* Bootstrap 3 form without labels: [source](plugin-bootstrap3/form-without-labels.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
+* Bootstrap 3 horizontal form: [source](plugin-bootstrap3/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
+* Bootstrap 3 inline form: [source](plugin-bootstrap3/inline-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
+* Bootstrap 3 stacked form: [source](plugin-bootstrap3/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
+* Use multiple fields in the same row: [source](plugin-bootstrap3/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap3)
 
 ## Bootstrap5 plugin
 
 Use the [Bootstrap5 plugin](https://formvalidation.io/guide/plugins/bootstrap5) to validate the [Bootstrap 5](https://getbootstrap.com) form.
 
-* Bootstrap 5 form without labels: [source](plugin-bootstrap5/bootstrap5-form-without-labels.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
-* Bootstrap 5 horizontal form: [source](plugin-bootstrap5/bootstrap5-horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
-* Bootstrap 5 inline form: [source](plugin-bootstrap5/bootstrap5-inline-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
-* Bootstrap 5 stacked form: [source](plugin-bootstrap5/bootstrap5-stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
-* Use multiple fields in the same row: [source](plugin-bootstrap5/bootstrap5-multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
-* Use with Bootstrap 5 form icons: [source](plugin-bootstrap5/bootstrap5-icons.html)
+* Bootstrap 5 form without labels: [source](plugin-bootstrap5/form-without-labels.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
+* Bootstrap 5 horizontal form: [source](plugin-bootstrap5/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
+* Bootstrap 5 inline form: [source](plugin-bootstrap5/inline-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
+* Bootstrap 5 stacked form: [source](plugin-bootstrap5/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
+* Use multiple fields in the same row: [source](plugin-bootstrap5/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
+* Use Bootstrap 5 validation icons: [source](plugin-bootstrap5/validation-icons.html)
+
+## Bulma plugin
+
+Use the [Bulma plugin](https://formvalidation.io/guide/plugins/bulma) to validate the [Bulma](https://bulma.io) form.
+
+* Bulma horizontal form: [source](plugin-bulma/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bulma)
+* Bulma stacked form: [source](plugin-bulma/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/bulma)
+* Use multiple fields in the same row: [source](plugin-bulma/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/bulma)
+
+## Declarative plugin
+
+Use the [Declarative plugin](https://formvalidation.io/guide/plugins/declarative) to declare validator options via HTML attributes.
+
+* Basic example: [source](plugin-declarative/basic.html), [live demo](https://formvalidation.io/guide/plugins/declarative)
+
+## DefaultSubmit plugin
+
+Use the [DefaultSubmit plugin](https://formvalidation.io/guide/plugins/default-submit) to submit the form if all fields are valid after clicking the Submit button.
+
+* Basic example: [source](plugin-default-submit/basic.html)
+* Prevent form from submitting when pressing the Enter key: [source](plugin-default-submit/prevent-submit-on-enter.html)
+
+## Excluded plugin
+
+Use the [Excluded plugin](https://formvalidation.io/guide/plugins/excluded) to ignore validations on particular field.
+
+* Basic example: [source](plugin-excluded/basic.html), [live demo](https://formvalidation.io/guide/plugins/excluded)
+
+## Foundation plugin
+
+Use the [Foundation plugin](https://formvalidation.io/guide/plugins/foundation) to validate the [Foundation](https://foundation.zurb.com) form.
+
+* Foundation horizontal form: [source](plugin-foundation/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
+* Foundation stacked form: [source](plugin-foundation/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
+* Use multiple fields in the same row: [source](plugin-foundation/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/foundation)
 
 ## Integrate with JavaScript frameworks
 
