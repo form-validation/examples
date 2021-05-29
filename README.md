@@ -143,6 +143,14 @@ Use the [Pure plugin](https://formvalidation.io/guide/plugins/pure) to validate 
 * Pure horizontal form: [source](plugin-pure/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/pure)
 * Pure stacked form: [source](plugin-pure/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/pure)
 
+## Semantic plugin
+
+Use the [Semantic plugin](https://formvalidation.io/guide/plugins/semantic) to validate the [Semantic UI](https://semantic-ui.com) form.
+
+* Semantic UI horizontal form: [source](plugin-semantic/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
+* Semantic UI stacked form: [source](plugin-semantic/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
+* Use multiple fields in the same row: [source](plugin-semantic/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/semantic)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
