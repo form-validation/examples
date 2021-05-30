@@ -52,6 +52,7 @@ Use the [Bootstrap plugin](https://formvalidation.io/guide/plugins/bootstrap3) t
 
 Use the [Bootstrap5 plugin](https://formvalidation.io/guide/plugins/bootstrap5) to validate the [Bootstrap 5](https://getbootstrap.com) form.
 
+* Bootstrap 5 floating labels: [source](plugin-bootstrap5/floating-labels.html)
 * Bootstrap 5 form without labels: [source](plugin-bootstrap5/form-without-labels.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
 * Bootstrap 5 horizontal form: [source](plugin-bootstrap5/horizontal-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
 * Bootstrap 5 inline form: [source](plugin-bootstrap5/inline-form.html), [live demo](https://formvalidation.io/guide/plugins/bootstrap5)
