@@ -290,6 +290,10 @@ Use the [Wizard plugin](https://formvalidation.io/guide/plugins/wizard) to valid
 
 * Basic example: [source](plugin-wizard/basic.html), [live demo](https://formvalidation.io/guide/plugins/wizard)
 
+## Integrate with JavaScript UI libraries
+
+* Integrate with [tagify](https://github.com/yairEO/tagify): [source](integration-tagify/tagify.html)
+
 ## Integrate with JavaScript frameworks
 
 * Integrate with Mithril: [source](mithril/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-mithril)
