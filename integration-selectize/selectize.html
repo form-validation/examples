@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>FormValidation example - Integrate with selectize</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css">
+    
+    <!-- Replace with your path -->
+	<link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
+</head>
+<body>
+    <div class="container">
+        <form id="demoForm" class="form-horizontal" method="POST">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Choose the colors</label>
+                <div class="col-xs-5 destination-container">
+                    <input type="text" class="form-control" name="colors" id="colors" />
+                </div>
+            </div>
+        
+            <div class="form-group">
+                <div class="col-xs-9 col-xs-offset-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+
+<!-- Replace with your path -->
+<script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+<script src="/vendors/formvalidation/dist/js/plugins/Bootstrap3.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(e) {
+    const demoForm = document.getElementById('demoForm');
+
+    const fv = FormValidation.formValidation(demoForm, {
+        fields: {
+            colors: {
+                validators: {
+                    notEmpty: {
+                        message: 'Please choose at least one color'
+                    }
+                }
+            },
+        },
+        plugins: {
+            trigger: new FormValidation.plugins.Trigger(),
+            bootstrap3: new FormValidation.plugins.Bootstrap3(),
+            submitButton: new FormValidation.plugins.SubmitButton(),
+            icon: new FormValidation.plugins.Icon({
+                valid: 'fa fa-check',
+                invalid: 'fa fa-times',
+                validating: 'fa fa-refresh'
+            }),
+        }
+    });
+
+    $('#colors')
+        .selectize({
+            create: function(input) {
+                return {
+                    value: input,
+                    text: input
+                };
+            },
+        })
+        .on('change', function() {
+            // Revalidate the field
+            fv.revalidateField('colors');
+        });
+});
+</script>
+</body>
+</html>
