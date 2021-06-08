@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>FormValidation example - Integrate with select2</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css">
+
+	<!-- Replace with your path -->
+	<link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
+</head>
+<body>
+    <form id="demoForm" method="POST">
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">Favorite color</label>
+            <div class="col-md-5">
+                <select name="colors" class="form-control" multiple data-placeholder="Choose 2-4 colors">
+                    <option value="black">Black</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="orange">Orange</option>
+                    <option value="red">Red</option>
+                    <option value="yellow">Yellow</option>
+                    <option value="white">White</option>
+                </select>
+            </div>
+        </div>
+    
+        <div class="form-group row">
+            <label class="col-md-3 col-form-label">Favorite color using tags</label>
+            <div class="col-md-5">
+                <select class="form-control" name="colors-tags" multiple data-placeholder="Choose 2-4 colors"></select>
+            </div>
+        </div>
+    
+        <div class="form-group row">
+            <div class="col-md-9 offset-md-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+
+<!-- Replace with your path -->
+<script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+<script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function(e) {
+    const demoForm = document.getElementById('demoForm');
+
+    const $colorField = $(demoForm.querySelector('[name="colors"]'));
+    const $colorTagField = $(demoForm.querySelector('[name="colors-tags"]'));
+
+    const fv = FormValidation.formValidation(demoForm, {
+        fields: {
+            colors: {
+                validators: {
+                    callback: {
+                        message: 'Please choose 2-4 color you like most',
+                        callback: function(input) {
+                            // Get the selected options
+                            const options = $colorField.select2('data');
+                            return (options != null && options.length >= 2 && options.length <= 4);
+                        }
+                    }
+                }
+            },
+            'colors-tags': {
+                validators: {
+                    callback: {
+                        message: 'Please choose 2-4 color you like most',
+                        callback: function(input) {
+                            // Get the selected options
+                            const options = $colorTagField.select2('data');
+                            return (options !== null && options.length >= 2 && options.length <= 4);
+                        }
+                    }
+                }
+            }
+        },
+        plugins: {
+            trigger: new FormValidation.plugins.Trigger(),
+            submitButton: new FormValidation.plugins.SubmitButton(),
+            bootstrap: new FormValidation.plugins.Bootstrap(),
+            icon: new FormValidation.plugins.Icon({
+                valid: 'fa fa-check',
+                invalid: 'fa fa-times',
+                validating: 'fa fa-refresh'
+            }),
+        }
+    });
+
+    $colorField
+        .select2()
+        .on('change.select2', function() {
+            // Revalidate the `color` field when an option is chosen
+            fv.revalidateField('colors');
+        });
+
+    $colorTagField
+        .select2({
+            tags: ['Black', 'Blue', 'Green', 'Orange', 'Red', 'Yellow', 'White']
+        })
+        .on('change.select2', function() {
+            // Revalidate the `color-tags` field when a tag is selected
+            fv.revalidateField('colors-tags');
+        });
+});
+</script>
+</body>
+</html>
