@@ -292,6 +292,7 @@ Use the [Wizard plugin](https://formvalidation.io/guide/plugins/wizard) to valid
 
 ## Integrate with JavaScript UI libraries
 
+* Integrate with [Magicsuggest](https://github.com/Magicsuggest/magicsuggest): [source](integration-magic-suggest/magic-suggest.html)
 * Integrate with [selectize](https://selectize.dev): [source](integration-selectize/selectize.html)
 * Integrate with [Select2](https://select2.org): [source](integration-select2/select2.html)
 * Integrate with [tagify](https://github.com/yairEO/tagify): [source](integration-tagify/tagify.html)
