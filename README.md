@@ -8,6 +8,11 @@ A collection of useful [FormValidation](https://formvalidation.io) examples
 
 * Clearing field when clicking the icon: [source](clearing-field-when-clicking-the-icon/example.html), [live demo](https://formvalidation.io/guide/examples/clearing-field-when-clicking-the-icon)
 
+## Native forms
+
+* Use events to add custom CSS class to the element: [source](native-form/use-element-event.html)
+* Validate a native form without using any CSS framework: [source](native-form/use-framework-plugin.html)
+
 ## Plugin examples
 
 ### Alias plugin
