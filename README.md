@@ -292,6 +292,7 @@ Use the [Wizard plugin](https://formvalidation.io/guide/plugins/wizard) to valid
 
 ## Integrate with JavaScript UI libraries
 
+* Integrate with [Bootstrap Select](https://github.com/snapappointments/bootstrap-select): [source](integration-bootstrap-select/bootstrap-select.html)
 * Integrate with [Magicsuggest](https://github.com/Magicsuggest/magicsuggest): [source](integration-magic-suggest/magic-suggest.html)
 * Integrate with [selectize](https://selectize.dev): [source](integration-selectize/selectize.html)
 * Integrate with [Select2](https://select2.org): [source](integration-select2/select2.html)
