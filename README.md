@@ -146,6 +146,12 @@ Use the [Materialize plugin](https://formvalidation.io/guide/plugins/materialize
 * Materialize stacked form: [source](plugin-materialize/stacked-form.html), [live demo](https://formvalidation.io/guide/plugins/materialize)
 * Use multiple fields in the same row: [source](plugin-materialize/multiple-fields-same-row.html), [live demo](https://formvalidation.io/guide/plugins/materialize)
 
+### Message plugin
+
+Use the [Message plugin](https://formvalidation.io/guide/plugins/message) to display the error messages.
+
+* Customize the error message placement: [source](plugin-message/customize-placement.html)
+
 ### Milligram plugin
 
 Use the [Milligram plugin](https://formvalidation.io/guide/plugins/milligram) to validate the [Milligram](https://milligram.io) form.
