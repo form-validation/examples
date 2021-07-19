@@ -7,6 +7,9 @@ A collection of useful [FormValidation](https://formvalidation.io) examples
 ## APIs examples
 
 * Clearing field when clicking the icon: [source](clearing-field-when-clicking-the-icon/example.html), [live demo](https://formvalidation.io/guide/examples/clearing-field-when-clicking-the-icon)
+* Send the form data to the back-end via an Ajax request:
+    - Use the [axios](https://axios-http.com) library: [source](ajax-submit/ajax-submit-axios.html)
+    - Use the [jQuery.ajax](https://api.jquery.com/jquery.ajax) method: [source](ajax-submit/ajax-submit-jquery.html)
 
 ## Native forms
 
