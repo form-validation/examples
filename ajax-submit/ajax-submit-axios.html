@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>FormValidation example - Send the form data to the back-end</title>
+    <meta charset="utf-8">
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!-- Replace with your path -->
+    <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
+</head>
+<body>
+    <form id="demoForm" class="form-horizontal" method="POST">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Full name</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" name="firstName" placeholder="First name" />
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" name="lastName" placeholder="Last name" />
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Username</label>
+            <div class="col-xs-5">
+                <input type="text" class="form-control" name="username" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Avatar</label>
+            <div class="col-xs-5">
+                <input type="file" class="form-control" name="avatar" />
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Email address</label>
+            <div class="col-xs-5">
+                <input type="text" class="form-control" name="email" />
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <div class="col-xs-9 col-xs-offset-3">
+                <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
+            </div>
+        </div>
+    </form>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
+<!-- Replace with your path -->
+<script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+<script src="/vendors/formvalidation/dist/js/plugins/Bootstrap3.min.js"></script>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const demoForm = document.getElementById('demoForm');
+    const fv = FormValidation.formValidation(demoForm, {
+        fields: {
+            firstName: {
+                validators: {
+                    notEmpty: {
+                        message: 'The first name is required'
+                    }
+                }
+            },
+            lastName: {
+                validators: {
+                    notEmpty: {
+                        message: 'The last name is required'
+                    }
+                }
+            },
+            username: {
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    },
+                    stringLength: {
+                        min: 6,
+                        max: 30,
+                        message: 'The username must be more than 6 and less than 30 characters long'
+                    },
+                    regexp: {
+                        regexp: /^[a-zA-Z0-9_]+$/,
+                        message: 'The username can only consist of alphabetical, number and underscore'
+                    }
+                }
+            },
+            avatar: {
+                validators: {
+                    file: {
+                        extension: 'jpeg,jpg,png',
+                        type: 'image/jpeg,image/png',
+                        message: 'The selected file is not valid'
+                    }
+                }
+            },
+            email: {
+                validators: {
+                    notEmpty: {
+                        message: 'The email address is required'
+                    },
+                    emailAddress: {
+                        message: 'The input is not a valid email address'
+                    }
+                }
+            }
+        },
+        plugins: {
+            trigger: new FormValidation.plugins.Trigger(),
+            bootstrap3: new FormValidation.plugins.Bootstrap3(),
+            submitButton: new FormValidation.plugins.SubmitButton(),
+            icon: new FormValidation.plugins.Icon({
+                valid: 'fa fa-check',
+                invalid: 'fa fa-times',
+                validating: 'fa fa-refresh',
+            }),
+        }
+    }).on('core.form.valid', function() {
+        var formData = new FormData();
+
+        formData.append('firstName', demoForm.querySelector('[name="firstName"]').value);
+        formData.append('lastName', demoForm.querySelector('[name="lastName"]').value);
+        formData.append('username', demoForm.querySelector('[name="username"]').value);
+        formData.append('email', demoForm.querySelector('[name="email"]').value);
+
+        var avatarFiles = demoForm.querySelector('[name="avatar"]').files;
+        if (avatarFiles.length > 0) {
+            formData.append('avatar', avatarFiles[0]);
+        }
+
+        // You can replace axios with whatever ajax library
+        axios.post('/ajax-submit.php', formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        }).then(function(response) {
+            console.log(response.data);
+        });
+    });
+});
+</script>
+</body>
+</html>
