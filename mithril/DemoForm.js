@@ -2,57 +2,62 @@ var DemoForm = {
     state: {
         username: '',
         password: '',
-    },    
-    view: function() {
+    },
+    view: function () {
         return m(
             'form',
             { id: 'loginForm', method: 'POST' },
             m(
-                'div', { class: 'form-group row'},
+                'div',
+                { class: 'form-group row' },
                 m('label', { class: 'col-sm-3 col-form-label' }, 'Username'),
                 m(
                     'div',
-                    { class: 'col-sm-4' }, 
-                    m(
-                        'input',
-                        { class: 'form-control', type: 'text', name: 'username', oninput: (e) => this.state.username = e.target.value, value: this.state.username }
-                    )
+                    { class: 'col-sm-4' },
+                    m('input', {
+                        class: 'form-control',
+                        type: 'text',
+                        name: 'username',
+                        oninput: (e) => (this.state.username = e.target.value),
+                        value: this.state.username,
+                    })
                 )
             ),
             m(
-                'div', { class: 'form-group row'},
+                'div',
+                { class: 'form-group row' },
                 m('label', { class: 'col-sm-3 col-form-label' }, 'Password'),
                 m(
                     'div',
-                    { class: 'col-sm-4' }, 
-                    m(
-                        'input',
-                        { class: 'form-control', type: 'password', name: 'password', oninput: (e) => this.state.password = e.target.value, value: this.state.password }
-                    )
+                    { class: 'col-sm-4' },
+                    m('input', {
+                        class: 'form-control',
+                        type: 'password',
+                        name: 'password',
+                        oninput: (e) => (this.state.password = e.target.value),
+                        value: this.state.password,
+                    })
                 )
             ),
             m(
-                'div', { class: 'form-group row'},
+                'div',
+                { class: 'form-group row' },
                 m(
                     'div',
                     { class: 'col-sm-9 offset-sm-3' },
-                    m(
-                        'button',
-                        { class: 'btn btn-primary', type: 'submit' },
-                        'Login'
-                    )
+                    m('button', { class: 'btn btn-primary', type: 'submit' }, 'Login')
                 )
             )
-        ); 
+        );
     },
-    
-    oncreate: function(vnode) {
+
+    oncreate: function (vnode) {
         this.fv = FormValidation.formValidation(document.getElementById('loginForm'), {
             fields: {
                 username: {
                     validators: {
                         notEmpty: {
-                            message: 'The username is required'
+                            message: 'The username is required',
                         },
                         stringLength: {
                             min: 6,
@@ -63,18 +68,18 @@ var DemoForm = {
                             regexp: /^[a-zA-Z0-9_]+$/,
                             message: 'The username can only consist of alphabetical, number and underscore',
                         },
-                    }
+                    },
                 },
                 password: {
                     validators: {
                         notEmpty: {
-                            message: 'The password is required'
+                            message: 'The password is required',
                         },
                         stringLength: {
                             min: 8,
                             message: 'The password must have at least 8 characters',
                         },
-                    }
+                    },
                 },
             },
             plugins: {
@@ -84,7 +89,7 @@ var DemoForm = {
                 icon: new FormValidation.plugins.Icon({
                     valid: 'fa fa-check',
                     invalid: 'fa fa-times',
-                    validating: 'fa fa-refresh'
+                    validating: 'fa fa-refresh',
                 }),
             },
         }).on('core.form.valid', () => {
@@ -92,7 +97,7 @@ var DemoForm = {
         });
     },
 
-    onbeforeremove: function(vnode) {
+    onbeforeremove: function (vnode) {
         if (this.fv) {
             this.fv.destroy();
         }

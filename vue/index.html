@@ -1,107 +1,113 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8" />
-    <title>FormValidation example - Integrate with Vue</title>
+    <head>
+        <meta charset="UTF-8" />
+        <title>FormValidation example - Integrate with Vue</title>
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-    
-    <!-- Replace with your path -->
-    <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+        />
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+        <!-- Replace with your path -->
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
 
-    <!-- Replace with your path -->
-    <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-    <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
 
-    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-</head>
-<body>
-    <div class="container">
-        <div id="root">
-            <form id="loginForm" method="POST">
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Username</label>
-                    <div class="col-sm-4">
-                        <input type="text" class="form-control" name="username" v-model="username" />
+        <!-- Replace with your path -->
+        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>
+
+        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    </head>
+    <body>
+        <div class="container">
+            <div id="root">
+                <form id="loginForm" method="POST">
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Username</label>
+                        <div class="col-sm-4">
+                            <input type="text" class="form-control" name="username" v-model="username" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <label class="col-sm-3 col-form-label">Password</label>
-                    <div class="col-sm-4">
-                        <input type="password" class="form-control" name="password" v-model="password" />
+                    <div class="form-group row">
+                        <label class="col-sm-3 col-form-label">Password</label>
+                        <div class="col-sm-4">
+                            <input type="password" class="form-control" name="password" v-model="password" />
+                        </div>
                     </div>
-                </div>
 
-                <div class="form-group row">
-                    <div class="col-sm-9 offset-sm-3">
-                        <button type="submit" class="btn btn-primary">Login</button>
+                    <div class="form-group row">
+                        <div class="col-sm-9 offset-sm-3">
+                            <button type="submit" class="btn btn-primary">Login</button>
+                        </div>
                     </div>
-                </div>
-            </form>
+                </form>
+            </div>
         </div>
-    </div>
-<script>
-new Vue({
-    el: '#root',
-    data: {
-        username: '',
-        password: '',
-    },
-    mounted: function() {
-        this.fv = FormValidation.formValidation(document.getElementById('loginForm'), {
-            fields: {
-                username: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The username is required'
+        <script>
+            new Vue({
+                el: '#root',
+                data: {
+                    username: '',
+                    password: '',
+                },
+                mounted: function () {
+                    this.fv = FormValidation.formValidation(document.getElementById('loginForm'), {
+                        fields: {
+                            username: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The username is required',
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 30,
+                                        message: 'The username must be more than 6 and less than 30 characters long',
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-Z0-9_]+$/,
+                                        message: 'The username can only consist of alphabetical, number and underscore',
+                                    },
+                                },
+                            },
+                            password: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The password is required',
+                                    },
+                                    stringLength: {
+                                        min: 8,
+                                        message: 'The password must have at least 8 characters',
+                                    },
+                                },
+                            },
                         },
-                        stringLength: {
-                            min: 6,
-                            max: 30,
-                            message: 'The username must be more than 6 and less than 30 characters long',
+                        plugins: {
+                            trigger: new FormValidation.plugins.Trigger(),
+                            submitButton: new FormValidation.plugins.SubmitButton(),
+                            bootstrap: new FormValidation.plugins.Bootstrap(),
+                            icon: new FormValidation.plugins.Icon({
+                                valid: 'fa fa-check',
+                                invalid: 'fa fa-times',
+                                validating: 'fa fa-refresh',
+                            }),
                         },
-                        regexp: {
-                            regexp: /^[a-zA-Z0-9_]+$/,
-                            message: 'The username can only consist of alphabetical, number and underscore',
-                        },
+                    }).on('core.form.valid', () => {
+                        console.log(this.username, this.password);
+                    });
+                },
+                beforeDestroy() {
+                    if (this.fv) {
+                        this.fv.destroy();
                     }
                 },
-                password: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The password is required'
-                        },
-                        stringLength: {
-                            min: 8,
-                            message: 'The password must have at least 8 characters',
-                        },
-                    }
-                },
-            },
-            plugins: {
-                trigger: new FormValidation.plugins.Trigger(),
-                submitButton: new FormValidation.plugins.SubmitButton(),
-                bootstrap: new FormValidation.plugins.Bootstrap(),
-                icon: new FormValidation.plugins.Icon({
-                    valid: 'fa fa-check',
-                    invalid: 'fa fa-times',
-                    validating: 'fa fa-refresh'
-                }),
-            },
-        }).on('core.form.valid', () => {
-            console.log(this.username, this.password);
-        });
-    },
-    beforeDestroy() {
-        if (this.fv) {
-            this.fv.destroy();
-        }
-    },
-});
-</script>
-</body>
+            });
+        </script>
+    </body>
 </html>

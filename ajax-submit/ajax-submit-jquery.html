@@ -1,201 +1,206 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>FormValidation example - Send the form data to the back-end</title>
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <head>
+        <title>FormValidation example - Send the form data to the back-end</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+        />
 
-    <!-- Replace with your path -->
-    <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
-</head>
-<body>
-    <form id="demoForm" method="POST" action="/ajax-submit.php">
-        <div class="form-group row">
-            <label class="col-md-3 col-form-label">Full name</label>
-            <div class="col-md-4">
-                <input type="text" class="form-control" name="firstName" placeholder="First name" />
-            </div>
-            <div class="col-md-4">
-                <input type="text" class="form-control" name="lastName" placeholder="Last name" />
-            </div>
-        </div>
-    
-        <div class="form-group row">
-            <label class="col-md-3 col-form-label">Username</label>
-            <div class="col-md-5">
-                <input type="text" class="form-control" name="username" />
-            </div>
-        </div>
-    
-        <div class="form-group row">
-            <label class="col-md-3 col-form-label">Email address</label>
-            <div class="col-md-5">
-                <input type="text" class="form-control" name="email" />
-            </div>
-        </div>
-    
-        <div class="form-group row">
-            <label class="col-md-3 col-form-label">Password</label>
-            <div class="col-md-5">
-                <input type="password" class="form-control" name="password" />
-            </div>
-        </div>
-    
-        <div class="form-group row">
-            <label class="col-md-3 col-form-label">Gender</label>
-            <div class="col-md-6">
-                <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" name="gender" value="male" />
-                    <label class="form-check-label">Male</label>
+        <!-- Replace with your path -->
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+    </head>
+    <body>
+        <form id="demoForm" method="POST" action="/ajax-submit.php">
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Full name</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="firstName" placeholder="First name" />
                 </div>
-                <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" name="gender" value="female" />
-                    <label class="form-check-label">Female</label>
-                </div>
-                <div class="form-check form-check-inline">
-                    <input type="radio" class="form-check-input" name="gender" value="other" />
-                    <label class="form-check-label">Other</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="lastName" placeholder="Last name" />
                 </div>
             </div>
-        </div>
-    
-        <div class="form-group row">
-            <div class="col-md-6 offset-md-3">
-                <div class="form-check">
-                    <input type="checkbox" class="form-check-input" name="agree" value="agree" />
-                    <label class="form-check-label">Agree with the terms and conditions</label>
+
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Username</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="username" />
                 </div>
             </div>
-        </div>
-    
-        <div class="form-group row">
-            <div class="col-md-9 offset-md-3">
-                <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
-                <button type="button" class="btn btn-default" id="resetButton">Reset</button>
+
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Email address</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="email" />
+                </div>
             </div>
-        </div>
-    </form>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Password</label>
+                <div class="col-md-5">
+                    <input type="password" class="form-control" name="password" />
+                </div>
+            </div>
 
-<!-- Replace with your path -->
-<script src="/vendors/formvalidation/dist/js/FormValidation.js"></script>
-<script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.js"></script>
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Gender</label>
+                <div class="col-md-6">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" value="male" />
+                        <label class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" value="female" />
+                        <label class="form-check-label">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" value="other" />
+                        <label class="form-check-label">Other</label>
+                    </div>
+                </div>
+            </div>
 
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    const demoForm = document.getElementById('demoForm');
-    const fv = FormValidation.formValidation(demoForm, {
-        fields: {
-            firstName: {
-                validators: {
-                    notEmpty: {
-                        message: 'The first name is required'
-                    }
-                }
-            },
-            lastName: {
-                validators: {
-                    notEmpty: {
-                        message: 'The last name is required'
-                    }
-                }
-            },
-            username: {
-                validators: {
-                    notEmpty: {
-                        message: 'The username is required'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'The username must be more than 6 and less than 30 characters long'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9_]+$/,
-                        message: 'The username can only consist of alphabetical, number and underscore'
-                    }
-                }
-            },
-            email: {
-                validators: {
-                    notEmpty: {
-                        message: 'The email address is required'
-                    },
-                    emailAddress: {
-                        message: 'The input is not a valid email address'
-                    }
-                }
-            },
-            password: {
-                validators: {
-                    notEmpty: {
-                        message: 'The password is required'
-                    },
-                    stringLength: {
-                        min: 8,
-                        message: 'The password must have at least 8 characters'
-                    },
-                    different: {
-                        message: 'The password cannot be the same as username',
-                        compare: function() {
-                            return form.querySelector('[name="username"]').value;
-                        }
-                    }
-                }
-            },
-            gender: {
-                validators: {
-                    notEmpty: {
-                        message: 'The gender is required'
-                    }
-                }
-            },
-            agree: {
-                validators: {
-                    notEmpty: {
-                        message: 'You must agree with the terms and conditions'
-                    }
-                }
-            }
-        },
-        plugins: {
-            trigger: new FormValidation.plugins.Trigger(),
-            submitButton: new FormValidation.plugins.SubmitButton(),
-            bootstrap: new FormValidation.plugins.Bootstrap({
-                rowSelector: function(field, ele) {
-                    switch (field) {
-                        case 'firstName': 
-                        case 'lastName':
-                            return '.col-md-4';
-                        default:
-                            return '.form-group';
-                    }
-                }
-            }),
-            icon: new FormValidation.plugins.Icon({
-                valid: 'fa fa-check',
-                invalid: 'fa fa-times',
-                validating: 'fa fa-refresh'
-            }),
-        }
-    })
-    .on('core.form.valid', function() {
-        const $form = $(demoForm);
+            <div class="form-group row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="agree" value="agree" />
+                        <label class="form-check-label">Agree with the terms and conditions</label>
+                    </div>
+                </div>
+            </div>
 
-        $.ajax({
-            type : 'POST',
-            url: $form.attr('action'),
-            data: $form.serialize(),
-        }).then(function(response) {
-            console.log(response);
-        });
-    });
-});
-</script>
-</body>
+            <div class="form-group row">
+                <div class="col-md-9 offset-md-3">
+                    <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
+                    <button type="button" class="btn btn-default" id="resetButton">Reset</button>
+                </div>
+            </div>
+        </form>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+        <!-- Replace with your path -->
+        <script src="/vendors/formvalidation/dist/js/FormValidation.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function () {
+                const demoForm = document.getElementById('demoForm');
+                const fv = FormValidation.formValidation(demoForm, {
+                    fields: {
+                        firstName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The first name is required',
+                                },
+                            },
+                        },
+                        lastName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The last name is required',
+                                },
+                            },
+                        },
+                        username: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The username is required',
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                    message: 'The username must be more than 6 and less than 30 characters long',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_]+$/,
+                                    message: 'The username can only consist of alphabetical, number and underscore',
+                                },
+                            },
+                        },
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The email address is required',
+                                },
+                                emailAddress: {
+                                    message: 'The input is not a valid email address',
+                                },
+                            },
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The password is required',
+                                },
+                                stringLength: {
+                                    min: 8,
+                                    message: 'The password must have at least 8 characters',
+                                },
+                                different: {
+                                    message: 'The password cannot be the same as username',
+                                    compare: function () {
+                                        return form.querySelector('[name="username"]').value;
+                                    },
+                                },
+                            },
+                        },
+                        gender: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The gender is required',
+                                },
+                            },
+                        },
+                        agree: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'You must agree with the terms and conditions',
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        bootstrap: new FormValidation.plugins.Bootstrap({
+                            rowSelector: function (field, ele) {
+                                switch (field) {
+                                    case 'firstName':
+                                    case 'lastName':
+                                        return '.col-md-4';
+                                    default:
+                                        return '.form-group';
+                                }
+                            },
+                        }),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                    },
+                }).on('core.form.valid', function () {
+                    const $form = $(demoForm);
+
+                    $.ajax({
+                        type: 'POST',
+                        url: $form.attr('action'),
+                        data: $form.serialize(),
+                    }).then(function (response) {
+                        console.log(response);
+                    });
+                });
+            });
+        </script>
+    </body>
 </html>

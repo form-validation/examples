@@ -1,151 +1,148 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>FormValidation example - Validate a Spectre stacked form</title>
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <head>
+        <title>FormValidation example - Validate a Spectre stacked form</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre.min.css">
-    
-    <!-- To use with the Icon plugin -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre-icons.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre.min.css" />
 
-    <!-- Replace with your path -->
-    <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
-</head>
-<body>
-    <form id="demoForm" method="POST">
-        <div class="form-group">
-            <label class="form-label">Product name</label>
-            <div class="has-icon-right">
-                <input type="text" class="form-input" name="name" />
+        <!-- To use with the Icon plugin -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/spectre.css/0.5.8/spectre-icons.min.css" />
+
+        <!-- Replace with your path -->
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+    </head>
+    <body>
+        <form id="demoForm" method="POST">
+            <div class="form-group">
+                <label class="form-label">Product name</label>
+                <div class="has-icon-right">
+                    <input type="text" class="form-input" name="name" />
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label class="form-label">Price</label>
-            <div class="input-group has-icon-right">
-                <span class="input-group-addon">$</span>
-                <input type="text" class="form-input" name="price" />
+            <div class="form-group">
+                <label class="form-label">Price</label>
+                <div class="input-group has-icon-right">
+                    <span class="input-group-addon">$</span>
+                    <input type="text" class="form-input" name="price" />
+                </div>
             </div>
-        </div>
 
-        <div class="form-group">
-            <label class="form-label">Size</label>
-            <div>
-                <label class="form-checkbox">
-                    <input type="checkbox" name="size[]" value="s" />
-                    <i class="form-icon"></i> S
-                </label>
+            <div class="form-group">
+                <label class="form-label">Size</label>
+                <div>
+                    <label class="form-checkbox">
+                        <input type="checkbox" name="size[]" value="s" />
+                        <i class="form-icon"></i> S
+                    </label>
+                </div>
+                <div>
+                    <label class="form-checkbox">
+                        <input type="checkbox" name="size[]" value="m" />
+                        <i class="form-icon"></i> M
+                    </label>
+                </div>
+                <div>
+                    <label class="form-checkbox">
+                        <input type="checkbox" name="size[]" value="l" />
+                        <i class="form-icon"></i> L
+                    </label>
+                </div>
+                <div>
+                    <label class="form-checkbox">
+                        <input type="checkbox" name="size[]" value="xl" />
+                        <i class="form-icon"></i> XL
+                    </label>
+                </div>
             </div>
-            <div>
-                <label class="form-checkbox">
-                    <input type="checkbox" name="size[]" value="m" />
-                    <i class="form-icon"></i> M
-                </label>
-            </div>
-            <div>
-                <label class="form-checkbox">
-                    <input type="checkbox" name="size[]" value="l" />
-                    <i class="form-icon"></i> L
-                </label>
-            </div>
-            <div>
-                <label class="form-checkbox">
-                    <input type="checkbox" name="size[]" value="xl" />
-                    <i class="form-icon"></i> XL
-                </label>
-            </div>
-        </div>
 
-        <div class="form-group">
-            <label class="form-label">Available in store</label>
-            <div>
-                <label class="form-radio">
-                    <input type="radio" name="availability" value="yes" />
-                    <i class="form-icon"></i> Yes
-                </label>
+            <div class="form-group">
+                <label class="form-label">Available in store</label>
+                <div>
+                    <label class="form-radio">
+                        <input type="radio" name="availability" value="yes" />
+                        <i class="form-icon"></i> Yes
+                    </label>
+                </div>
+                <div>
+                    <label class="form-radio">
+                        <input type="radio" name="availability" value="no" />
+                        <i class="form-icon"></i> No
+                    </label>
+                </div>
             </div>
-            <div>
-                <label class="form-radio">
-                    <input type="radio" name="availability" value="no" />
-                    <i class="form-icon"></i> No
-                </label>
+
+            <div class="form-group">
+                <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+                <button type="submit" class="btn btn-primary">Submit</button>
             </div>
-        </div>
+        </form>
 
-        <div class="form-group">
-            <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
-    </form>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+        <!-- Replace with your path -->
+        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Spectre.min.js"></script>
 
-<!-- Replace with your path -->
-<script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-<script src="/vendors/formvalidation/dist/js/plugins/Spectre.min.js"></script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function(e) {
-    FormValidation.formValidation(
-        document.getElementById('demoForm'),
-        {
-            fields: {
-                name: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The name is required'
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                FormValidation.formValidation(document.getElementById('demoForm'), {
+                    fields: {
+                        name: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The name is required',
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                    message: 'The name must be more than 6 and less than 30 characters long',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_]+$/,
+                                    message: 'The name can only consist of alphabetical, number and underscore',
+                                },
+                            },
                         },
-                        stringLength: {
-                            min: 6,
-                            max: 30,
-                            message: 'The name must be more than 6 and less than 30 characters long'
+                        price: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The price is required',
+                                },
+                                numeric: {
+                                    message: 'The price must be a number',
+                                },
+                            },
                         },
-                        regexp: {
-                            regexp: /^[a-zA-Z0-9_]+$/,
-                            message: 'The name can only consist of alphabetical, number and underscore'
-                        }
-                    }
-                },
-                price: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The price is required'
+                        'size[]': {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The size is required',
+                                },
+                            },
                         },
-                        numeric: {
-                            message: 'The price must be a number'
-                        }
-                    }
-                },
-                'size[]': {
-                    validators: {
-                        notEmpty: {
-                            message: 'The size is required'
-                        }
-                    }
-                },
-                availability: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The availability option is required'
-                        }
-                    }
-                },
-            },
-            plugins: {
-                trigger: new FormValidation.plugins.Trigger(),
-                spectre: new FormValidation.plugins.Spectre(),
-                submitButton: new FormValidation.plugins.SubmitButton(),
-                icon: new FormValidation.plugins.Icon({
-                    valid: 'form-icon icon icon-check',
-                    invalid: 'form-icon icon icon-cross',
-                    validating: 'form-icon loading',
-                }),
-            },
-        }
-    );
-});
-</script>
-</body>
+                        availability: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The availability option is required',
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        spectre: new FormValidation.plugins.Spectre(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'form-icon icon icon-check',
+                            invalid: 'form-icon icon icon-cross',
+                            validating: 'form-icon loading',
+                        }),
+                    },
+                });
+            });
+        </script>
+    </body>
 </html>

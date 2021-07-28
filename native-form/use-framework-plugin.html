@@ -1,195 +1,209 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>FormValidation example - Validate a native form without using any CSS framework</title>
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <head>
+        <title>FormValidation example - Validate a native form without using any CSS framework</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-    <!-- Replace with your path -->
-    <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
+        <!-- Replace with your path -->
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
 
-    <style>
-    /* It's up to you to add custom styles to match with the design */
-    .field-group { margin-bottom: 1em; }
-    .err { color: red; }
-    .is-invalid { border: 1px solid red; }
-    .is-valid { border: 1px solid green; }
-    </style>
-</head>
-<body>
-    <form id="demoForm" method="post">
-        <div class="field-group">
-            <label>First name</label>
-            <div>
-                <input type="text" name="firstName" />
-            </div>
-        </div>
-
-        <div class="field-group">
-            <label>Last name</label>
-            <div>
-                <input type="text" name="lastName" />
-            </div>
-        </div>
-
-        <div class="field-group">
-            <label>Username</label>
-            <input type="text" name="username" />
-        </div>
-
-        <div class="field-group">
-            <label>Email</label>
-            <input type="text" name="email" />
-        </div>
-
-        <div class="field-group">
-            <label>Password</label>
-            <input type="password" name="password" />
-        </div>
-
-        <div class="field-group">
-            <label>Gender</label>
-            <div>
-                <label for="genderMale"><input type="radio" name="gender" id="genderMale" value="male" /> Male</label>
-            </div>
-            <div>
-                <label for="genderFemale"><input type="radio" name="gender" id="genderFemale" value="female" /> Female</label>
-            </div>
-            <div>
-                <label for="genderOther"><input type="radio" name="gender" id="genderOther" value="other" /> Other</label>
-            </div>
-        </div>
-
-        <div class="field-group">
-            <label id="captchaOperation"></label>
-            <input type="text" name="captcha" />
-        </div>
-
-        <div class="field-group">
-            <label><input type="checkbox" name="agree" value="agree" /> Agree with the terms and conditions</label>
-        </div>
-
-        <button type="submit">Submit</button>
-    </form>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>    
-
-<!-- Replace with your path -->
-<script src="/vendors/formvalidation/dist/js/FormValidation.js"></script>
-
-<script>
-document.addEventListener('DOMContentLoaded', function(e) {
-    // Generate a simple captcha
-    const randomNumber = function(min, max) {
-        return Math.floor(Math.random() * (max - min + 1) + min);
-    };
-    const random = [randomNumber(1, 100), randomNumber(1, 200)];
-    document.getElementById('captchaOperation').innerHTML = [random[0], '+', random[1], '='].join(' ');
-
-    const form = document.getElementById('demoForm');
-    FormValidation.formValidation(form, {
-        fields: {
-            firstName: {
-                validators: {
-                    notEmpty: {
-                        message: 'The first name is required'
-                    }
-                }
-            },
-            lastName: {
-                validators: {
-                    notEmpty: {
-                        message: 'The last name is required'
-                    }
-                }
-            },
-            username: {
-                validators: {
-                    notEmpty: {
-                        message: 'The username is required'
-                    },
-                    stringLength: {
-                        min: 6,
-                        max: 30,
-                        message: 'The username must be more than 6 and less than 30 characters long'
-                    },
-                    regexp: {
-                        regexp: /^[a-zA-Z0-9_]+$/,
-                        message: 'The username can only consist of alphabetical, number and underscore'
-                    }
-                }
-            },
-            email: {
-                validators: {
-                    notEmpty: {
-                        message: 'The email address is required'
-                    },
-                    emailAddress: {
-                        message: 'The input is not a valid email address'
-                    }
-                }
-            },
-            password: {
-                validators: {
-                    notEmpty: {
-                        message: 'The password is required'
-                    },
-                    stringLength: {
-                        min: 8,
-                        message: 'The password must have at least 8 characters'
-                    },
-                    different: {
-                        message: 'The password cannot be the same as username',
-                        compare: function() {
-                            return form.querySelector('[name="username"]').value;
-                        }
-                    }
-                }
-            },
-            gender: {
-                validators: {
-                    notEmpty: {
-                        message: 'The gender is required'
-                    }
-                }
-            },
-            captcha: {
-                validators: {
-                    callback: {
-                        message: 'Wrong answer',
-                        callback: function(input) {
-                            const items = document.getElementById('captchaOperation').innerHTML.split(' ');
-                            const sum = parseInt(items[0]) + parseInt(items[2]);
-                            return input.value == sum;
-                        }
-                    }
-                }
-            },
-            agree: {
-                validators: {
-                    notEmpty: {
-                        message: 'You must agree with the terms and conditions'
-                    }
-                }
+        <style>
+            /* It's up to you to add custom styles to match with the design */
+            .field-group {
+                margin-bottom: 1em;
             }
-        },
-        plugins: {
-            trigger: new FormValidation.plugins.Trigger(),
-            submitButton: new FormValidation.plugins.SubmitButton(),
-            framework: new FormValidation.plugins.Framework({
-                formClass: '',
-                messageClass: 'err',
-                rowPattern: /^(.*)field-group(.*)$/,
-                rowSelector: '.field-group',
-                eleValidClass: 'is-valid',
-                eleInvalidClass: 'is-invalid',
-                // More options
-                // rowValidClass: 'field-group-valid',
-                // rowInvalidClass: 'field-group-invalid',
-            }),
-        }
-    });
-});
-</script>
-</body>
+            .err {
+                color: red;
+            }
+            .is-invalid {
+                border: 1px solid red;
+            }
+            .is-valid {
+                border: 1px solid green;
+            }
+        </style>
+    </head>
+    <body>
+        <form id="demoForm" method="post">
+            <div class="field-group">
+                <label>First name</label>
+                <div>
+                    <input type="text" name="firstName" />
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label>Last name</label>
+                <div>
+                    <input type="text" name="lastName" />
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label>Username</label>
+                <input type="text" name="username" />
+            </div>
+
+            <div class="field-group">
+                <label>Email</label>
+                <input type="text" name="email" />
+            </div>
+
+            <div class="field-group">
+                <label>Password</label>
+                <input type="password" name="password" />
+            </div>
+
+            <div class="field-group">
+                <label>Gender</label>
+                <div>
+                    <label for="genderMale"
+                        ><input type="radio" name="gender" id="genderMale" value="male" /> Male</label
+                    >
+                </div>
+                <div>
+                    <label for="genderFemale"
+                        ><input type="radio" name="gender" id="genderFemale" value="female" /> Female</label
+                    >
+                </div>
+                <div>
+                    <label for="genderOther"
+                        ><input type="radio" name="gender" id="genderOther" value="other" /> Other</label
+                    >
+                </div>
+            </div>
+
+            <div class="field-group">
+                <label id="captchaOperation"></label>
+                <input type="text" name="captcha" />
+            </div>
+
+            <div class="field-group">
+                <label><input type="checkbox" name="agree" value="agree" /> Agree with the terms and conditions</label>
+            </div>
+
+            <button type="submit">Submit</button>
+        </form>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+
+        <!-- Replace with your path -->
+        <script src="/vendors/formvalidation/dist/js/FormValidation.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                // Generate a simple captcha
+                const randomNumber = function (min, max) {
+                    return Math.floor(Math.random() * (max - min + 1) + min);
+                };
+                const random = [randomNumber(1, 100), randomNumber(1, 200)];
+                document.getElementById('captchaOperation').innerHTML = [random[0], '+', random[1], '='].join(' ');
+
+                const form = document.getElementById('demoForm');
+                FormValidation.formValidation(form, {
+                    fields: {
+                        firstName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The first name is required',
+                                },
+                            },
+                        },
+                        lastName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The last name is required',
+                                },
+                            },
+                        },
+                        username: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The username is required',
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                    message: 'The username must be more than 6 and less than 30 characters long',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_]+$/,
+                                    message: 'The username can only consist of alphabetical, number and underscore',
+                                },
+                            },
+                        },
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The email address is required',
+                                },
+                                emailAddress: {
+                                    message: 'The input is not a valid email address',
+                                },
+                            },
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The password is required',
+                                },
+                                stringLength: {
+                                    min: 8,
+                                    message: 'The password must have at least 8 characters',
+                                },
+                                different: {
+                                    message: 'The password cannot be the same as username',
+                                    compare: function () {
+                                        return form.querySelector('[name="username"]').value;
+                                    },
+                                },
+                            },
+                        },
+                        gender: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The gender is required',
+                                },
+                            },
+                        },
+                        captcha: {
+                            validators: {
+                                callback: {
+                                    message: 'Wrong answer',
+                                    callback: function (input) {
+                                        const items = document.getElementById('captchaOperation').innerHTML.split(' ');
+                                        const sum = parseInt(items[0]) + parseInt(items[2]);
+                                        return input.value == sum;
+                                    },
+                                },
+                            },
+                        },
+                        agree: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'You must agree with the terms and conditions',
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        framework: new FormValidation.plugins.Framework({
+                            formClass: '',
+                            messageClass: 'err',
+                            rowPattern: /^(.*)field-group(.*)$/,
+                            rowSelector: '.field-group',
+                            eleValidClass: 'is-valid',
+                            eleInvalidClass: 'is-invalid',
+                            // More options
+                            // rowValidClass: 'field-group-valid',
+                            // rowInvalidClass: 'field-group-invalid',
+                        }),
+                    },
+                });
+            });
+        </script>
+    </body>
 </html>

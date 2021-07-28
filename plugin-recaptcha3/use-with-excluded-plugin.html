@@ -1,109 +1,115 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>FormValidation example - Recaptcha3 plugin</title>
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <head>
+        <title>FormValidation example - Recaptcha3 plugin</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+        />
 
-    <!-- Replace with your path -->
-	<link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
-</head>
-<body>
-    <form id="demoForm" method="post">
-        <div class="form-group row">
-            <label class="col-md-3 col-form-label">Username</label>
-            <div class="col-md-5">
-                <input type="text" class="form-control" name="fullName" />
+        <!-- Replace with your path -->
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+    </head>
+    <body>
+        <form id="demoForm" method="post">
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Username</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="fullName" />
+                </div>
             </div>
-        </div>
-    
-        <div class="form-group row">
-            <label class="col-md-3 col-form-label">Email address</label>
-            <div class="col-md-5">
-                <input type="text" class="form-control" name="email" />
+
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Email address</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="email" />
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <div class="col-md-9 offset-md-3">
-                <div id="captchaContainer"></div>
+            <div class="form-group row">
+                <div class="col-md-9 offset-md-3">
+                    <div id="captchaContainer"></div>
+                </div>
             </div>
-        </div>
 
-        <div class="form-group row">
-            <div class="col-md-9 offset-md-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
+            <div class="form-group row">
+                <div class="col-md-9 offset-md-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
             </div>
-        </div>
-    </form>
+        </form>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
 
-<!-- Replace with your path -->
-<script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-<script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>
-<script src="/vendors/formvalidation/dist/js/plugins/Recaptcha3.min.js"></script>
+        <!-- Replace with your path -->
+        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Recaptcha3.min.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function(e) {
-    FormValidation.formValidation(document.getElementById('demoForm'), {
-        fields: {
-            fullName: {
-                validators: {
-                    notEmpty: {
-                        message: 'The full name is required'
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                FormValidation.formValidation(document.getElementById('demoForm'), {
+                    fields: {
+                        fullName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The full name is required',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z\s]+$/,
+                                    message: 'The full name can only consist of alphabetical and space',
+                                },
+                            },
+                        },
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The email address is required',
+                                },
+                                emailAddress: {
+                                    message: 'The email address is not valid',
+                                },
+                            },
+                        },
                     },
-                    regexp: {
-                        regexp: /^[a-zA-Z\s]+$/,
-                        message: 'The full name can only consist of alphabetical and space'
-                    }
-                }
-            },
-            email: {
-                validators: {
-                    notEmpty: {
-                        message: 'The email address is required'
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        excluded: new FormValidation.plugins.Excluded({
+                            excluded: function (field, ele, eles) {
+                                // Don't excluded the reCaptcha3 field
+                                if (field === FormValidation.plugins.Recaptcha3.CAPTCHA_FIELD) {
+                                    return false;
+                                }
+                                // You can add more logics here to exclude or include other fields
+                                return false;
+                            },
+                        }),
+                        bootstrap: new FormValidation.plugins.Bootstrap(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                        recaptcha3: new FormValidation.plugins.Recaptcha3({
+                            element: 'captchaContainer',
+                            message: 'The captcha is not valid or expired',
+                            // Replace with the site key provided by Google
+                            siteKey: '___REPLACE_WITH_YOUR_SITE_KEY___',
+                            backendVerificationUrl: '/plugin-recaptcha3/verificationWithCurl.php',
+                            action: 'contact',
+                            minimumScore: 0.5,
+                        }),
                     },
-                    emailAddress: {
-                        message: 'The email address is not valid'
-                    }
-                }
-            }
-        },
-        plugins: {
-            trigger: new FormValidation.plugins.Trigger(),
-            submitButton: new FormValidation.plugins.SubmitButton(),
-            excluded: new FormValidation.plugins.Excluded({
-                excluded: function(field, ele, eles) {
-                    // Don't excluded the reCaptcha3 field
-                    if (field === FormValidation.plugins.Recaptcha3.CAPTCHA_FIELD) {
-                        return false;
-                    }
-                    // You can add more logics here to exclude or include other fields
-                    return false;
-                }
-            }),
-            bootstrap: new FormValidation.plugins.Bootstrap(),
-            icon: new FormValidation.plugins.Icon({
-                valid: 'fa fa-check',
-                invalid: 'fa fa-times',
-                validating: 'fa fa-refresh'
-            }),
-            recaptcha3: new FormValidation.plugins.Recaptcha3({
-                element: 'captchaContainer',
-                message: 'The captcha is not valid or expired',
-                // Replace with the site key provided by Google
-                siteKey: '___REPLACE_WITH_YOUR_SITE_KEY___',
-                backendVerificationUrl: '/plugin-recaptcha3/verificationWithCurl.php',
-                action: 'contact',
-                minimumScore: 0.5,
-            }),
-        }
-    });
-});
-</script>
-</body>
+                });
+            });
+        </script>
+    </body>
 </html>
