@@ -1,90 +1,91 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>FormValidation example - Dynamic message for the same validator</title>
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <head>
+        <title>FormValidation example - Dynamic message for the same validator</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" />
 
-    <!-- Replace with your path -->
-    <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
-</head>
-<body>
-    <div class="container mt-5">
-        <form id="demoForm" method="POST"
-            data-fvp-trigger="true"
-            data-fvp-trigger___class="FormValidation.plugins.Trigger"
-            
-            data-fvp-bootstrap5="true"
-            data-fvp-bootstrap5___class="FormValidation.plugins.Bootstrap5"
-
-            data-fvp-submit-button="true"
-            data-fvp-submit-button___class="FormValidation.plugins.SubmitButton"
-
-            data-fvp-icon="true"
-            data-fvp-icon___class="FormValidation.plugins.Icon"
-            data-fvp-icon___valid="fa fa-check"
-            data-fvp-icon___invalid="fa fa-times"
-            data-fvp-icon___validating="fa fa-refresh"
-        >
-            <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">File</label>
-                <div class="col-sm-4">
-                    <input
-                        type="file" 
-                        name="resume" 
-                        data-fv-file="true"                     
-                        data-fv-file___max-size="2000000"                        
-                        data-fv-file___message="Please upload a PDF file"
-                        data-fv-file___extension="pdf"
-                    />
+        <!-- Replace with your path -->
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+    </head>
+    <body>
+        <div class="container mt-5">
+            <form
+                id="demoForm"
+                method="POST"
+                data-fvp-trigger="true"
+                data-fvp-trigger___class="FormValidation.plugins.Trigger"
+                data-fvp-bootstrap5="true"
+                data-fvp-bootstrap5___class="FormValidation.plugins.Bootstrap5"
+                data-fvp-submit-button="true"
+                data-fvp-submit-button___class="FormValidation.plugins.SubmitButton"
+                data-fvp-icon="true"
+                data-fvp-icon___class="FormValidation.plugins.Icon"
+                data-fvp-icon___valid="fa fa-check"
+                data-fvp-icon___invalid="fa fa-times"
+                data-fvp-icon___validating="fa fa-refresh"
+            >
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">File</label>
+                    <div class="col-sm-4">
+                        <input
+                            type="file"
+                            name="resume"
+                            data-fv-file="true"
+                            data-fv-file___max-size="2000000"
+                            data-fv-file___message="Please upload a PDF file"
+                            data-fv-file___extension="pdf"
+                        />
+                    </div>
                 </div>
-            </div>
 
-            <div class="mb-3 row">
-                <div class="col-sm-9 offset-sm-3">
-                    <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                <div class="mb-3 row">
+                    <div class="col-sm-9 offset-sm-3">
+                        <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
 
-<!-- Replace with your path -->
-<script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-<script src="/vendors/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+        <!-- Replace with your path -->
+        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function(e) {
-    const form = document.getElementById('demoForm');
-    const fv = FormValidation.formValidation(form, {
-        plugins: {
-            declarative: new FormValidation.plugins.Declarative()
-        }
-    })
-    .on('plugins.message.displayed', function(e) {
-        if (e.field === 'resume' && e.validator === 'file' && e.meta) {
-            switch (e.meta.error) {
-                // If users don't choose a valid file type
-                case 'INVALID_EXTENSION':
-                    e.messageElement.innerHTML = 'Please choose a PDF file';
-                    break;
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const form = document.getElementById('demoForm');
+                const fv = FormValidation.formValidation(form, {
+                    plugins: {
+                        declarative: new FormValidation.plugins.Declarative(),
+                    },
+                }).on('plugins.message.displayed', function (e) {
+                    if (e.field === 'resume' && e.validator === 'file' && e.meta) {
+                        switch (e.meta.error) {
+                            // If users don't choose a valid file type
+                            case 'INVALID_EXTENSION':
+                                e.messageElement.innerHTML = 'Please choose a PDF file';
+                                break;
 
-                // If users choose a file which has bigger size than the max one
-                case 'INVALID_MAX_SIZE':
-                    e.messageElement.innerHTML = 'Please choose a file smaller than 2MB';
-                    break;
+                            // If users choose a file which has bigger size than the max one
+                            case 'INVALID_MAX_SIZE':
+                                e.messageElement.innerHTML = 'Please choose a file smaller than 2MB';
+                                break;
 
-                default:
-                    break;
-            }
-        }
-    });
-});
-</script>
-</body>
+                            default:
+                                break;
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
 </html>

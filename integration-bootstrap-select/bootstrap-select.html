@@ -1,84 +1,93 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>FormValidation example - Integrate with Bootstrap Select</title>
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <head>
+        <title>FormValidation example - Integrate with Bootstrap Select</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/css/bootstrap-select.min.css"
+        />
 
-    <!-- Replace with your path -->
-    <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
+        <!-- Replace with your path -->
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
 
-    <style>
-    .bootstrap-select i.fv-plugins-icon {
-        right: -38px !important;
-    }
-    </style>
-</head>
-<body>
-    <div class="container mt-5">
-        <form id="demoForm" method="POST">
-            <div class="mb-3 row">
-                <label class="col-sm-3 col-form-label">Size</label>
-                <div class="col-sm-4">
-                    <select id="size" name="size">
-                        <option value="">---</option>
-                        <option value="S">Small</option>
-                        <option value="M">Medium</option>
-                        <option value="L">Large</option>
-                        <option value="XL">Extra Large</option>
-                    </select>                  
+        <style>
+            .bootstrap-select i.fv-plugins-icon {
+                right: -38px !important;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container mt-5">
+            <form id="demoForm" method="POST">
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Size</label>
+                    <div class="col-sm-4">
+                        <select id="size" name="size">
+                            <option value="">---</option>
+                            <option value="S">Small</option>
+                            <option value="M">Medium</option>
+                            <option value="L">Large</option>
+                            <option value="XL">Extra Large</option>
+                        </select>
+                    </div>
                 </div>
-            </div>
-        
-            <div class="mb-3 row">
-                <div class="col-sm-9 offset-sm-3">
-                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-9 offset-sm-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
+            </form>
+        </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.2/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.14.0-beta2/js/bootstrap-select.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
 
-<!-- Replace with your path -->
-<script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-<script src="/vendors/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+        <!-- Replace with your path -->
+        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function(e) {
-    $('#size').selectpicker();
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                $('#size').selectpicker();
 
-    const demoForm = document.getElementById('demoForm');
-    FormValidation.formValidation(demoForm, {
-        fields: {
-            size: {
-                validators: {
-                    notEmpty: {
-                        message: 'Please choose a size'
-                    }
-                }
-            },
-        },
-        plugins: {
-            trigger: new FormValidation.plugins.Trigger(),
-            submitButton: new FormValidation.plugins.SubmitButton(),
-            bootstrap5: new FormValidation.plugins.Bootstrap5(),
-            icon: new FormValidation.plugins.Icon({
-                valid: 'fa fa-check',
-                invalid: 'fa fa-times',
-                validating: 'fa fa-refresh'
-            }),
-        }
-    });
-});
-</script>
-</body>
+                const demoForm = document.getElementById('demoForm');
+                FormValidation.formValidation(demoForm, {
+                    fields: {
+                        size: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please choose a size',
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        bootstrap5: new FormValidation.plugins.Bootstrap5(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                    },
+                });
+            });
+        </script>
+    </body>
 </html>

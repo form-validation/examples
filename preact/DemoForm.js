@@ -6,7 +6,7 @@ class DemoForm extends preact.Component {
         this.state = {
             username: '',
             password: '',
-        }
+        };
     }
 
     render() {
@@ -14,39 +14,42 @@ class DemoForm extends preact.Component {
             'form',
             { id: 'loginForm', method: 'POST' },
             h(
-                'div', { className: 'form-group row'},
+                'div',
+                { className: 'form-group row' },
                 h('label', { className: 'col-sm-3 col-form-label' }, 'Username'),
                 h(
                     'div',
-                    { className: 'col-sm-4' }, 
-                    h(
-                        'input',
-                        { className: 'form-control', type: 'text', name: 'username', onChange: (e) => this.setState({ username: e.target.value }) }
-                    )
+                    { className: 'col-sm-4' },
+                    h('input', {
+                        className: 'form-control',
+                        type: 'text',
+                        name: 'username',
+                        onChange: (e) => this.setState({ username: e.target.value }),
+                    })
                 )
             ),
             h(
-                'div', { className: 'form-group row'},
+                'div',
+                { className: 'form-group row' },
                 h('label', { className: 'col-sm-3 col-form-label' }, 'Password'),
                 h(
                     'div',
-                    { className: 'col-sm-4' }, 
-                    h(
-                        'input',
-                        { className: 'form-control', type: 'password', name: 'password', onChange: (e) => this.setState({ password: e.target.value }) }
-                    )
+                    { className: 'col-sm-4' },
+                    h('input', {
+                        className: 'form-control',
+                        type: 'password',
+                        name: 'password',
+                        onChange: (e) => this.setState({ password: e.target.value }),
+                    })
                 )
             ),
             h(
-                'div', { className: 'form-group row'},
+                'div',
+                { className: 'form-group row' },
                 h(
                     'div',
                     { className: 'col-sm-9 offset-sm-3' },
-                    h(
-                        'button',
-                        { className: 'btn btn-primary', type: 'submit' },
-                        'Login'
-                    )
+                    h('button', { className: 'btn btn-primary', type: 'submit' }, 'Login')
                 )
             )
         );
@@ -58,7 +61,7 @@ class DemoForm extends preact.Component {
                 username: {
                     validators: {
                         notEmpty: {
-                            message: 'The username is required'
+                            message: 'The username is required',
                         },
                         stringLength: {
                             min: 6,
@@ -69,18 +72,18 @@ class DemoForm extends preact.Component {
                             regexp: /^[a-zA-Z0-9_]+$/,
                             message: 'The username can only consist of alphabetical, number and underscore',
                         },
-                    }
+                    },
                 },
                 password: {
                     validators: {
                         notEmpty: {
-                            message: 'The password is required'
+                            message: 'The password is required',
                         },
                         stringLength: {
                             min: 8,
                             message: 'The password must have at least 8 characters',
                         },
-                    }
+                    },
                 },
             },
             plugins: {
@@ -90,7 +93,7 @@ class DemoForm extends preact.Component {
                 icon: new FormValidation.plugins.Icon({
                     valid: 'fa fa-check',
                     invalid: 'fa fa-times',
-                    validating: 'fa fa-refresh'
+                    validating: 'fa fa-refresh',
                 }),
             },
         }).on('core.form.valid', () => {

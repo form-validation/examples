@@ -9,39 +9,42 @@ class DemoForm {
             'form',
             { id: 'loginForm', method: 'POST' },
             el(
-                'div', { className: 'form-group row'},
+                'div',
+                { className: 'form-group row' },
                 el('label', { className: 'col-sm-3 col-form-label' }, 'Username'),
                 el(
                     'div',
-                    { className: 'col-sm-4' }, 
-                    el(
-                        'input',
-                        { className: 'form-control', type: 'text', name: 'username', oninput: (e) => this.username = e.target.value }
-                    )
+                    { className: 'col-sm-4' },
+                    el('input', {
+                        className: 'form-control',
+                        type: 'text',
+                        name: 'username',
+                        oninput: (e) => (this.username = e.target.value),
+                    })
                 )
             ),
             el(
-                'div', { className: 'form-group row'},
+                'div',
+                { className: 'form-group row' },
                 el('label', { className: 'col-sm-3 col-form-label' }, 'Password'),
                 el(
                     'div',
-                    { className: 'col-sm-4' }, 
-                    el(
-                        'input',
-                        { className: 'form-control', type: 'password', name: 'password', oninput: (e) => this.password = e.target.value }
-                    )
+                    { className: 'col-sm-4' },
+                    el('input', {
+                        className: 'form-control',
+                        type: 'password',
+                        name: 'password',
+                        oninput: (e) => (this.password = e.target.value),
+                    })
                 )
             ),
             el(
-                'div', { className: 'form-group row'},
+                'div',
+                { className: 'form-group row' },
                 el(
                     'div',
                     { className: 'col-sm-9 offset-sm-3' },
-                    el(
-                        'button',
-                        { className: 'btn btn-primary', type: 'submit' },
-                        'Login'
-                    )
+                    el('button', { className: 'btn btn-primary', type: 'submit' }, 'Login')
                 )
             )
         );
@@ -54,7 +57,7 @@ class DemoForm {
                 username: {
                     validators: {
                         notEmpty: {
-                            message: 'The username is required'
+                            message: 'The username is required',
                         },
                         stringLength: {
                             min: 6,
@@ -65,18 +68,18 @@ class DemoForm {
                             regexp: /^[a-zA-Z0-9_]+$/,
                             message: 'The username can only consist of alphabetical, number and underscore',
                         },
-                    }
+                    },
                 },
                 password: {
                     validators: {
                         notEmpty: {
-                            message: 'The password is required'
+                            message: 'The password is required',
                         },
                         stringLength: {
                             min: 8,
                             message: 'The password must have at least 8 characters',
                         },
-                    }
+                    },
                 },
             },
             plugins: {
@@ -86,7 +89,7 @@ class DemoForm {
                 icon: new FormValidation.plugins.Icon({
                     valid: 'fa fa-check',
                     invalid: 'fa fa-times',
-                    validating: 'fa fa-refresh'
+                    validating: 'fa fa-refresh',
                 }),
             },
         }).on('core.form.valid', () => {

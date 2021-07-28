@@ -1,0 +1,12 @@
+{
+    "name": "@form-validation/examples",
+    "private": true,
+    "version": "0.0.0",
+    "description": "A collection of useful FormValidation examples",
+    "scripts": {
+        "format": "prettier --write \"**/*.+(css|html|js)\""
+    },
+    "devDependencies": {
+        "prettier": "^2.3.2"
+    }
+}

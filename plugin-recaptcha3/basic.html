@@ -1,137 +1,138 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-    <title>FormValidation example - Recaptcha3 plugin</title>
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
+    <head>
+        <title>FormValidation example - Recaptcha3 plugin</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
 
-    <!-- Replace with your path -->
-    <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css">
-</head>
-<body>
-    <form id="demoForm" method="POST">
-        <div class="cf mb2">
-            <div class="fl w-100">
-                <div class="fl w-25 pa2">Username</div>
-                <div class="fl w-50">
-                    <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="username" />
+        <!-- Replace with your path -->
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+    </head>
+    <body>
+        <form id="demoForm" method="POST">
+            <div class="cf mb2">
+                <div class="fl w-100">
+                    <div class="fl w-25 pa2">Username</div>
+                    <div class="fl w-50">
+                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="username" />
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="cf mb2">
-            <div class="fl w-100">
-                <div class="fl w-25 pa2">Email address</div>
-                <div class="fl w-50">
-                    <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="email" />
+            <div class="cf mb2">
+                <div class="fl w-100">
+                    <div class="fl w-25 pa2">Email address</div>
+                    <div class="fl w-50">
+                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="email" />
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="cf mb2">
-            <div class="fl w-100">
-                <div class="fl w-25 pa2">Password</div>
-                <div class="fl w-50">
-                    <input type="password" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="password" />
+            <div class="cf mb2">
+                <div class="fl w-100">
+                    <div class="fl w-25 pa2">Password</div>
+                    <div class="fl w-50">
+                        <input type="password" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="password" />
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="cf mb2">
-            <div class="fl w-100">
-                <div class="fl w-25 pa2"></div>
-                <div class="fl w-50">
-                    <!-- The captcha container -->
-                    <div id="captchaContainer"></div>
+            <div class="cf mb2">
+                <div class="fl w-100">
+                    <div class="fl w-25 pa2"></div>
+                    <div class="fl w-50">
+                        <!-- The captcha container -->
+                        <div id="captchaContainer"></div>
+                    </div>
                 </div>
             </div>
-        </div>
 
-        <div class="cf mb2">
-            <div class="fl w-100">
-                <div class="fl w-25 pa2"></div>
-                <div class="fl w-50">
-                    <button type="submit" class="ba b--black-20 bg-blue white ph3 pv2 br2">Submit</button>
+            <div class="cf mb2">
+                <div class="fl w-100">
+                    <div class="fl w-25 pa2"></div>
+                    <div class="fl w-50">
+                        <button type="submit" class="ba b--black-20 bg-blue white ph3 pv2 br2">Submit</button>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
+        </form>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
 
-<!-- Replace with your path -->
-<script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-<script src="/vendors/formvalidation/dist/js/plugins/Recaptcha3.min.js"></script>
-<script src="/vendors/formvalidation/dist/js/plugins/Tachyons.min.js"></script>
+        <!-- Replace with your path -->
+        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Recaptcha3.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Tachyons.min.js"></script>
 
-<script>
-document.addEventListener('DOMContentLoaded', function(e) {
-    FormValidation.formValidation(
-        document.getElementById('demoForm'),
-        {
-            fields: {
-                username: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The username is required'
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                FormValidation.formValidation(document.getElementById('demoForm'), {
+                    fields: {
+                        username: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The username is required',
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                    message: 'The username must be more than 6 and less than 30 characters long',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_.]+$/,
+                                    message:
+                                        'The username can only consist of alphabetical, number, dot and underscore',
+                                },
+                            },
                         },
-                        stringLength: {
-                            min: 6,
-                            max: 30,
-                            message: 'The username must be more than 6 and less than 30 characters long'
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The email address is required',
+                                },
+                                emailAddress: {
+                                    message: 'The input is not a valid email address',
+                                },
+                            },
                         },
-                        regexp: {
-                            regexp: /^[a-zA-Z0-9_.]+$/,
-                            message: 'The username can only consist of alphabetical, number, dot and underscore'
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The password is required',
+                                },
+                                different: {
+                                    field: 'username',
+                                    message: 'The password cannot be the same as username',
+                                },
+                            },
                         },
                     },
-                },
-                email: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The email address is required'
-                        },
-                        emailAddress: {
-                            message: 'The input is not a valid email address'
-                        },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        tachyons: new FormValidation.plugins.Tachyons(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                        recaptcha3: new FormValidation.plugins.Recaptcha3({
+                            action: 'contact',
+                            backendVerificationUrl: '/plugin-recaptcha3/verificationWithCurl.php',
+                            element: 'captchaContainer',
+                            message: 'The captcha is not valid or expired',
+                            // Replace with the site key provided by Google
+                            siteKey: '___REPLACE_WITH_YOUR_SITE_KEY___',
+                        }),
                     },
-                },
-                password: {
-                    validators: {
-                        notEmpty: {
-                            message: 'The password is required'
-                        },
-                        different: {
-                            field: 'username',
-                            message: 'The password cannot be the same as username'
-                        },
-                    },
-                },
-            },
-            plugins: {
-                trigger: new FormValidation.plugins.Trigger(),
-                tachyons: new FormValidation.plugins.Tachyons(),
-                submitButton: new FormValidation.plugins.SubmitButton(),
-                icon: new FormValidation.plugins.Icon({
-                    valid: 'fa fa-check',
-                    invalid: 'fa fa-times',
-                    validating: 'fa fa-refresh',
-                }),
-                recaptcha3: new FormValidation.plugins.Recaptcha3({
-                    action: 'contact',
-                    backendVerificationUrl: '/plugin-recaptcha3/verificationWithCurl.php',
-                    element: 'captchaContainer',
-                    message: 'The captcha is not valid or expired',
-                    // Replace with the site key provided by Google
-                    siteKey: '___REPLACE_WITH_YOUR_SITE_KEY___',
-                }),
-            },
-        }
-    );
-});
-</script>
-</body>
+                });
+            });
+        </script>
+    </body>
 </html>
