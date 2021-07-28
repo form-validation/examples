@@ -154,6 +154,7 @@ Use the [Materialize plugin](https://formvalidation.io/guide/plugins/materialize
 Use the [Message plugin](https://formvalidation.io/guide/plugins/message) to display the error messages.
 
 * Customize the error message placement: [source](plugin-message/customize-placement.html)
+* Display a dynamic error message: [source](plugin-message/dynamic-message.html)
 
 ### Milligram plugin
 
