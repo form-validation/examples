@@ -322,6 +322,10 @@ Use the [Wizard plugin](https://formvalidation.io/guide/plugins/wizard) to valid
 * Integrate with Riot: [source](riot/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-riot)
 * Integrate with Vue: [source](vue/index.html), [guide](https://formvalidation.io/guide/examples/integrating-with-vue)
 
+## Misc
+
+* Use with [requirejs](https://requirejs.org): [source](use-with-requirejs/README.md)
+
 ## About
 
 This project is developed by _Nguyen Huu Phuoc_. I love building products and sharing knowledge.
