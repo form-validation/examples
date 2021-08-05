@@ -10,40 +10,47 @@
         />
         <link
             rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
         />
         <link
             rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.4/css/intlTelInput.css"
+            href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css"
         />
         <!-- Replace with your path -->
         <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+
+        <style>
+            /* Display the error message for phone inputs */
+            .iti--allow-dropdown ~ .invalid-feedback {
+                display: block;
+            }
+        </style>
     </head>
     <body>
         <div class="container">
             <form id="demoForm" method="POST">
-                <div class="form-group row">
+                <div class="row mb-3">
                     <label class="col-md-3 col-form-label">Full name</label>
                     <div class="col-md-5">
                         <input type="text" class="form-control" name="fullName" />
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="row mb-3">
                     <label class="col-md-3 col-form-label">Phone number</label>
                     <div class="col-md-5">
                         <input type="text" class="form-control" name="phone" />
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="row mb-3">
                     <label class="col-md-3 col-form-label">Other phone number</label>
                     <div class="col-md-5">
                         <input type="text" class="form-control" name="otherPhone" />
                     </div>
                 </div>
 
-                <div class="form-group row">
+                <div class="row mb-3">
                     <div class="col-md-9 offset-md-3">
                         <button type="submit" class="btn btn-primary">Submit</button>
                     </div>
@@ -51,12 +58,12 @@
             </form>
         </div>
 
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.4/js/intlTelInput.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
 
         <!-- Replace with your path -->
         <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
         <script src="/vendors/formvalidation/dist/js/plugins/InternationalTelephoneInput.min.js"></script>
 
         <script>
@@ -82,7 +89,7 @@
                     plugins: {
                         trigger: new FormValidation.plugins.Trigger(),
                         submitButton: new FormValidation.plugins.SubmitButton(),
-                        bootstrap: new FormValidation.plugins.Bootstrap(),
+                        bootstrap5: new FormValidation.plugins.Bootstrap5(),
                         icon: new FormValidation.plugins.Icon({
                             valid: 'fa fa-check',
                             invalid: 'fa fa-times',
@@ -91,7 +98,7 @@
                         internationalTelephoneInput: new FormValidation.plugins.InternationalTelephoneInput({
                             field: 'phone,otherPhone',
                             message: 'The phone number is not valid',
-                            utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.4/js/utils.js',
+                            utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js',
                         }),
                     },
                 });
