@@ -1,82 +1,88 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <head>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+        />
 
-    <!-- You need to change it to your path -->
-    <link rel="stylesheet" href="https://formvalidation.io/vendors/formvalidation/css/formValidation.min.css">
+        <!-- You need to change it to your path -->
+        <link rel="stylesheet" href="https://formvalidation.io/vendors/formvalidation/css/formValidation.min.css" />
 
-    <script data-main="app" src="lib/require.js"></script>
-</head>
-<body>
-    <div class="container">
-        <form id="demoForm" method="POST">
-            <div class="form-group row">
-                <label class="col-md-3 col-form-label">Full name</label>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" name="firstName" placeholder="First name" />
-                </div>
-                <div class="col-md-4">
-                    <input type="text" class="form-control" name="lastName" placeholder="Last name" />
-                </div>
-            </div>
-        
-            <div class="form-group row">
-                <label class="col-md-3 col-form-label">Username</label>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" name="username" />
-                </div>
-            </div>
-        
-            <div class="form-group row">
-                <label class="col-md-3 col-form-label">Email address</label>
-                <div class="col-md-5">
-                    <input type="text" class="form-control" name="email" />
-                </div>
-            </div>
-        
-            <div class="form-group row">
-                <label class="col-md-3 col-form-label">Password</label>
-                <div class="col-md-5">
-                    <input type="password" class="form-control" name="password" />
-                </div>
-            </div>
-        
-            <div class="form-group row">
-                <label class="col-md-3 col-form-label">Gender</label>
-                <div class="col-md-6">
-                    <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input" name="gender" value="male" />
-                        <label class="form-check-label">Male</label>
+        <script data-main="app" src="lib/require.js"></script>
+    </head>
+    <body>
+        <div class="container">
+            <form id="demoForm" method="POST">
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Full name</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="firstName" placeholder="First name" />
                     </div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input" name="gender" value="female" />
-                        <label class="form-check-label">Female</label>
-                    </div>
-                    <div class="form-check form-check-inline">
-                        <input type="radio" class="form-check-input" name="gender" value="other" />
-                        <label class="form-check-label">Other</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="lastName" placeholder="Last name" />
                     </div>
                 </div>
-            </div>
-        
-            <div class="form-group row">
-                <div class="col-md-6 offset-md-3">
-                    <div class="form-check">
-                        <input type="checkbox" class="form-check-input" name="agree" value="agree" />
-                        <label class="form-check-label">Agree with the terms and conditions</label>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Username</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="username" />
                     </div>
                 </div>
-            </div>
-        
-            <div class="form-group row">
-                <div class="col-md-9 offset-md-3">
-                    <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
-                    <button type="button" class="btn btn-default" id="resetButton">Reset</button>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Email address</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="email" />
+                    </div>
                 </div>
-            </div>
-        </form>
-    </div>
-</body>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Password</label>
+                    <div class="col-md-5">
+                        <input type="password" class="form-control" name="password" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Gender</label>
+                    <div class="col-md-6">
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" value="male" />
+                            <label class="form-check-label">Male</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" value="female" />
+                            <label class="form-check-label">Female</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" class="form-check-input" name="gender" value="other" />
+                            <label class="form-check-label">Other</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-6 offset-md-3">
+                        <div class="form-check">
+                            <input type="checkbox" class="form-check-input" name="agree" value="agree" />
+                            <label class="form-check-label">Agree with the terms and conditions</label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
+                        <button type="button" class="btn btn-default" id="resetButton">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </body>
 </html>

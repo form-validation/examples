@@ -118,6 +118,13 @@ Use the [Icon plugin](https://formvalidation.io/guide/plugins/icon) to display v
 * Use SVG icons: [source](plugin-icon/use-svg-icons.html), [live demo](https://formvalidation.io/guide/examples/using-svg-icons/)
 * Use UiKit framework icons: [source](plugin-icon/use-uikit-framework-icons.html), [live demo](https://formvalidation.io/guide/examples/using-svg-icons/)
 
+### InternationalTelephoneInput plugin
+
+Integrate with the [International Telephone Input](https://intl-tel-input.com)
+
+* Basic example: [source](plugin-international-telephone-input/basic.html)
+* Use with the [Declarative plugin](https://formvalidation.io/guide/plugins/declarative): [source](plugin-international-telephone-input/declarative.html)
+
 ### J plugin
 
 Use the [J plugin](https://formvalidation.io/guide/plugins/j) to use FormValidation as a jQuery plugin.
