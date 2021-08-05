@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>FormValidation example - Integrate with the International Telephone Input</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.4/css/intlTelInput.css"
+        />
+        <!-- Replace with your path -->
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+    </head>
+    <body>
+        <div class="container">
+            <form
+                id="demoForm"
+                method="POST"
+                data-fvp-trigger="true"
+                data-fvp-trigger___class="FormValidation.plugins.Trigger"
+                data-fvp-submit-button="true"
+                data-fvp-submit-button___class="FormValidation.plugins.SubmitButton"
+                data-fvp-bootstrap="true"
+                data-fvp-bootstrap___class="FormValidation.plugins.Bootstrap"
+                data-fvp-icon="true"
+                data-fvp-icon___class="FormValidation.plugins.Icon"
+                data-fvp-icon___valid="fa fa-check"
+                data-fvp-icon___invalid="fa fa-times"
+                data-fvp-icon___validating="fa fa-refresh"
+                data-fvp-international-telephone-input="true"
+                data-fvp-international-telephone-input___class="FormValidation.plugins.InternationalTelephoneInput"
+                data-fvp-international-telephone-input___field="phone,otherPhone"
+                data-fvp-international-telephone-input___message="The phone number is not valid"
+                data-fvp-international-telephone-input___utils-script="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.4/js/utils.js"
+            >
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Full name</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="fullName" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Phone number</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="phone" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Other phone number</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="otherPhone" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/16.0.4/js/intlTelInput.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+
+        <!-- Replace with your path -->
+        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/InternationalTelephoneInput.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const form = document.getElementById('demoForm');
+                const fv = FormValidation.formValidation(form, {
+                    fields: {
+                        fullName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The full name is required',
+                                },
+                            },
+                        },
+                        phone: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The phone number is required',
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        declarative: new FormValidation.plugins.Declarative(),
+                    },
+                });
+            });
+        </script>
+    </body>
+</html>
