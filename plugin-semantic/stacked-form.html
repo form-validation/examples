@@ -1,13 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>FormValidation example - Validate a Semantic UI stacked form</title>
+        <title>Semantic UI stacked form - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
-
-        <!-- Replace with your path -->
         <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
     </head>
     <body>
@@ -85,10 +82,8 @@
         </form>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
-
-        <!-- Replace with your path -->
         <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Semantic.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {
@@ -141,7 +136,7 @@
                             rowSelector: '.field',
                         }),
                         submitButton: new FormValidation.plugins.SubmitButton(),
-                        icon: new Icon({
+                        icon: new FormValidation.plugins.Icon({
                             valid: 'checkmark icon',
                             invalid: 'remove icon',
                             validating: 'refresh icon',
