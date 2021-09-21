@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Using SVG icons - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+    </head>
+    <body>
+        <form id="demoForm" method="POST" class="uk-form-horizontal">
+            <div class="uk-margin">
+                <label class="uk-form-label">Product name</label>
+                <div class="uk-form-controls">
+                    <input type="text" class="uk-input" name="name" />
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label">Price ($)</label>
+                <div class="uk-form-controls">
+                    <input type="text" class="uk-input" name="price" />
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label">Size</label>
+                <div class="uk-form-controls uk-form-controls-text">
+                    <label><input class="uk-checkbox" name="size[]" type="checkbox" value="s" /> S</label>
+                    <label><input class="uk-checkbox" name="size[]" type="checkbox" value="m" /> M</label>
+                    <label><input class="uk-checkbox" name="size[]" type="checkbox" value="l" /> L</label>
+                    <label><input class="uk-checkbox" name="size[]" type="checkbox" value="xl" /> XL</label>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label">Available in store</label>
+                <div class="uk-form-controls uk-form-controls-text">
+                    <label><input class="uk-radio" name="availability" type="radio" value="yes" /> Yes</label>
+                    <label><input class="uk-radio" name="availability" type="radio" value="no" /> No</label>
+                </div>
+            </div>
+
+            <div class="uk-margin">
+                <label class="uk-form-label"></label>
+                <div class="uk-form-controls">
+                    <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+                    <button type="submit" class="uk-button uk-button-primary">Add product</button>
+                </div>
+            </div>
+        </form>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Uikit.min.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                FormValidation.formValidation(document.getElementById('demoForm'), {
+                    fields: {
+                        name: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The name is required',
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                    message: 'The name must be more than 6 and less than 30 characters long',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_]+$/,
+                                    message: 'The name can only consist of alphabetical, number and underscore',
+                                },
+                            },
+                        },
+                        price: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The price is required',
+                                },
+                                numeric: {
+                                    message: 'The price must be a number',
+                                },
+                            },
+                        },
+                        'size[]': {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The size is required',
+                                },
+                            },
+                        },
+                        availability: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The availability option is required',
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        uikit: new FormValidation.plugins.Uikit(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon(),
+                    },
+                }).on('plugins.icon.set', function (e) {
+                    if (e.iconElement) {
+                        switch (e.status) {
+                            case 'Validating':
+                                e.iconElement.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="#000" stroke-width="1.1"
+                            d="M17.08,11.15 C17.09,11.31 17.1,11.47 17.1,11.64 C17.1,15.53 13.94,18.69 10.05,18.69 C6.16,18.68 3,15.53 3,11.63 C3,7.74 6.16,4.58 10.05,4.58 C10.9,4.58 11.71,4.73 12.46,5">
+                        </path>
+                        <polyline fill="none" stroke="#000" points="9.9 2 12.79 4.89 9.79 7.9"></polyline>
+                    </svg>`;
+                                break;
+                            case 'Invalid':
+                                e.iconElement.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <path fill="none" stroke="#000" stroke-width="1.06" d="M16,16 L4,4"></path>
+                        <path fill="none" stroke="#000" stroke-width="1.06" d="M16,4 L4,16"></path>
+                    </svg>`;
+                                break;
+                            case 'Valid':
+                                e.iconElement.innerHTML = `<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
+                        <polyline fill="none" stroke="#000" stroke-width="1.1" points="4,10 8,15 17,4"></polyline>
+                    </svg>`;
+                                break;
+                            default:
+                                e.iconElement.innerHTML = '';
+                                break;
+                        }
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
