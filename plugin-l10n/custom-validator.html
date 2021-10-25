@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Localize error messages of a custom validator - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+    </head>
+    <body>
+        <div class="mb-3 row">
+            <div class="col-sm-9 offset-sm-3">
+                <!-- A simple locale switcher -->
+                <div class="btn-group">
+                    <!-- The data-locale attribute will be used later -->
+                    <button type="button" class="btn btn-primary active setLocaleButton" data-locale="en_US">
+                        English
+                    </button>
+                    <button type="button" class="btn btn-primary setLocaleButton" data-locale="vi_VN">
+                        Tiếng Việt
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <form id="profileForm" method="post">
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Username</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="username" />
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Email address</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control" name="email" />
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <label class="col-sm-3 col-form-label">Password</label>
+                <div class="col-sm-5">
+                    <input type="password" class="form-control" name="password" />
+                </div>
+            </div>
+
+            <div class="mb-3 row">
+                <div class="col-sm-9 offset-sm-3">
+                    <button type="submit" class="btn btn-primary">Sign up</button>
+                </div>
+            </div>
+        </form>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/L10n.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/locales/en_US.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/locales/vi_VN.min.js"></script>
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const strongPassword = function () {
+                    return {
+                        validate: function (input) {
+                            const value = input.value;
+                            if (value === '') {
+                                return {
+                                    valid: true,
+                                };
+                            }
+
+                            // Check the password strength
+                            if (value.length < 8) {
+                                return {
+                                    valid: false,
+                                    message: {
+                                        en_US: 'The password must have at least 8 characters',
+                                        vi_VN: 'Mật khẩu phải có ít nhất 8 ký tự',
+                                    },
+                                };
+                            }
+
+                            // The password does not contain any uppercase character
+                            if (value === value.toLowerCase()) {
+                                return {
+                                    valid: false,
+                                    message: {
+                                        en_US: 'The password must have at least 1 uppercase character',
+                                        vi_VN: 'Mật khẩu phải có ít nhất 1 ký tự in hoa',
+                                    },
+                                };
+                            }
+
+                            // The password does not contain any lowser character
+                            if (value === value.toUpperCase()) {
+                                return {
+                                    valid: false,
+                                    message: {
+                                        en_US: 'The password must have at least 1 lowser character',
+                                        vi_VN: 'Mật khẩu phải có ít nhất 1 ký tự in thường',
+                                    },
+                                };
+                            }
+
+                            // The password does not contain any digit
+                            if (value.search(/[0-9]/) < 0) {
+                                return {
+                                    valid: false,
+                                    message: {
+                                        en_US: 'The password must have at least 1 digit',
+                                        vi_VN: 'Mật khẩu phải có ít nhất 1 chữ số',
+                                    },
+                                };
+                            }
+
+                            return {
+                                valid: true,
+                            };
+                        },
+                    };
+                };
+
+                FormValidation.validators.checkPassword = strongPassword;
+
+                const fv = FormValidation.formValidation(document.getElementById('profileForm'), {
+                    locale: 'en_US',
+                    localization: FormValidation.locales.en_US,
+                    fields: {
+                        // Since the messages of notEmpty, stringLength, regexp are not set here,
+                        // they will be taken from language package
+                        username: {
+                            validators: {
+                                notEmpty: {},
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9]+$/,
+                                },
+                            },
+                        },
+                        // Messages are taken from language package
+                        email: {
+                            validators: {
+                                notEmpty: {},
+                                emailAddress: {},
+                            },
+                        },
+                        // Messages of notEmpty validator are taken from language package
+                        password: {
+                            validators: {
+                                notEmpty: {},
+                                checkPassword: {},
+                            },
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        bootstrap5: new FormValidation.plugins.Bootstrap5(),
+                        l10n: new FormValidation.plugins.L10n({
+                            username: {
+                                stringLength: {
+                                    en_US: 'The username must be between %s and %s characters long',
+                                    vi_VN: 'Tên đăng nhập phải có ít nhất %s và nhiều nhất %s ký tự',
+                                },
+                            },
+                        }),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                    },
+                });
+
+                // Switch locale
+                const localeButtons = Array.from(document.querySelectorAll('.setLocaleButton'));
+                localeButtons.forEach(function (btn) {
+                    btn.addEventListener('click', function () {
+                        localeButtons.forEach(function (btn) {
+                            btn.classList.remove('active');
+                        });
+                        btn.classList.add('active');
+
+                        const locale = btn.getAttribute('data-locale');
+                        fv.setLocale(locale, FormValidation.locales[locale]).resetForm();
+                    });
+                });
+            });
+        </script>
+    </body>
+</html>
