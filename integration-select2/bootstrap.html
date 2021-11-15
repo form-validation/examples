@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Integrating with Select2 - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+    </head>
+    <body>
+        <div class="container">
+            <form id="demoForm" method="post">
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Favorite color</label>
+                    <div class="col-sm-4">
+                        <select
+                            name="colors"
+                            class="form-control"
+                            multiple
+                            data-placeholder="Choose 2-4 colors"
+                            style="width: 100%"
+                        >
+                            <option value="black">Black</option>
+                            <option value="blue">Blue</option>
+                            <option value="green">Green</option>
+                            <option value="orange">Orange</option>
+                            <option value="red">Red</option>
+                            <option value="yellow">Yellow</option>
+                            <option value="white">White</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <label class="col-sm-3 col-form-label">Favorite colors using tags</label>
+                    <div class="col-sm-4">
+                        <select
+                            class="form-control"
+                            name="colors-tags"
+                            multiple
+                            data-placeholder="Choose 2-4 colors"
+                            style="width: 100%"
+                        ></select>
+                    </div>
+                </div>
+
+                <div class="mb-3 row">
+                    <div class="col-sm-9 offset-sm-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                        <button id="resetButton" type="button" class="btn">Reset</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const demoForm = document.getElementById('demoForm');
+
+                const colorField = jQuery(demoForm.querySelector('[name="colors"]'));
+                const colorTagField = jQuery(demoForm.querySelector('[name="colors-tags"]'));
+
+                const fv = FormValidation.formValidation(demoForm, {
+                    fields: {
+                        colors: {
+                            validators: {
+                                callback: {
+                                    message: 'Please choose 2-4 color you like most',
+                                    callback: function (input) {
+                                        // Get the selected options
+                                        const options = colorField.select2('data');
+                                        return options != null && options.length >= 2 && options.length <= 4;
+                                    },
+                                },
+                            },
+                        },
+                        'colors-tags': {
+                            validators: {
+                                callback: {
+                                    message: 'Please choose 2-4 color you like most',
+                                    callback: function (input) {
+                                        // Get the selected options
+                                        const options = colorTagField.select2('data');
+                                        return options !== null && options.length >= 2 && options.length <= 4;
+                                    },
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bootstrap5: new FormValidation.plugins.Bootstrap5(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                    },
+                });
+
+                colorField.select2().on('change.select2', function () {
+                    // Revalidate the color field when an option is chosen
+                    fv.revalidateField('colors');
+                });
+
+                colorTagField
+                    .select2({
+                        tags: ['Black', 'Blue', 'Green', 'Orange', 'Red', 'Yellow', 'White'],
+                    })
+                    .on('change.select2', function () {
+                        // Revalidate the color-tags field when a tag is selected
+                        fv.revalidateField('colors-tags');
+                    });
+
+                document.getElementById('resetButton').addEventListener('click', function () {
+                    fv.resetForm(true);
+                });
+            });
+        </script>
+    </body>
+</html>
