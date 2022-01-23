@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>FormValidation example - Integrate with the International Telephone Input</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.1/css/bootstrap.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/css/intlTelInput.css"
+        />
+        <!-- Replace with your path -->
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+
+        <style>
+            /* Display the error message for phone inputs */
+            .iti--allow-dropdown ~ .invalid-feedback {
+                display: block;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <form id="demoForm" method="POST">
+                <div class="row mb-3">
+                    <label class="col-md-3 col-form-label">Full name</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="fullName" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <label class="col-md-3 col-form-label">Phone number</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="phone" />
+                    </div>
+                </div>
+
+                <div class="row mb-3">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+
+        <!-- Replace with your path -->
+        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/InternationalTelephoneInput.min.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const form = document.getElementById('demoForm');
+
+                // Create a FormValidation instance
+                const fv = FormValidation.formValidation(form, {
+                    fields: {
+                        fullName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The full name is required',
+                                },
+                            },
+                        },
+                        phone: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The phone number is required',
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        bootstrap5: new FormValidation.plugins.Bootstrap5(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                        internationalTelephoneInput: new FormValidation.plugins.InternationalTelephoneInput({
+                            field: 'phone',
+                            message: 'The phone number is not valid',
+                            utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js',
+                        }),
+                    },
+                });
+
+                fv.on('core.form.valid', function () {
+                    // Get the InternationalTelephoneInput plugin instance
+                    const internationalTelephoneInputPlugin = fv.getPlugin('internationalTelephoneInput');
+
+                    // Get the intl-tel-input instance
+                    // `phone` is the name of input
+                    const intlTelInstance = internationalTelephoneInputPlugin.intlTelInstances.get('phone');
+
+                    // Get the phone number including the country code
+                    // See https://github.com/jackocnr/intl-tel-input#public-methods
+                    const phoneNumber = intlTelInstance.getNumber();
+
+                    console.log(phoneNumber);
+                });
+            });
+        </script>
+    </body>
+</html>
