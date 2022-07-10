@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Validating multiple inputs as one with Wizard plugin - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+    </head>
+    <body>
+        <div class="mw8 center w-100">
+            <form id="demoForm" method="post">
+                <div class="js-step">
+                    <div class="cf mb2">
+                        <div class="fl w-100">
+                            <div class="fl w-25 pa2">Quantity</div>
+                            <div class="fl w-40">
+                                <input
+                                    type="text"
+                                    class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                    name="quantity"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cf mb2">
+                        <div class="fl w-100">
+                            <div class="fl w-25 pa2">Size</div>
+                            <div class="fl w-50">
+                                <div class="mb2">
+                                    <label><input type="checkbox" name="size[]" value="s" /> S</label>
+                                </div>
+                                <div class="mb2">
+                                    <label><input type="checkbox" name="size[]" value="m" /> M</label>
+                                </div>
+                                <div class="mb2">
+                                    <label><input type="checkbox" name="size[]" value="l" /> L</label>
+                                </div>
+                                <div class="mb2">
+                                    <label><input type="checkbox" name="size[]" value="xl" /> XL</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cf mb2">
+                        <div class="fl w-100">
+                            <div class="fl w-25 pa2">Color</div>
+                            <div class="fl w-50">
+                                <div class="mb2">
+                                    <label><input type="checkbox" name="color[]" value="white" /> White</label>
+                                </div>
+                                <div class="mb2">
+                                    <label><input type="checkbox" name="color[]" value="black" /> Black</label>
+                                </div>
+                                <div class="mb2">
+                                    <label><input type="checkbox" name="color[]" value="red" /> Red</label>
+                                </div>
+                                <div class="mb2">
+                                    <label><input type="checkbox" name="color[]" value="yellow" /> Yellow</label>
+                                </div>
+                                <div class="mb2">
+                                    <label><input type="checkbox" name="color[]" value="green" /> Green</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="js-step">
+                    <div class="cf mb2">
+                        <div class="fl w-100">
+                            <div class="fl w-25 pa2">Full name</div>
+                            <div class="fl w-30 mr2">
+                                <input
+                                    type="text"
+                                    class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                    name="firstName"
+                                    placeholder="First name"
+                                />
+                            </div>
+                            <div class="fl w-30">
+                                <input
+                                    type="text"
+                                    class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                    name="lastName"
+                                    placeholder="Last name"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cf mb2">
+                        <div class="fl w-100">
+                            <div class="fl w-25 pa2">Date of birth</div>
+                            <div class="fl w-75">
+                                <div class="fl w-100">
+                                    <div class="fl w-20">
+                                        <input
+                                            type="text"
+                                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                            name="date"
+                                            placeholder="Date"
+                                        />
+                                    </div>
+                                    <div class="fl w-20">
+                                        <input
+                                            type="text"
+                                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                            name="month"
+                                            placeholder="Month"
+                                        />
+                                    </div>
+                                    <div class="fl w-20">
+                                        <input
+                                            type="text"
+                                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                            name="year"
+                                            placeholder="Year"
+                                        />
+                                    </div>
+                                </div>
+
+                                <!-- Create a hidden field which is combined by 3 fields above -->
+                                <input type="hidden" name="dob" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cf mb2">
+                        <div class="fl w-100">
+                            <div class="fl w-25 pa2">Phone number</div>
+                            <div class="fl w-40">
+                                <input
+                                    type="text"
+                                    class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                    name="cellPhone"
+                                />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cf mb2">
+                        <div class="fl w-100">
+                            <div class="fl w-25 pa2">Street</div>
+                            <div class="fl w-75">
+                                <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="street" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cf mb2">
+                        <div class="fl w-100">
+                            <div class="fl w-25 pa2">City</div>
+                            <div class="fl w-40">
+                                <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="city" />
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="cf mb2">
+                        <div class="fl w-100">
+                            <div class="fl w-25 pa2">Zipcode</div>
+                            <div class="fl w-40">
+                                <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="zipCode" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf mb2">
+                    <div class="fl w-100">
+                        <div class="fl w-25 pa2"></div>
+                        <div class="fl w-50">
+                            <button type="button" class="ba b--black-20 bg-blue white ph3 pv2 br2" id="prevButton">
+                                Prev
+                            </button>
+                            <button type="button" class="ba b--black-20 bg-blue white ph3 pv2 br2" id="nextButton">
+                                Next
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/FormValidation.full.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Tachyons.min.js"></script>
+        <script src="/vendors/formvalidation/dist/js/plugins/Wizard.min.js"></script>
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const form = document.getElementById('demoForm');
+                const previousButton = document.getElementById('prevButton');
+
+                const fv = FormValidation.formValidation(form, {
+                    fields: {
+                        dob: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'Please fill out each field',
+                                },
+                                date: {
+                                    format: 'YYYY/MM/DD',
+                                    message: 'Please enter a valid date',
+                                },
+                            },
+                        },
+                        quantity: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The quantity is required',
+                                },
+                                greaterThan: {
+                                    min: 1,
+                                    message: 'The quantity must be greater than 0',
+                                },
+                                integer: {
+                                    message: 'The quantity must be a number',
+                                },
+                            },
+                        },
+                        'size[]': {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The size is required',
+                                },
+                            },
+                        },
+                        'color[]': {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The color is required',
+                                },
+                            },
+                        },
+                        firstName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The first name is required',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z\s]+$/,
+                                    message: 'The first name can only consist of alphabetical and space',
+                                },
+                            },
+                        },
+                        lastName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The last name is required',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z\s]+$/,
+                                    message: 'The last name can only consist of alphabetical and space',
+                                },
+                            },
+                        },
+                        cellPhone: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The phone number is required',
+                                },
+                                phone: {
+                                    country: 'US',
+                                    message: 'The value is not valid US phone number',
+                                },
+                            },
+                        },
+                        street: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The street is required',
+                                },
+                            },
+                        },
+                        city: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The city is required',
+                                },
+                            },
+                        },
+                        zipCode: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The zip code is required',
+                                },
+                                zipCode: {
+                                    country: 'US',
+                                    message: 'The value is not valid US zip code',
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        tachyons: new FormValidation.plugins.Tachyons(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                        wizard: new FormValidation.plugins.Wizard({
+                            stepSelector: '.js-step',
+                            prevButton: '#prevButton',
+                            nextButton: '#nextButton',
+                            isFieldExcluded: function (field, element, elements) {
+                                return field === 'dob' && fv.getPlugin('wizard').getCurrentStep() === 1
+                                    ? false
+                                    : FormValidation.plugins.Excluded.defaultIgnore(field, element, elements);
+                            },
+                        }),
+                    },
+                })
+                    .on('plugins.wizard.step.active', function (e) {
+                        // Show or hide the previous button if we are at the first step
+                        previousButton.style.display = e.step == 0 ? 'none' : 'inline-block';
+
+                        document.getElementById('nextButton').innerHTML =
+                            e.step === e.numSteps - 1 ? 'Purchase' : 'Next';
+                    })
+                    .on('plugins.wizard.step.invalid', function (e) {
+                        console.log(`Step ${e.step} is invalid`);
+                    })
+                    .on('plugins.wizard.valid', function (e) {
+                        document.getElementById('nextButton').innerHTML = 'Done';
+                    });
+
+                const keyupHandler = function () {
+                    const y = form.querySelector('[name="year"]').value;
+                    const m = form.querySelector('[name="month"]').value;
+                    const d = form.querySelector('[name="date"]').value;
+
+                    // Set the dob field value
+                    const dob = y === '' || m === '' || d === '' ? '' : [y, m, d].join('/');
+                    form.querySelector('[name="dob"]').value = dob;
+
+                    // Revalidate it
+                    fv.revalidateField('dob');
+                };
+
+                form.querySelector('[name="year"]').addEventListener('keyup', keyupHandler);
+                form.querySelector('[name="month"]').addEventListener('keyup', keyupHandler);
+                form.querySelector('[name="date"]').addEventListener('keyup', keyupHandler);
+            });
+        </script>
+    </body>
+</html>
