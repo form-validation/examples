@@ -4,12 +4,9 @@
         <title>Wizard plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
-        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <form id="demoForm" method="POST">
@@ -72,20 +69,10 @@
                     <div class="fl w-100">
                         <div class="fl w-25 pa2">Full name</div>
                         <div class="fl w-30 mr2">
-                            <input
-                                type="text"
-                                class="input-reset ba b--black-20 pa2 mb2 db w-100"
-                                name="firstName"
-                                placeholder="First name"
-                            />
+                            <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="firstName" placeholder="First name" />
                         </div>
                         <div class="fl w-30">
-                            <input
-                                type="text"
-                                class="input-reset ba b--black-20 pa2 mb2 db w-100"
-                                name="lastName"
-                                placeholder="Last name"
-                            />
+                            <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="lastName" placeholder="Last name" />
                         </div>
                     </div>
                 </div>
@@ -131,12 +118,8 @@
                 <div class="fl w-100">
                     <div class="fl w-25 pa2"></div>
                     <div class="fl w-50">
-                        <button type="button" class="ba b--black-20 bg-blue white ph3 pv2 br2" id="prevButton">
-                            Prev
-                        </button>
-                        <button type="button" class="ba b--black-20 bg-blue white ph3 pv2 br2" id="nextButton">
-                            Next
-                        </button>
+                        <button type="button" class="ba b--black-20 bg-blue white ph3 pv2 br2" id="prevButton">Prev</button>
+                        <button type="button" class="ba b--black-20 bg-blue white ph3 pv2 br2" id="nextButton">Next</button>
                     </div>
                 </div>
             </div>
@@ -147,9 +130,9 @@
 You have to include the full version of FormValidation which contains all validators
 including the phone and zipCode validators
 -->
-        <script src="/vendors/formvalidation/dist/js/FormValidation.full.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Tachyons.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Wizard.min.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/full.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-tachyons/index.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-wizard/index.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {
@@ -260,8 +243,7 @@ including the phone and zipCode validators
                 })
                     // Update the label of Next button
                     .on('plugins.wizard.step.active', function (e) {
-                        document.getElementById('nextButton').innerHTML =
-                            e.step === e.numSteps - 1 ? 'Purchase' : 'Next';
+                        document.getElementById('nextButton').innerHTML = e.step === e.numSteps - 1 ? 'Purchase' : 'Next';
                     })
                     .on('plugins.wizard.valid', function (e) {
                         document.getElementById('nextButton').innerHTML = 'Done';

@@ -1,18 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>UIKit stacked form - FormValidation</title>
+        <title>UIKit horizontal form - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
-        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
+        <style>
+            .uk-form-horizontal .uk-form-label {
+                width: 200px;
+                margin-top: 7px;
+                float: left;
+            }
+            .uk-form-horizontal .uk-form-controls {
+                margin-left: 215px;
+            }
+        </style>
     </head>
     <body>
-        <form id="demoForm" method="POST" class="uk-form-stacked">
+        <form id="demoForm" method="POST" class="uk-form-horizontal">
             <div class="uk-margin">
                 <label class="uk-form-label">Product name</label>
                 <div class="uk-form-controls">
@@ -46,14 +53,17 @@
             </div>
 
             <div class="uk-margin">
-                <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
-                <button type="submit" class="uk-button uk-button-primary">Add product</button>
+                <label class="uk-form-label"></label>
+                <div class="uk-form-controls">
+                    <!-- Do NOT use name="submit" or id="submit" for the Submit button -->
+                    <button type="submit" class="uk-button uk-button-primary">Add product</button>
+                </div>
             </div>
         </form>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Uikit.min.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-ui-kit/index.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {
@@ -102,7 +112,7 @@
                     },
                     plugins: {
                         trigger: new FormValidation.plugins.Trigger(),
-                        uikit: new FormValidation.plugins.Uikit(),
+                        uikit: new FormValidation.plugins.UiKit(),
                         submitButton: new FormValidation.plugins.SubmitButton(),
                         icon: new FormValidation.plugins.Icon({
                             valid: 'fa fa-check',

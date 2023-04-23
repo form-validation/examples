@@ -4,12 +4,9 @@
         <title>Changing success and error colors - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
-        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
         <style>
             .my-field-error .fv-plugins-message-container,
             .my-field-error .fv-plugins-icon {
@@ -52,8 +49,8 @@
         </form>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Tachyons.min.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-tachyons/index.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {
@@ -71,8 +68,7 @@
                                 },
                                 regexp: {
                                     regexp: /^[a-zA-Z0-9_\.]+$/,
-                                    message:
-                                        'The username can only consist of alphabetical, number, dot and underscore',
+                                    message: 'The username can only consist of alphabetical, number, dot and underscore',
                                 },
                             },
                         },

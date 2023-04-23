@@ -4,12 +4,9 @@
         <title>Localize error messages of a custom validator - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <div class="mb-3 row">
@@ -17,12 +14,8 @@
                 <!-- A simple locale switcher -->
                 <div class="btn-group">
                     <!-- The data-locale attribute will be used later -->
-                    <button type="button" class="btn btn-primary active setLocaleButton" data-locale="en_US">
-                        English
-                    </button>
-                    <button type="button" class="btn btn-primary setLocaleButton" data-locale="vi_VN">
-                        Tiếng Việt
-                    </button>
+                    <button type="button" class="btn btn-primary active setLocaleButton" data-locale="en_US">English</button>
+                    <button type="button" class="btn btn-primary setLocaleButton" data-locale="vi_VN">Tiếng Việt</button>
                 </div>
             </div>
         </div>
@@ -56,11 +49,11 @@
             </div>
         </form>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap5.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/L10n.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/locales/en_US.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/locales/vi_VN.min.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-l10n/index.min.js"></script>
+        <script src="/vendors/@form-validation/umd/locales/en_US.min.js"></script>
+        <script src="/vendors/@form-validation/umd/locales/vi_VN.min.js"></script>
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {
                 const strongPassword = function () {
