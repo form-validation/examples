@@ -332,6 +332,7 @@ Use the [Wizard plugin](https://formvalidation.io/guide/plugins/wizard) to valid
 ## Misc
 
 * Use with [requirejs](https://requirejs.org): [source](use-with-requirejs/README.md)
+* Use with [webpack](https://webpack.js.org): [source](webpack/README.md)
 
 ## About
 
