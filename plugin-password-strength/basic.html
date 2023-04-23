@@ -4,12 +4,9 @@
         <title>PasswordStrength plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
-        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <form id="demoForm" method="POST">
@@ -28,9 +25,9 @@
         <!-- Include zxcvbn library -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
 
-        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Tachyons.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/PasswordStrength.min.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-tachyons/index.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-password-strength/index.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {

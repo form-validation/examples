@@ -5,12 +5,9 @@
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/css/select2.min.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
-        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <form id="demoForm" method="post">
@@ -18,13 +15,7 @@
                 <div class="fl w-100">
                     <div class="fl w-25 pa2">Favorite color</div>
                     <div class="fl w-50">
-                        <select
-                            name="colors"
-                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
-                            multiple
-                            data-placeholder="Choose 2-4 colors"
-                            style="width: 100%"
-                        >
+                        <select name="colors" class="input-reset ba b--black-20 pa2 mb2 db w-100" multiple data-placeholder="Choose 2-4 colors" style="width: 100%">
                             <option value="black">Black</option>
                             <option value="blue">Blue</option>
                             <option value="green">Green</option>
@@ -41,13 +32,7 @@
                 <div class="fl w-100">
                     <div class="fl w-25 pa2">Favorite colors using tags</div>
                     <div class="fl w-50">
-                        <select
-                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
-                            name="colors-tags"
-                            multiple
-                            data-placeholder="Choose 2-4 colors"
-                            style="width: 100%"
-                        ></select>
+                        <select class="input-reset ba b--black-20 pa2 mb2 db w-100" name="colors-tags" multiple data-placeholder="Choose 2-4 colors" style="width: 100%"></select>
                     </div>
                 </div>
             </div>
@@ -65,8 +50,8 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.7/js/select2.min.js"></script>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Tachyons.min.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-tachyons/index.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {

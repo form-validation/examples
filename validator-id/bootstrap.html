@@ -4,15 +4,9 @@
         <title>id validator - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
-        />
-        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <form id="demoForm" method="POST">
@@ -83,8 +77,8 @@
 You have to include the full version of FormValidation which contains all validators
 including the id validator 
 -->
-        <script src="/vendors/formvalidation/dist/js/FormValidation.full.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Bootstrap.min.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/full.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {

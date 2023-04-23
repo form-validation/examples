@@ -7,13 +7,13 @@
         "dev": "webpack serve"
     },
     "dependencies": {
-        "@form-validation/bundle": "2.0.1",
-        "@form-validation/core": "2.0.1",
-        "@form-validation/locales": "^2.0.1",
-        "@form-validation/plugin-bootstrap5": "2.0.1",
-        "@form-validation/plugin-icon": "2.0.1",
-        "@form-validation/plugin-submit-button": "2.0.1",
-        "@form-validation/plugin-trigger": "2.0.1"
+        "@form-validation/bundle": "2.0.2",
+        "@form-validation/core": "2.0.2",
+        "@form-validation/locales": "^2.0.2",
+        "@form-validation/plugin-bootstrap5": "2.0.2",
+        "@form-validation/plugin-icon": "2.0.2",
+        "@form-validation/plugin-submit-button": "2.0.2",
+        "@form-validation/plugin-trigger": "2.0.2"
     },
     "devDependencies": {
         "@babel/core": "^7.21.4",

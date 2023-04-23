@@ -4,12 +4,9 @@
         <title>Declarative plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
-        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <form id="demoForm" method="POST">
@@ -58,13 +55,7 @@
                     <div class="fl w-75">
                         <div class="mb2">
                             <label>
-                                <input
-                                    type="checkbox"
-                                    name="size[]"
-                                    value="s"
-                                    data-fv-not-empty="true"
-                                    data-fv-not-empty___message="The size is required"
-                                />
+                                <input type="checkbox" name="size[]" value="s" data-fv-not-empty="true" data-fv-not-empty___message="The size is required" />
                                 S
                             </label>
                         </div>
@@ -87,13 +78,7 @@
                     <div class="fl w-75">
                         <div class="mb2">
                             <label>
-                                <input
-                                    type="radio"
-                                    name="availability"
-                                    value="yes"
-                                    data-fv-not-empty="true"
-                                    data-fv-not-empty___message="The availability option is required"
-                                />
+                                <input type="radio" name="availability" value="yes" data-fv-not-empty="true" data-fv-not-empty___message="The availability option is required" />
                                 Yes
                             </label>
                         </div>
@@ -115,8 +100,8 @@
         </form>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Tachyons.min.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-tachyons/index.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {

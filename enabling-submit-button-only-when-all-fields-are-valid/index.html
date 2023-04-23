@@ -4,12 +4,9 @@
         <title>Enabling submit button only when all fields are valid - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
-        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <form id="demoForm" method="POST">
@@ -19,18 +16,10 @@
                     <div class="fl w-75">
                         <div class="fl w-100">
                             <div class="fl w-50">
-                                <input
-                                    type="text"
-                                    name="firstName"
-                                    class="input-reset ba b--black-20 pa2 mb2 db w-100"
-                                />
+                                <input type="text" name="firstName" class="input-reset ba b--black-20 pa2 mb2 db w-100" />
                             </div>
                             <div class="fl w-50">
-                                <input
-                                    type="text"
-                                    name="lastName"
-                                    class="input-reset ba b--black-20 pa2 mb2 db w-100"
-                                />
+                                <input type="text" name="lastName" class="input-reset ba b--black-20 pa2 mb2 db w-100" />
                             </div>
                         </div>
                     </div>
@@ -64,17 +53,9 @@
                 <div class="fl w-100">
                     <div class="fl w-25 pa2">Gender</div>
                     <div class="fl w-50">
-                        <label for="genderMale" class="lh-copy mr4"
-                            ><input class="mr2" type="radio" name="gender" id="genderMale" value="male" /> Male</label
-                        >
-                        <label for="genderFemale" class="lh-copy mr4"
-                            ><input class="mr2" type="radio" name="gender" id="genderFemale" value="female" />
-                            Female</label
-                        >
-                        <label for="genderOther" class="lh-copy"
-                            ><input class="mr2" type="radio" name="gender" id="genderOther" value="other" />
-                            Other</label
-                        >
+                        <label for="genderMale" class="lh-copy mr4"><input class="mr2" type="radio" name="gender" id="genderMale" value="male" /> Male</label>
+                        <label for="genderFemale" class="lh-copy mr4"><input class="mr2" type="radio" name="gender" id="genderFemale" value="female" /> Female</label>
+                        <label for="genderOther" class="lh-copy"><input class="mr2" type="radio" name="gender" id="genderOther" value="other" /> Other</label>
                     </div>
                 </div>
             </div>
@@ -82,10 +63,7 @@
                 <div class="fl w-100">
                     <div class="fl w-25 pa2"></div>
                     <div class="fl w-50">
-                        <label class="lh-copy"
-                            ><input class="mr2" type="checkbox" name="agree" value="agree" /> Agree with the terms and
-                            conditions</label
-                        >
+                        <label class="lh-copy"><input class="mr2" type="checkbox" name="agree" value="agree" /> Agree with the terms and conditions</label>
                     </div>
                 </div>
             </div>
@@ -100,8 +78,8 @@
         </form>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Tachyons.min.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-tachyons/index.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {

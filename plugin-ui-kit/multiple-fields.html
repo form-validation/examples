@@ -4,12 +4,9 @@
         <title>Multiple fields in the same row - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-        />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.3/css/uikit.min.css" />
-        <link rel="stylesheet" href="/vendors/formvalidation/dist/css/formValidation.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <form id="demoForm" method="POST" class="uk-form-horizontal">
@@ -46,8 +43,8 @@
         </form>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/FormValidation.min.js"></script>
-        <script src="/vendors/formvalidation/dist/js/plugins/Uikit.min.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-ui-kit/index.min.js"></script>
 
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {
@@ -99,7 +96,7 @@
                     },
                     plugins: {
                         trigger: new FormValidation.plugins.Trigger(),
-                        uikit: new FormValidation.plugins.Uikit({
+                        uikit: new FormValidation.plugins.UiKit({
                             rowSelector: function (field, ele) {
                                 // field is the field name
                                 // ele is the field element
