@@ -1,10 +1,10 @@
 define(function (require) {
-    const formValidation = require('../FormValidation/core/Core').default;
+    const { formValidation } = require('@form-validation/bundle/popular');
     // Plugins
-    const Bootstrap = require('../FormValidation/plugins/Bootstrap').default;
-    const Icon = require('../FormValidation/plugins/Icon').default;
-    const SubmitButton = require('../FormValidation/plugins/SubmitButton').default;
-    const Trigger = require('../FormValidation/plugins/Trigger').default;
+    const { Bootstrap } = require('@form-validation/plugin-bootstrap');
+    const { Icon } = require('@form-validation/plugin-icon');
+    const { SubmitButton } = require('@form-validation/plugin-submit-button');
+    const { Trigger } = require('@form-validation/plugin-trigger');
 
     const demoForm = document.getElementById('demoForm');
     const fv = formValidation(demoForm, {
@@ -61,7 +61,7 @@ define(function (require) {
                     different: {
                         message: 'The password cannot be the same as username',
                         compare: function () {
-                            return form.querySelector('[name="username"]').value;
+                            return demoForm.querySelector('[name="username"]').value;
                         },
                     },
                 },
