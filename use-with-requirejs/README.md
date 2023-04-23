@@ -2,22 +2,20 @@
 
 In order to integrate [FormValidation](https://formvalidation.io) with [requirejs](https://requirejs.org), perform the following steps:
 
-1. Copy all the files and folders of the `<FormValidation>/dist/amd` folder to the `www/lib/FormValidation` folder
+1. Copy all the files and folders of the `/dist/@form-validation/amd` folder to the `www/lib/@form-validation` folder
 
-The `www/lib/FormValidation` folder then will consist of the following files:
+The `www/lib/@form-validation` folder then will consist of the following files:
 
 ```js
 www
 └── lib
-    └── FormValidation
-        ├── algorithms
+    └── @form-validation
+        ├── bundle
         ├── core
-        ├── filters
         ├── locales
-        ├── plugins
-        ├── utils
-        ├── validators
-        └── index.js
+        ├── plugins-[PluginName]
+        ├── styles
+        └── validators-[ValidatorName]
 ```
 
 2. The `index.html` file contains the markup of the form that you want to validate
