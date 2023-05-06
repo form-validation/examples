@@ -4,15 +4,22 @@
         <title>L10n plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
         <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <div class="mb2 pa2">
             Choose language
-            <button type="button" class="ba b--black-20 ph3 pv2 br2 setLocaleButton" data-locale="en_US">English</button>
-            <button type="button" class="ba b--black-20 ph3 pv2 br2 setLocaleButton" data-locale="vi_VN">Tiếng Việt</button>
+            <button type="button" class="ba b--black-20 ph3 pv2 br2 setLocaleButton" data-locale="en_US">
+                English
+            </button>
+            <button type="button" class="ba b--black-20 ph3 pv2 br2 setLocaleButton" data-locale="vi_VN">
+                Tiếng Việt
+            </button>
         </div>
 
         <form id="demoForm" method="POST">
@@ -44,9 +51,17 @@
                 <div class="fl w-100">
                     <div class="fl w-25 pa2">Gender</div>
                     <div class="fl w-50">
-                        <label for="genderMale" class="lh-copy mr4"><input class="mr2" type="radio" name="gender" id="genderMale" value="male" /> Male</label>
-                        <label for="genderFemale" class="lh-copy mr4"><input class="mr2" type="radio" name="gender" id="genderFemale" value="female" /> Female</label>
-                        <label for="genderOther" class="lh-copy"><input class="mr2" type="radio" name="gender" id="genderOther" value="other" /> Other</label>
+                        <label for="genderMale" class="lh-copy mr4"
+                            ><input class="mr2" type="radio" name="gender" id="genderMale" value="male" /> Male</label
+                        >
+                        <label for="genderFemale" class="lh-copy mr4"
+                            ><input class="mr2" type="radio" name="gender" id="genderFemale" value="female" />
+                            Female</label
+                        >
+                        <label for="genderOther" class="lh-copy"
+                            ><input class="mr2" type="radio" name="gender" id="genderOther" value="other" />
+                            Other</label
+                        >
                     </div>
                 </div>
             </div>
@@ -54,7 +69,12 @@
                 <div class="fl w-100">
                     <div class="fl w-25 pa2">Date of birth</div>
                     <div class="fl w-50">
-                        <input type="text" name="birthday" placeholder="YYYY/MM/DD" class="input-reset ba b--black-20 pa2 mb2 db w-100" />
+                        <input
+                            type="text"
+                            name="birthday"
+                            placeholder="YYYY/MM/DD"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                        />
                     </div>
                 </div>
             </div>

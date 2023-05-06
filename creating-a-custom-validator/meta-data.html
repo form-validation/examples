@@ -4,8 +4,14 @@
         <title>Creating a custom validator - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+        />
         <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
@@ -55,7 +61,8 @@
 
                             // By default, the password is treat as invalid if the score is smaller than 3
                             // We allow user to change this number via options.minimalScore
-                            const minimalScore = input.options && input.options.minimalScore ? input.options.minimalScore : 3;
+                            const minimalScore =
+                                input.options && input.options.minimalScore ? input.options.minimalScore : 3;
 
                             if (score < minimalScore) {
                                 return {

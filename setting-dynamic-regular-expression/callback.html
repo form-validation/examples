@@ -4,7 +4,10 @@
         <title>FormValidation example - Setting dynamic regular expression</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
         <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
@@ -81,7 +84,10 @@
                                         // Get the selected ISBN type
                                         const isbnType = demoForm.querySelector('[name="isbnType"]').value;
                                         const pattern = isbnType === 'isbn10' ? ISBN10_REGEXP : ISBN13_REGEXP;
-                                        const mesage = isbnType === 'isbn10' ? 'The input is not a valid ISBN 10' : 'The input is not a valid ISBN 13';
+                                        const mesage =
+                                            isbnType === 'isbn10'
+                                                ? 'The input is not a valid ISBN 10'
+                                                : 'The input is not a valid ISBN 13';
 
                                         // Use the regexp validator
                                         const result = FormValidation.validators.regexp().validate({
