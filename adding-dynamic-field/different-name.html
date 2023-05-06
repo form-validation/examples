@@ -5,7 +5,10 @@
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
 
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
 
         <!-- Replace with your path -->
@@ -17,16 +20,33 @@
                 <div class="fl w-100">
                     <div class="fl w-10 pa2">Book</div>
                     <div class="fl w-30 mr2">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="book[0].title" placeholder="Title" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            name="book[0].title"
+                            placeholder="Title"
+                        />
                     </div>
                     <div class="fl w-25 mr2">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="book[0].isbn" placeholder="ISBN" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            name="book[0].isbn"
+                            placeholder="ISBN"
+                        />
                     </div>
                     <div class="fl w-20 mr2">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="book[0].price" placeholder="Price" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            name="book[0].price"
+                            placeholder="Price"
+                        />
                     </div>
                     <div class="fl w-10 ph2">
-                        <button type="button" class="ba b--black-20 bg-green white ph3 pv2 br2" id="addButton">+</button>
+                        <button type="button" class="ba b--black-20 bg-green white ph3 pv2 br2" id="addButton">
+                            +
+                        </button>
                     </div>
                 </div>
             </div>
@@ -36,16 +56,33 @@
                 <div class="fl w-100">
                     <div class="fl w-10 pa2">Book</div>
                     <div class="fl w-30 mr2">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" data-name="book.title" placeholder="Title" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            data-name="book.title"
+                            placeholder="Title"
+                        />
                     </div>
                     <div class="fl w-25 mr2">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" data-name="book.isbn" placeholder="ISBN" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            data-name="book.isbn"
+                            placeholder="ISBN"
+                        />
                     </div>
                     <div class="fl w-20 mr2">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" data-name="book.price" placeholder="Price" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            data-name="book.price"
+                            placeholder="Price"
+                        />
                     </div>
                     <div class="fl w-10 ph2">
-                        <button type="button" class="ba b--black-20 bg-green white ph3 pv2 br2 js-remove-button">-</button>
+                        <button type="button" class="ba b--black-20 bg-green white ph3 pv2 br2 js-remove-button">
+                            -
+                        </button>
                     </div>
                 </div>
             </div>
@@ -146,9 +183,13 @@
                     // Insert before the template
                     template.before(clone);
 
-                    clone.querySelector('[data-name="book.title"]').setAttribute('name', 'book[' + rowIndex + '].title');
+                    clone
+                        .querySelector('[data-name="book.title"]')
+                        .setAttribute('name', 'book[' + rowIndex + '].title');
                     clone.querySelector('[data-name="book.isbn"]').setAttribute('name', 'book[' + rowIndex + '].isbn');
-                    clone.querySelector('[data-name="book.price"]').setAttribute('name', 'book[' + rowIndex + '].price');
+                    clone
+                        .querySelector('[data-name="book.price"]')
+                        .setAttribute('name', 'book[' + rowIndex + '].price');
 
                     // Add new fields
                     // Note that we also pass the validator rules for new field as the third parameter

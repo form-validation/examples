@@ -4,8 +4,14 @@
         <title>Integrating with MagicSuggest - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css"
+        />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/magicsuggest/2.1.4/magicsuggest-min.css" />
         <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
 
@@ -70,7 +76,18 @@
                 const destField = demoForm.querySelector('[name="dest"]');
 
                 const destinationEle = jQuery('#destination').magicSuggest({
-                    data: ['Amsterdam', 'Barcelona', 'Hanoi', 'London', 'New York', 'Paris', 'Rome', 'San Francisco', 'Seoul', 'Tokyo'],
+                    data: [
+                        'Amsterdam',
+                        'Barcelona',
+                        'Hanoi',
+                        'London',
+                        'New York',
+                        'Paris',
+                        'Rome',
+                        'San Francisco',
+                        'Seoul',
+                        'Tokyo',
+                    ],
                     maxSelection: 1,
                 });
                 jQuery(destinationEle).on('selectionchange', function (e, m) {

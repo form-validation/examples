@@ -6,7 +6,10 @@
         <meta content="width=device-width,initial-scale=1" name="viewport" />
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
 
         <!-- Replace with your path -->
@@ -18,13 +21,25 @@
                 <div class="fl w-100">
                     <div class="fl w-10 pa2">Task(s)</div>
                     <div class="fl w-40 mr2">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="task[0].title" placeholder="Title" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            name="task[0].title"
+                            placeholder="Title"
+                        />
                     </div>
                     <div class="fl w-30 mr2">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="task[0].dueDate" placeholder="Due date" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            name="task[0].dueDate"
+                            placeholder="Due date"
+                        />
                     </div>
                     <div class="fl w-10 ph2">
-                        <button type="button" class="ba b--black-20 bg-green white ph3 pv2 br2" id="addButton">+</button>
+                        <button type="button" class="ba b--black-20 bg-green white ph3 pv2 br2" id="addButton">
+                            +
+                        </button>
                     </div>
                 </div>
             </div>
@@ -34,13 +49,25 @@
                 <div class="fl w-100">
                     <div class="fl w-10 pa2"></div>
                     <div class="fl w-40 mr2">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" data-name="task.title" placeholder="Title" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            data-name="task.title"
+                            placeholder="Title"
+                        />
                     </div>
                     <div class="fl w-30 mr2">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" data-name="task.dueDate" placeholder="Due date" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            data-name="task.dueDate"
+                            placeholder="Due date"
+                        />
                     </div>
                     <div class="fl w-10 ph2">
-                        <button type="button" class="ba b--black-20 bg-green white ph3 pv2 br2 js-remove-button">-</button>
+                        <button type="button" class="ba b--black-20 bg-green white ph3 pv2 br2 js-remove-button">
+                            -
+                        </button>
                     </div>
                 </div>
             </div>
@@ -156,12 +183,19 @@
                     // Insert before the template
                     template.before(clone);
 
-                    clone.querySelector('[data-name="task.title"]').setAttribute('name', 'task[' + rowIndex + '].title');
-                    clone.querySelector('[data-name="task.dueDate"]').setAttribute('name', 'task[' + rowIndex + '].dueDate');
+                    clone
+                        .querySelector('[data-name="task.title"]')
+                        .setAttribute('name', 'task[' + rowIndex + '].title');
+                    clone
+                        .querySelector('[data-name="task.dueDate"]')
+                        .setAttribute('name', 'task[' + rowIndex + '].dueDate');
 
                     // Add new fields
                     // Note that we also pass the validator rules for new field as the third parameter
-                    fv.addField('task[' + rowIndex + '].title', titleValidators).addField('task[' + rowIndex + '].dueDate', dueDateValidators);
+                    fv.addField('task[' + rowIndex + '].title', titleValidators).addField(
+                        'task[' + rowIndex + '].dueDate',
+                        dueDateValidators
+                    );
 
                     // Handle the click event of removeButton
                     const removeBtn = clone.querySelector('.js-remove-button');

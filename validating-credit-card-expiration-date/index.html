@@ -4,7 +4,10 @@
         <title>Validating credit card expiration date - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
         <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
         <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
@@ -14,10 +17,20 @@
                 <div class="fl w-100">
                     <div class="fl w-25 pa2">Expiration</div>
                     <div class="fl w-30 mr2">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" placeholder="Month" name="expMonth" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            placeholder="Month"
+                            name="expMonth"
+                        />
                     </div>
                     <div class="fl w-30">
-                        <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" placeholder="Year" name="expYear" />
+                        <input
+                            type="text"
+                            class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                            placeholder="Year"
+                            name="expYear"
+                        />
                     </div>
                 </div>
             </div>
@@ -63,7 +76,10 @@
                                             return true;
                                         }
                                         const expYear = parseInt(year, 10);
-                                        if (expYear > currentYear || (expYear === currentYear && value >= currentMonth)) {
+                                        if (
+                                            expYear > currentYear ||
+                                            (expYear === currentYear && value >= currentMonth)
+                                        ) {
                                             fv.updateFieldStatus('expYear', 'Valid');
                                             return true;
                                         } else {
