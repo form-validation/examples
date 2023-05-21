@@ -35,6 +35,7 @@ Use the [Aria plugin](https://formvalidation.io/guide/plugins/aria) to add ARIA 
 Use the [AutoFocus plugin](https://formvalidation.io/guide/plugins/auto-focus) to focus on the first invalid element when submit form.
 
 * Basic example: [source](plugin-auto-focus/basic.html), [live demo](https://formvalidation.io/guide/plugins/auto-focus)
+* The page has a fixed header: [source](plugin-auto-focus/fixed-header.html)
 
 ### Bootstrap plugin
 
