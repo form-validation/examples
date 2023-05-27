@@ -1,6 +1,6 @@
 <?php
 // Replace with your secrey key
-$secretKey = '___REPLACE_WITH_YOUR_SECRECT_KEY___';
+$secretKey = '___REPLACE_WITH_YOUR_SECRET_KEY___';
 
 $url = 'https://www.google.com/recaptcha/api/siteverify?secret='
         . urlencode($secretKey)
