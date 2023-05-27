@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+        <head>
+            <title>Integrating with SecureSubmit - FormValidation</title>
+            <meta charset="utf-8" />
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+            <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        </head>
+        <body>
+            <form id="demoForm" method="POST">
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Credit card number</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="cc" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Expiration</label>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="expMonth" placeholder="Month" />
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control" name="expYear" placeholder="Year" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">CVV number</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="cvv" />
+                    </div>
+                </div>
+            
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
+                    </div>
+                </div>
+
+                <input name="hiddenToken" type="hidden" />
+            </form>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+            <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+            <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
+            <script>
+            document.addEventListener('DOMContentLoaded', function(e) {
+                const demoForm = document.getElementById('demoForm');
+                const fv = FormValidation.formValidation(demoForm, {
+                    fields: {
+                        cc: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The credit card number is required'
+                                },
+                                creditCard: {
+                                    message: 'The credit card number is not valid'
+                                },
+                            }
+                        },
+                        expMonth: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The expiration month is required'
+                                },
+                                digits: {
+                                    message: 'The expiration month can contain digits only'
+                                },
+                                callback: {
+                                    message: 'Expired',
+                                    callback: function(input) {
+                                        const value = parseInt(input.value, 10);
+                                        const year  = demoForm.querySelector('[name="expYear"]').value;
+                                        const currentMonth = (new Date()).getMonth() + 1;
+                                        const currentYear  = (new Date()).getFullYear();
+                                        if (value < 0 || value > 12) {
+                                            return false;
+                                        }
+                                        if (year === '') {
+                                            return true;
+                                        }
+                                        const expYear = parseInt(year, 10);
+                                        if (expYear > currentYear || (expYear === currentYear && value >= currentMonth)) {
+                                            fv.updateFieldStatus('expYear', 'Valid');
+                                            return true;
+                                        } else {
+                                            return false;
+                                        }
+                                    },
+                                },
+                            },
+                        },
+                        expYear: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The expiration year is required'
+                                },
+                                digits: {
+                                    message: 'The expiration year can contain digits only'
+                                },
+                                callback: {
+                                    message: 'Expired',
+                                    callback: function(input) {
+                                        const value = parseInt(input.value, 10);
+                                        const month = demoForm.querySelector('[name="expMonth"]').value;
+                                        const currentMonth = new Date().getMonth() + 1;
+                                        const currentYear  = new Date().getFullYear();
+                                        if (value < currentYear || value > currentYear + 10) {
+                                            return false;
+                                        }
+                                        if (month == '') {
+                                            return false;
+                                        }
+                                        const expMonth = parseInt(month, 10);
+                                        if (value > currentYear || (value == currentYear && expMonth >= currentMonth)) {
+                                            fv.updateFieldStatus('expMonth', 'Valid');
+                                            return true;
+                                        } else {
+                                            return false;
+                                        }
+                                    },
+                                },
+                            },
+                        },
+                        cvv: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The CVV number is required'
+                                },
+                                regexp: {
+                                    regexp: /^[0-9]{3,4}$/,
+                                    message: 'The CVV number is not valid'
+                                },
+                            }
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        bootstrap: new FormValidation.plugins.Bootstrap({
+                            rowSelector: function(field, ele) {
+                                switch (field) {
+                                    case 'expMonth': 
+                                    case 'expYear':
+                                        return '.col-md-4';
+                                    default:
+                                        return '.form-group';
+                                }
+                            }
+                        }),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh'
+                        }),
+                    }
+                });
+
+                // Send the data to HeartLand when the form is valid
+                fv.on('core.form.valid', function() {
+                    console.log('Send data to HeartLand');
+                    $.ajax({
+                        cache: false,
+                        url: 'https://cert.api2.heartlandportico.com/Hps.Exchange.PosGateway.Hpf.v1/api/token',
+                        data: {
+                            'api_key': 'pkapi_cert_aaaaaaaaaaa',
+                            'object': 'token',
+                            'token_type': 'supt',
+                            '_method': 'post',
+                            'card[number]': demoForm.querySelector('[name="cc"]').value,
+                            'card[cvc]': demoForm.querySelector('[name="cvv"]').value,
+                            'card[exp_month]': demoForm.querySelector('[name="expMonth"]').value,
+                            'card[exp_year]': demoForm.querySelector('[name="expYear"]').value
+                        },
+                        dataType: 'jsonp',
+                        success: function(response) {
+                            console.log(response);
+
+                            // Do whatever with the response
+                            // For example, set the token ...
+                            // demoForm.querySelector('[name="hiddenToken"]').value = '...'
+
+                            // ... and submit the form
+                            demoForm.submit();
+                        }
+                    })
+                });
+            });
+            </script>
+        </body>
+</html>

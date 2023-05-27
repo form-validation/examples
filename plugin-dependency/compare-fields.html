@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Dependency plugin - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <form id="demoForm" method="POST">
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Smaller number</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="smaller" />
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Bigger number</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="bigger" />
+                    </div>
+                </div>
+            
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn btn-primary">Validate</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            const demoForm = document.getElementById('demoForm');
+            FormValidation.formValidation(demoForm, {
+                fields: {
+                    smaller: {
+                        validators: {
+                            callback: {
+                                message: 'Not valid',
+                                callback: function(input) {
+                                    const bigValue = demoForm.querySelector('[name="bigger"]').value;
+                                    return input.value === '' || bigValue === '' || input.value <= parseInt(bigValue, 10);
+                                }
+                            },
+                        }
+                    },
+                    bigger: {
+                        validators: {
+                            callback: {
+                                message: 'Not valid',
+                                callback: function(input) {
+                                    const smallValue = demoForm.querySelector('[name="smaller"]').value;
+                                    return input.value === '' || smallValue === '' || input.value >= parseInt(smallValue, 10);
+                                }
+                            },
+                        }
+                    },
+                },
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    submitButton: new FormValidation.plugins.SubmitButton(),
+                    bootstrap: new FormValidation.plugins.Bootstrap(),
+                    icon: new FormValidation.plugins.Icon({
+                        valid: 'fa fa-check',
+                        invalid: 'fa fa-times',
+                        validating: 'fa fa-refresh'
+                    }),
+                    dependency: new FormValidation.plugins.Dependency({
+                        // When the `bigger` field is changed, we have to revalidate the `smaller` field
+                        bigger: 'smaller',
+                        // and vice versa
+                        smaller: 'bigger',
+                    }),
+                }
+            });
+        });
+        </script>
+    </body>
+</html>

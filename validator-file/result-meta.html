@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>file validator - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+    </head>
+    <body>
+        <form id="demoForm" method="POST">
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">File</label>
+                <div class="col-md-5">
+                    <input type="file" class="form-control" name="uploadFile" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <div class="col-sm-8 offset-sm-3">
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+            </div>
+        </form>
+
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            FormValidation.formValidation(
+                document.getElementById('demoForm'),
+                {
+                    fields: {
+                        uploadFile: {
+                            validators: {
+                                file: {
+                                    extension: 'csv',
+                                    type: 'text/csv',
+                                    message: 'The selected file is not valid'
+                                }
+                            }
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bootstrap: new FormValidation.plugins.Bootstrap(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh'
+                        }),
+                    },
+                }
+            ).on('core.validator.validated', function(e) {
+                if (e.field === 'uploadFile' && e.validator === 'file') {
+                    console.log(e.result.meta);
+                }
+            });
+        });
+        </script>
+    </body>
+</html>

@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+    <html>
+    <head>
+        <title>FieldStatus plugin - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+    </head>
+    <body>
+        <form id="demoForm" method="POST">
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Full name</label>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="firstName" placeholder="First name" value="Form" />
+                </div>
+                <div class="col-md-4">
+                    <input type="text" class="form-control" name="lastName" placeholder="Last name" value="Validation" />
+                </div>
+            </div>
+        
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Username</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="username" />
+                </div>
+            </div>
+        
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Email address</label>
+                <div class="col-md-5">
+                    <input type="text" class="form-control" name="email" />
+                </div>
+            </div>
+        
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Password</label>
+                <div class="col-md-5">
+                    <input type="password" class="form-control" name="password" />
+                </div>
+            </div>
+        
+            <div class="form-group row">
+                <label class="col-md-3 col-form-label">Gender</label>
+                <div class="col-md-6">
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" value="male" />
+                        <label class="form-check-label">Male</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" value="female" />
+                        <label class="form-check-label">Female</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input type="radio" class="form-check-input" name="gender" value="other" />
+                        <label class="form-check-label">Other</label>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="form-group row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="form-check">
+                        <input type="checkbox" class="form-check-input" name="agree" value="agree" />
+                        <label class="form-check-label">Agree with the terms and conditions</label>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="form-group row">
+                <div class="col-md-9 offset-md-3">
+                    <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
+                    <button type="button" class="btn btn-default" id="resetButton">Reset</button>
+                </div>
+            </div>
+        </form>
+
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            const form = document.getElementById('demoForm');
+
+            // Submit button
+            const submitButton = form.querySelector('[name="signup"]');
+
+            const fv = FormValidation.formValidation(form, {
+                fields: {
+                    firstName: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The first name is required'
+                            }
+                        }
+                    },
+                    lastName: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The last name is required'
+                            }
+                        }
+                    },
+                    username: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The username is required'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 30,
+                                message: 'The username must be more than 6 and less than 30 characters long'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9_]+$/,
+                                message: 'The username can only consist of alphabetical, number and underscore'
+                            }
+                        }
+                    },
+                    email: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The email address is required'
+                            },
+                            emailAddress: {
+                                message: 'The input is not a valid email address'
+                            }
+                        }
+                    },
+                    password: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The password is required'
+                            },
+                            stringLength: {
+                                min: 8,
+                                message: 'The password must have at least 8 characters'
+                            },
+                            different: {
+                                message: 'The password cannot be the same as username',
+                                compare: function() {
+                                    return form.querySelector('[name="username"]').value;
+                                }
+                            }
+                        }
+                    },
+                    gender: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The gender is required'
+                            }
+                        }
+                    },
+                    agree: {
+                        validators: {
+                            notEmpty: {
+                                message: 'You must agree with the terms and conditions'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    fieldStatus: new FormValidation.plugins.FieldStatus({
+                        onStatusChanged: function(areFieldsValid) {
+                            areFieldsValid
+                                // Enable the submit button, so user has a chance to submit the form again
+                                ? submitButton.removeAttribute('disabled')
+                                    // Disable the submit button
+                                : submitButton.setAttribute('disabled', 'disabled'); 
+                        }
+                    }),
+                    submitButton: new FormValidation.plugins.SubmitButton(),
+                    bootstrap: new FormValidation.plugins.Bootstrap({
+                        rowSelector: function(field, ele) {
+                            switch (field) {
+                                case 'firstName': 
+                                case 'lastName':
+                                    return '.col-md-4';
+                                default:
+                                    return '.form-group';
+                            }
+                        }
+                    }),
+                    icon: new FormValidation.plugins.Icon({
+                        valid: 'fa fa-check',
+                        invalid: 'fa fa-times',
+                        validating: 'fa fa-refresh'
+                    }),
+                }
+            });
+
+            document.getElementById('resetButton').addEventListener('click', function() {
+                fv.resetForm(true);
+            });
+        });
+        </script>
+    </body>
+</html>

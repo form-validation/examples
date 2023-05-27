@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Bootstrap plugin - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+                <li class="nav-item">
+                    <a class="nav-link active" data-toggle="tab" href="#personal">
+                        Personal information
+                        <i class="fa d-none"></i>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" data-toggle="tab" href="#account">
+                        Account
+                        <i class="fa d-none"></i>
+                    </a>
+                </li>
+            </ul>
+            <form id="demoForm" method="POST" style="margin-top: 20px">
+                <div class="tab-content" id="myTabContent">
+                    <div class="tab-pane fade show active" id="personal">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Full name</label>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="firstName" placeholder="First name" />
+                            </div>
+                            <div class="col-md-4">
+                                <input type="text" class="form-control" name="lastName" placeholder="Last name" />
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Gender</label>
+                            <div class="col-md-6">
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="gender" value="male" />
+                                    <label class="form-check-label">Male</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="gender" value="female" />
+                                    <label class="form-check-label">Female</label>
+                                </div>
+                                <div class="form-check form-check-inline">
+                                    <input type="radio" class="form-check-input" name="gender" value="other" />
+                                    <label class="form-check-label">Other</label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tab-pane fade" id="account">
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Username</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" name="username" />
+                            </div>
+                        </div>
+                    
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Email address</label>
+                            <div class="col-md-5">
+                                <input type="text" class="form-control" name="email" />
+                            </div>
+                        </div>
+                    
+                        <div class="form-group row">
+                            <label class="col-md-3 col-form-label">Password</label>
+                            <div class="col-md-5">
+                                <input type="password" class="form-control" name="password" />
+                            </div>
+                        </div>
+                    </div>    
+                </div>
+
+                <button type="submit" class="btn btn-primary" name="signup" value="Sign up">Submit</button>
+            </form>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            // Tab setup
+            $('#myTab a').on('click', function (e) {
+                e.preventDefault()
+                $(this).tab('show');
+            });
+
+            // Map the tab Ids with all fields belong to the tab
+            // You can determine them programmatically
+            // Each tab will be treated valid if all associated fields are valid
+            const tabMap = {
+                personal: ['firstName', 'lastName', 'gender'],
+                account: ['username', 'email', 'password']
+            };
+            
+            // FormValidation setup
+            const demoForm = document.getElementById('demoForm');
+            const fv = FormValidation.formValidation(demoForm, {
+                fields: {
+                    firstName: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The first name is required'
+                            }
+                        }
+                    },
+                    lastName: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The last name is required'
+                            }
+                        }
+                    },
+                    username: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The username is required'
+                            },
+                            stringLength: {
+                                min: 6,
+                                max: 30,
+                                message: 'The username must be more than 6 and less than 30 characters long'
+                            },
+                            regexp: {
+                                regexp: /^[a-zA-Z0-9_]+$/,
+                                message: 'The username can only consist of alphabetical, number and underscore'
+                            }
+                        }
+                    },
+                    email: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The email address is required'
+                            },
+                            emailAddress: {
+                                message: 'The input is not a valid email address'
+                            }
+                        }
+                    },
+                    password: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The password is required'
+                            },
+                            stringLength: {
+                                min: 8,
+                                message: 'The password must have at least 8 characters'
+                            },
+                            different: {
+                                message: 'The password cannot be the same as username',
+                                compare: function() {
+                                    return demoForm.querySelector('[name="username"]').value;
+                                }
+                            }
+                        }
+                    },
+                    gender: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The gender is required'
+                            }
+                        }
+                    },
+                },
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    submitButton: new FormValidation.plugins.SubmitButton(),
+                    bootstrap: new FormValidation.plugins.Bootstrap({
+                        rowSelector: function(field, ele) {
+                            switch (field) {
+                                case 'firstName': 
+                                case 'lastName':
+                                    return '.col-md-4';
+                                default:
+                                    return '.form-group';
+                            }
+                        }
+                    }),
+                    icon: new FormValidation.plugins.Icon({
+                        valid: 'fa fa-check',
+                        invalid: 'fa fa-times',
+                        validating: 'fa fa-refresh'
+                    }),
+                    fieldStatus: new FormValidation.plugins.FieldStatus(),
+                }
+            })
+            .on('core.field.invalid', function(field) {
+                // This is called when the `field` is invalid
+
+                // Add an invalid icon to its tab
+                const ele = $(demoForm.querySelector('[name="' + field + '"]'));
+                const tabId = ele.closest('.tab-pane').attr('id');
+
+                // Query the tab title
+                const tabTitle = $('a[data-toggle="tab"][href="#' + tabId + '"]');
+
+                // Query the icon
+                const icon = tabTitle.find('i.fa');
+
+                // Show the icon
+                icon.attr('class', 'fa fa-times');
+            })
+            .on('core.field.valid', function(field) {
+                // This is called when the `field` is valid
+                
+                // Get the FieldStatus plugin
+                // `fv` is the FormValidation instance created above
+                const fieldStatusPlugin = fv.getPlugin('fieldStatus');
+                
+                // Get all field statuses
+                // IMPORTANT: If you're using v1.5.0 or older versions, then 
+                // change `getStatuses()` to `getStatues()`
+                const statuses = fieldStatusPlugin.getStatuses();
+                
+                // You can uncomment the next line to see `statuses`
+                // console.log(statuses);
+
+                // Get the tab
+                const ele = $(demoForm.querySelector('[name="' + field + '"]'));
+                const tabId = ele.closest('.tab-pane').attr('id');
+
+                // Get all elements inside the tab
+                const fields = tabMap[tabId];
+
+                // The tab is treated as invalid if it has at least one invalid field
+                // whose status is `Invalid`
+                const isTabValid = fields.filter((v) => statuses.get(v) === 'Valid').length === fields.length;
+                const isTabInvalid = fields.filter((v) => statuses.get(v) === 'Invalid').length > 0;
+
+                // Query the tab title
+                const tabTitle = $('a[data-toggle="tab"][href="#' + tabId + '"]');
+
+                // Query the icon
+                const icon = tabTitle.find('i.fa');
+
+                // Show/hide/update icon based on the validity of tab
+                isTabValid && icon.attr('class', 'fa fa-check');
+                isTabInvalid && icon.attr('class', 'fa fa-times');
+            });
+        });
+        </script>
+    </body>
+</html>

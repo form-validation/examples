@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>PasswordStrength plugin - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+    </head>
+    <body>
+        <div class="container mt-5">
+            <form id="demoForm" method="POST">
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">Password</label>
+                    <div class="col-md-4">
+                        <input type="password" class="form-control" name="pwd" />
+
+                        <!-- The progress bar is hidden initially -->
+                        <div class="progress mt-2">
+                            <div id="progressBar" class="progress-bar progress-bar-striped" style="width: 0%"></div>
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn btn-primary">Validate</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-password-strength/index.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            const form = document.getElementById('demoForm');
+            const progressBar = document.getElementById('progressBar');
+
+            const fv = FormValidation.formValidation(form, {
+                fields: {
+                    pwd: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The password is required'
+                            },
+                        }
+                    },
+                },
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    submitButton: new FormValidation.plugins.SubmitButton(),
+                    bootstrap: new FormValidation.plugins.Bootstrap(),
+                    icon: new FormValidation.plugins.Icon({
+                        valid: 'fa fa-check',
+                        invalid: 'fa fa-times',
+                        validating: 'fa fa-refresh'
+                    }),
+                    passwordStrength: new FormValidation.plugins.PasswordStrength({
+                        field: 'pwd',
+                        message: 'The password is weak',
+                        minimalScore: 3,
+                        onValidated: function(valid, message, score) {
+                            switch (score) {
+                                case 0:
+                                    progressBar.setAttribute('class', 'progress-bar progress-bar-striped progress-bar-danger');
+                                    progressBar.style.width = '1%';
+                                    break;
+                                case 1:
+                                    progressBar.setAttribute('class', 'progress-bar progress-bar-striped progress-bar-danger');
+                                    progressBar.style.width = '25%';
+                                    break;
+                                case 2:
+                                    progressBar.setAttribute('class', 'progress-bar progress-bar-striped progress-bar-danger');
+                                    progressBar.style.width = '50%';
+                                    break;
+                                case 3:
+                                    progressBar.setAttribute('class', 'progress-bar progress-bar-striped progress-bar-warning');
+                                    progressBar.style.width = '75%';
+                                    break;
+                                case 4:
+                                    progressBar.setAttribute('class', 'progress-bar progress-bar-striped progress-bar-success');
+                                    progressBar.style.width = '100%';
+                                    break;
+                                default:
+                                    break;
+                            }
+                        }
+                    }),
+                }
+            })
+            .on('plugins.message.displayed', function(e) {
+                if (e.field === 'pwd' && e.validator === FormValidation.plugins.PasswordStrength.PASSWORD_STRENGTH_VALIDATOR) {
+                    let message = e.message;
+                    // zxcvbn's messages can be found at
+                    // https://github.com/dropbox/zxcvbn/blob/master/src/feedback.coffee
+                    switch (message) {
+                        case 'Straight rows of keys are easy to guess':
+                            // Translate the message
+                            message = 'Translation of (Straight rows of keys are easy to guess)';
+                            break;
+                        case 'Short keyboard patterns are easy to guess':
+                            message = 'Translation of (Short keyboard patterns are easy to guess)';
+                            break;
+                        case 'Repeats like "aaa" are easy to guess':
+                            message = 'Translation of (Repeats like "aaa" are easy to guess)';
+                            break;
+                        case 'Repeats like "abcabcabc" are only slightly harder to guess than "abc"':
+                            message = 'Translation of (Repeats like "abcabcabc" are only slightly harder to guess than "abc")';
+                            break;
+                        case 'Sequences like abc or 6543 are easy to guess':
+                            message = 'Translation of (Sequences like abc or 6543 are easy to guess)';
+                            break;
+                        case 'Recent years are easy to guess':
+                            message = 'Translation of (Recent years are easy to guess)';
+                            break;
+                        case 'Dates are often easy to guess':
+                            message = 'Translation of (Dates are often easy to guess)';
+                            break;
+                        case 'This is a top-10 common password':
+                            message = 'Translation of (This is a top-10 common password)';
+                            break;
+                        case 'This is a top-100 common password':
+                            message = 'Translation of (This is a top-100 common password)';
+                            break;
+                        case 'This is a very common password':
+                            message = 'Translation of (This is a very common password)';
+                            break;
+                        case 'This is similar to a commonly used password':
+                            message = 'Translation of (This is similar to a commonly used password)';
+                            break;
+                        case 'A word by itself is easy to guess':
+                            message = 'Translation of (A word by itself is easy to guess)';
+                            break;
+                        case 'Names and surnames by themselves are easy to guess':
+                            message = 'Translation of (Names and surnames by themselves are easy to guess)';
+                            break;
+                        case 'Common names and surnames are easy to guess':
+                            message = 'Translation of (Common names and surnames are easy to guess)';
+                            break;
+                    }
+
+                    // Update the error message with translated version
+                    e.messageElement.innerHTML = message;
+                }
+            });
+        });
+        </script>
+    </body>
+</html>

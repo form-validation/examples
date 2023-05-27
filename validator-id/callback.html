@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>id validator - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+    </head>
+    <body>
+        <div class="container mt-4">
+            <form id="demoForm" method="POST">
+                <div class="form-group row">
+                    <label class="col-md-3 col-form-label">ID</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="identity" />
+                    </div>
+                </div>
+            
+                <div class="form-group row">
+                    <div class="col-md-9 offset-md-3">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <script src="/vendors/@form-validation/umd/bundle/full.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            const form = document.getElementById('demoForm');
+            FormValidation.formValidation(form, {
+                fields: {
+                    identity: {
+                        validators: {
+                            callback: {
+                                callback: function(input) {
+                                    // Ignore empty value
+                                    if (input.value === '') {
+                                        return {
+                                            valid: true,
+                                        };
+                                    }
+
+                                    return FormValidation.validators.id().validate({
+                                        value: input.value,
+                                        options: {
+                                            country: 'ZA',
+                                        }
+                                    });
+                                },
+                                message: 'The value is not a valid South African ID number'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    submitButton: new FormValidation.plugins.SubmitButton(),
+                    bootstrap: new FormValidation.plugins.Bootstrap(),
+                    icon: new FormValidation.plugins.Icon({
+                        valid: 'fa fa-check',
+                        invalid: 'fa fa-times',
+                        validating: 'fa fa-refresh'
+                    }),
+                }
+            });
+        });
+        </script>
+    </body>
+</html>
