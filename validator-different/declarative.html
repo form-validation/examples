@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>different validator - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css">
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+    </head>
+    <body class="w-100 avenir">
+        <div class="mw8 center w-100">
+            <form id="demoForm" method="POST"
+                data-fvp-trigger="true"
+                data-fvp-trigger___class="FormValidation.plugins.Trigger"
+                
+                data-fvp-tachyons="true"
+                data-fvp-tachyons___class="FormValidation.plugins.Tachyons"
+
+                data-fvp-submit-button="true"
+                data-fvp-submit-button___class="FormValidation.plugins.SubmitButton"
+
+                data-fvp-icon="true"
+                data-fvp-icon___class="FormValidation.plugins.Icon"
+                data-fvp-icon___valid="fa fa-check"
+                data-fvp-icon___invalid="fa fa-times"
+                data-fvp-icon___validating="fa fa-refresh">
+                <div class="cf mb2">
+                    <div class="fl w-100">
+                        <div class="fl w-25 pa2">Username</div>
+                        <div class="fl w-50">
+                            <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="name"
+                                data-fv-not-empty="true"
+                                data-fv-not-empty___message="The user name is required" />
+                        </div>
+                    </div>
+                </div>
+            
+                <div class="cf mb2">
+                    <div class="fl w-100">
+                        <div class="fl w-25 pa2">Password</div>
+                        <div class="fl w-50">
+                            <input type="pwd" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="pwd"
+                                data-fv-not-empty="true"
+                                data-fv-not-empty___message="The password is required"
+
+                                data-fv-different="true"
+                                data-fv-different___compare="getUsername"
+                                data-fv-different___message="The password cannot be the same as username" />
+                        </div>
+                    </div>
+                </div>
+
+                <div class="cf mb2">
+                    <div class="fl w-100">
+                        <div class="fl w-25 pa2"></div>
+                        <div class="fl w-50">
+                            <button type="submit" class="ba b--black-20 bg-blue white ph3 pv2 br2">Submit</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>    
+
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-tachyons/index.min.js"></script>
+        <script>
+        const getUsername = function() {
+            return document.getElementById('demoForm').querySelector('[name="username"]').value;
+        };
+
+        document.addEventListener('DOMContentLoaded', function(e) {
+            const form = document.getElementById('demoForm');
+            FormValidation.formValidation(form, {
+                plugins: {
+                    declarative: new FormValidation.plugins.Declarative()
+                }
+            });
+        });
+        </script>
+    </body>
+</html>

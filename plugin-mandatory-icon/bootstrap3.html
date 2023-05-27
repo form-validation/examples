@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>MandatoryIcon plugin - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+    </head>
+    <body>
+        <form id="productForm" method="post" class="form-horizontal">
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Name</label>
+                <div class="col-xs-5">
+                    <input type="text" class="form-control" name="name" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Description</label>
+                <div class="col-xs-5">
+                    <textarea class="form-control" name="description" rows="5"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Price</label>
+                <div class="col-xs-3">
+                    <div class="input-group">
+                        <span class="input-group-addon">$</span>
+                        <input type="text" class="form-control" name="price" />
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Size</label>
+                <div class="col-xs-3">
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="size" value="s" /> S</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="size" value="m" /> M</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="size" value="l" /> L</label>
+                    </div>
+                    <div class="checkbox">
+                        <label><input type="checkbox" name="size" value="xl" /> XL</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="col-xs-3 control-label">Quantity</label>
+                <div class="col-xs-3">
+                    <input type="text" class="form-control" name="quantity" />
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-xs-9 col-xs-offset-3">
+                    <button type="submit" class="btn btn-default" id="addBtn">Add product</button>
+                    <button type="button" class="btn btn-info" id="resetBtn">Reset form</button>
+                </div>
+            </div>
+        </form>
+
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-bootstrap3/index.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-mandatory-icon/index.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            const fv = FormValidation.formValidation(document.getElementById('productForm'), {
+                fields: {
+                    name: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The name is required'
+                            }
+                        }
+                    },
+                    description: {
+                        validators: {
+                            stringLength: {
+                                max: 300,
+                                message: 'The description must be less than 300 characters long'
+                            },
+                            notEmpty: {
+                                message: 'The description is required'
+                            }
+                        }
+                    },
+                    price: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The price is required'
+                            },
+                            numeric: {
+                                message: 'The price must be a number'
+                            }
+                        }
+                    },
+                    'size': {
+                        validators: {
+                            notEmpty: {
+                                message: 'The size is required'
+                            }
+                        }
+                    },
+                    quantity: {
+                        validators: {
+                            notEmpty: {
+                                message: 'The quantity is required'
+                            },
+                            integer: {
+                                message: 'The quantity must be a number'
+                            }
+                        }
+                    }
+                },
+                plugins: {
+                    trigger: new FormValidation.plugins.Trigger(),
+                    submitButton: new FormValidation.plugins.SubmitButton(),
+                    bootstrap3: new FormValidation.plugins.Bootstrap3(),
+                    // We must register `MandatoryIcon` before `Icon` plugin
+                    mandatoryIcon: new FormValidation.plugins.MandatoryIcon({
+                        icon: 'glyphicon glyphicon-asterisk'
+                    }),
+                    icon: new FormValidation.plugins.Icon({
+                        valid: 'glyphicon glyphicon-ok',
+                        invalid: 'glyphicon glyphicon-remove',
+                        validating: 'glyphicon glyphicon-refresh'
+                    })
+                }
+            });
+
+            document.getElementById('resetBtn').addEventListener('click', function() {
+                fv.resetForm(true);
+            });
+        });
+        </script>
+    </body>
+</html>

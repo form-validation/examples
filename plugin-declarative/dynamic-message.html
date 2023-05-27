@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Declarative plugin - FormValidation</title>
+        <meta charset="utf-8" />
+        <meta content="width=device-width,initial-scale=1" name="viewport" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css">
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+    </head>
+    <body class="w-100 avenir">
+        <div class="mw8 center w-100">
+            <form id="demoForm" method="POST">
+                <div class="cf mb2">
+                    <div class="fl w-100">
+                        <div class="fl w-25 pa2">Product name</div>
+                        <div class="fl w-40">
+                            <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="name"
+                                data-fv-not-empty="true"
+                                data-fv-not-empty___message="The name is required"
+                                
+                                data-fv-string-length="true"
+                                data-fv-string-length___min="6"
+                                data-fv-string-length___max="30"
+                                data-fv-string-length___message="The name must be more than %s and less than %s characters long" /> 
+                        </div>
+                    </div>
+                </div>
+                <div class="cf mb2">
+                    <div class="fl w-100">
+                        <div class="fl w-25 pa2"></div>
+                        <div class="fl w-50">
+                            <button type="submit" class="ba b--black-20 bg-blue white ph3 pv2 br2">Add product</button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>    
+
+        <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+        <script src="/vendors/@form-validation/umd/plugin-tachyons/index.min.js"></script>
+        <script>
+        document.addEventListener('DOMContentLoaded', function(e) {
+            const form = document.getElementById('demoForm');
+            FormValidation.formValidation(form, {
+                plugins: {
+                    declarative: new FormValidation.plugins.Declarative(),
+                    trigger: new FormValidation.plugins.Trigger(),
+                    tachyons: new FormValidation.plugins.Tachyons(),
+                    submitButton: new FormValidation.plugins.SubmitButton(),
+                    icon: new FormValidation.plugins.Icon({
+                        valid: 'fa fa-check',
+                        invalid: 'fa fa-times',
+                        validating: 'fa fa-refresh',
+                    }),
+                }
+            });  
+        });
+        </script>
+    </body>
+</html>
