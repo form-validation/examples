@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>remote validator - FormValidation</title>
+</head>
+<body>
+    <form id="testForm" method="post">
+        <div>
+            <input type="text" name="username" placeholder="User name" />
+        </div>
+
+        <div>
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+<script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
+<script src="/vendors/@form-validation/umd/plugin-field-status/index.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function(e) {
+    const form = document.getElementById('testForm');
+
+    FormValidation.formValidation(form, {
+        fields: {
+            username: {
+                validators: {
+                    notEmpty: {
+                        message: 'The username is required'
+                    },
+                    remote: {
+                        message: 'The username is not valid',
+                        method: 'POST',
+                        url: '/rest/username',
+                    }
+                }
+            }
+        },
+        plugins: {
+            message: new FormValidation.plugins.Message(),
+            trigger: new FormValidation.plugins.Trigger(),
+            submitButton: new FormValidation.plugins.SubmitButton(),
+        }
+    }).on('core.validator.validated', function (e) {
+        if (e.field === 'username' && e.validator === 'remote') {
+            // You can access the meta data responsed by the back-end
+            // Assume that the back-end (`/reset/username` in this example) returns the following JSON
+            //  {
+            //      valid: false,
+            //      meta: {
+            //          key1: value1,
+            //          key2: value2
+            //      }
+            //  }
+            console.log(e.result.valid);    // false
+            console.log(e.result.meta);     // { key1: value1, key2: value2 }
+        }
+    });;
+});
+</script>
+</body>
+</html>
