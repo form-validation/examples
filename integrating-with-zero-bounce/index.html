@@ -2,9 +2,15 @@
 <html lang="en">
     <head>
         <title>Integrating with ZeroBounce - FormValidation</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <div class="container mt-5">
@@ -15,7 +21,7 @@
                         <input type="text" class="form-control" name="email" />
                     </div>
                 </div>
-            
+
                 <div class="form-group row">
                     <div class="col-md-9 offset-md-3">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -26,78 +32,81 @@
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            const form = document.getElementById('demoForm');
-            const fv = FormValidation.formValidation(form, {
-                fields: {
-                    email: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The email address is required'
-                            },
-                            emailAddress: {
-                                message: 'The input is not a valid email address'
-                            },
-                            promise: {
-                                message: 'The email address is not valid',
-                                promise: function (input) {
-                                    return new Promise(function(resolve, reject) {
-                                        // PRODUCTION MODE:
-                                        // Uncomment the next line
-                                        const email = input.value;
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const form = document.getElementById('demoForm');
+                const fv = FormValidation.formValidation(form, {
+                    fields: {
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The email address is required',
+                                },
+                                emailAddress: {
+                                    message: 'The input is not a valid email address',
+                                },
+                                promise: {
+                                    message: 'The email address is not valid',
+                                    promise: function (input) {
+                                        return new Promise(function (resolve, reject) {
+                                            // PRODUCTION MODE:
+                                            // Uncomment the next line
+                                            const email = input.value;
 
-                                        // DEVELOPMENT MODE:
-                                        // You can use any of email addresses listed in the following page
-                                        // to test, so it'll save your API credits
-                                        // https://www.zerobounce.net/docs/email-validation-api-quickstart/#sandbox_mode__v2__
-                                        // const email = 'invalid@example.com';
+                                            // DEVELOPMENT MODE:
+                                            // You can use any of email addresses listed in the following page
+                                            // to test, so it'll save your API credits
+                                            // https://www.zerobounce.net/docs/email-validation-api-quickstart/#sandbox_mode__v2__
+                                            // const email = 'invalid@example.com';
 
-                                        if (!email) {
-                                            resolve({
-                                                valid: true,
-                                            });
-                                        } else {
-                                            // See https://www.zerobounce.net/docs/email-validation-api-quickstart/#validate_emails__v2__
-                                            FormValidation.utils.fetch('https://api.zerobounce.net/v2/validate', {
-                                                crossDomain: true,
-                                                // headers: {
-                                                //     'Content-Type': 'application/json',
-                                                // },
-                                                method: 'GET',
-                                                params: {
-                                                    // Replace your API key
-                                                    api_key: '8fb1cf01981848adb8a37f71ffc5da31',
-                                                    email: email,
-                                                    ip_address: '',
-                                                },
-                                            }).then((response) => {
-                                                return Promise.resolve({
-                                                    valid: response['status'] === 'valid',
+                                            if (!email) {
+                                                resolve({
+                                                    valid: true,
                                                 });
-                                            }).catch((reason) => {
-                                                return Promise.reject({
-                                                    valid: false,
-                                                });
-                                            });
-                                        }
-                                    });
-                                }
-                            }
-                        }
+                                            } else {
+                                                // See https://www.zerobounce.net/docs/email-validation-api-quickstart/#validate_emails__v2__
+                                                FormValidation.utils
+                                                    .fetch('https://api.zerobounce.net/v2/validate', {
+                                                        crossDomain: true,
+                                                        // headers: {
+                                                        //     'Content-Type': 'application/json',
+                                                        // },
+                                                        method: 'GET',
+                                                        params: {
+                                                            // Replace your API key
+                                                            api_key: '8fb1cf01981848adb8a37f71ffc5da31',
+                                                            email: email,
+                                                            ip_address: '',
+                                                        },
+                                                    })
+                                                    .then((response) => {
+                                                        return Promise.resolve({
+                                                            valid: response['status'] === 'valid',
+                                                        });
+                                                    })
+                                                    .catch((reason) => {
+                                                        return Promise.reject({
+                                                            valid: false,
+                                                        });
+                                                    });
+                                            }
+                                        });
+                                    },
+                                },
+                            },
+                        },
                     },
-                },
-                plugins: {
-                    trigger: new FormValidation.plugins.Trigger(),
-                    submitButton: new FormValidation.plugins.SubmitButton(),
-                    bootstrap: new FormValidation.plugins.Bootstrap(),
-                    icon: new FormValidation.plugins.Icon({
-                        valid: 'fa fa-check',
-                        invalid: 'fa fa-times',
-                        validating: 'fa fa-refresh'
-                    }),
-                }
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        bootstrap: new FormValidation.plugins.Bootstrap(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                    },
+                });
             });
-        });
         </script>
     </body>
 </html>

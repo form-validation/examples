@@ -4,17 +4,28 @@
         <title>Bootstrap plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <div class="container mt-5">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-                Login
-            </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
 
-            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div
+                class="modal fade"
+                id="loginModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="loginModalLabel"
+                aria-hidden="true"
+            >
                 <div class="modal-dialog" role="document">
                     <div class="modal-content">
                         <form id="loginForm" method="POST">
@@ -58,61 +69,61 @@
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            const loginForm = document.getElementById('loginForm');
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const loginForm = document.getElementById('loginForm');
 
-            const fv = FormValidation.formValidation(loginForm, {
-                fields: {
-                    username: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The username is required'
+                const fv = FormValidation.formValidation(loginForm, {
+                    fields: {
+                        username: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The username is required',
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                    message: 'The username must be more than 6 and less than 30 characters long',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_]+$/,
+                                    message: 'The username can only consist of alphabetical, number and underscore',
+                                },
                             },
-                            stringLength: {
-                                min: 6,
-                                max: 30,
-                                message: 'The username must be more than 6 and less than 30 characters long'
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The password is required',
+                                },
                             },
-                            regexp: {
-                                regexp: /^[a-zA-Z0-9_]+$/,
-                                message: 'The username can only consist of alphabetical, number and underscore'
-                            }
-                        }
+                        },
                     },
-                    password: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The password is required'
-                            }
-                        }
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        bootstrap: new FormValidation.plugins.Bootstrap(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
                     },
-                },
-                plugins: {
-                    trigger: new FormValidation.plugins.Trigger(),
-                    submitButton: new FormValidation.plugins.SubmitButton(),
-                    bootstrap: new FormValidation.plugins.Bootstrap(),
-                    icon: new FormValidation.plugins.Icon({
-                        valid: 'fa fa-check',
-                        invalid: 'fa fa-times',
-                        validating: 'fa fa-refresh'
-                    }),
-                }
-            });
+                });
 
-            // Send the data to back-end when form is valid
-            fv.on('core.form.valid', function() {
-                const $form = $(loginForm);
+                // Send the data to back-end when form is valid
+                fv.on('core.form.valid', function () {
+                    const $form = $(loginForm);
 
-                $.ajax({
-                    type : 'POST',
-                    url: $form.attr('action'),
-                    data: $form.serialize(),
-                }).then(function(response) {
-                    // You can reset the form here
-                    fv.resetForm(true);
+                    $.ajax({
+                        type: 'POST',
+                        url: $form.attr('action'),
+                        data: $form.serialize(),
+                    }).then(function (response) {
+                        // You can reset the form here
+                        fv.resetForm(true);
+                    });
                 });
             });
-        });
         </script>
     </body>
 </html>

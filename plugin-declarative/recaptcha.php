@@ -1,5 +1,5 @@
 <?php
-$secretKey = '___REPLACE_WITH_YOUR_SECRET_KEY___';
+$secretKey = '6Ldv-p0UAAAAAJqOCbM4zDvvchNkU0pdHCjMhaZk';
 
 // See https://developers.google.com/recaptcha/docs/verify#api-request
 $fields = array(

@@ -4,70 +4,83 @@
         <title>Declarative plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body class="w-100 avenir">
         <div class="mw8 center w-100">
-            <form id="demoForm" method="POST"
+            <form
+                id="demoForm"
+                method="POST"
                 data-fvp-trigger="true"
                 data-fvp-trigger___class="FormValidation.plugins.Trigger"
-                
                 data-fvp-tachyons="true"
                 data-fvp-tachyons___class="FormValidation.plugins.Tachyons"
-
                 data-fvp-submit-button="true"
                 data-fvp-submit-button___class="FormValidation.plugins.SubmitButton"
-
                 data-fvp-icon="true"
                 data-fvp-icon___class="FormValidation.plugins.Icon"
                 data-fvp-icon___valid="fa fa-check"
                 data-fvp-icon___invalid="fa fa-times"
-                data-fvp-icon___validating="fa fa-refresh">
+                data-fvp-icon___validating="fa fa-refresh"
+            >
                 <div class="cf mb2">
                     <div class="fl w-100">
                         <div class="fl w-25 pa2">Product name</div>
                         <div class="fl w-40">
-                            <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="name"
+                            <input
+                                type="text"
+                                class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                name="name"
                                 data-fv-not-empty="true"
                                 data-fv-not-empty___message="The name is required"
-
                                 data-fv-string-length="true"
                                 data-fv-string-length___min="6"
                                 data-fv-string-length___max="30"
                                 data-fv-string-length___message="The name must be more than 6 and less than 30 characters long"
-
                                 data-fv-regexp="true"
                                 data-fv-regexp___regexp="^[a-zA-Z0-9_]+$"
-                                data-fv-regexp___message="The name can only consist of alphabetical, number and underscore" />
+                                data-fv-regexp___message="The name can only consist of alphabetical, number and underscore"
+                            />
                         </div>
                     </div>
                 </div>
-            
+
                 <div class="cf mb2">
                     <div class="fl w-100">
                         <div class="fl w-25 pa2">Price ($)</div>
                         <div class="fl w-30">
-                            <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="price"
+                            <input
+                                type="text"
+                                class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                name="price"
                                 data-fv-not-empty="true"
                                 data-fv-not-empty___message="The price is required"
-
                                 data-fv-numeric="true"
-                                data-fv-numeric___message="The price must be a number" />
+                                data-fv-numeric___message="The price must be a number"
+                            />
                         </div>
                     </div>
                 </div>
-            
+
                 <div class="cf mb2">
                     <div class="fl w-100">
                         <div class="fl w-25 pa2">Size</div>
                         <div class="fl w-75">
                             <div class="mb2">
                                 <label>
-                                    <input type="checkbox" name="size[]" value="s" 
+                                    <input
+                                        type="checkbox"
+                                        name="size[]"
+                                        value="s"
                                         data-fv-not-empty="true"
-                                        data-fv-not-empty___message="The size is required" /> S
+                                        data-fv-not-empty___message="The size is required"
+                                    />
+                                    S
                                 </label>
                             </div>
                             <div class="mb2">
@@ -82,16 +95,21 @@
                         </div>
                     </div>
                 </div>
-            
+
                 <div class="cf mb2">
                     <div class="fl w-100">
                         <div class="fl w-25 pa2">Available in store</div>
                         <div class="fl w-75">
                             <div class="mb2">
                                 <label>
-                                    <input type="radio" name="availability" value="yes"
+                                    <input
+                                        type="radio"
+                                        name="availability"
+                                        value="yes"
                                         data-fv-not-empty="true"
-                                        data-fv-not-empty___message="The availability option is required" /> Yes
+                                        data-fv-not-empty___message="The availability option is required"
+                                    />
+                                    Yes
                                 </label>
                             </div>
                             <div class="mb2">
@@ -110,19 +128,19 @@
                     </div>
                 </div>
             </form>
-        </div>    
+        </div>
 
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-tachyons/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            const form = document.getElementById('demoForm');
-            FormValidation.formValidation(form, {
-                plugins: {
-                    declarative: new FormValidation.plugins.Declarative()
-                }
-            });  
-        });
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const form = document.getElementById('demoForm');
+                FormValidation.formValidation(form, {
+                    plugins: {
+                        declarative: new FormValidation.plugins.Declarative(),
+                    },
+                });
+            });
         </script>
     </body>
 </html>

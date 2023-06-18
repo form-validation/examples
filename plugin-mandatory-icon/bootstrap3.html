@@ -4,8 +4,13 @@
         <title>MandatoryIcon plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+            integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+            crossorigin="anonymous"
+        />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <form id="productForm" method="post" class="form-horizontal">
@@ -70,75 +75,75 @@
         <script src="/vendors/@form-validation/umd/plugin-bootstrap3/index.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-mandatory-icon/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            const fv = FormValidation.formValidation(document.getElementById('productForm'), {
-                fields: {
-                    name: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The name is required'
-                            }
-                        }
-                    },
-                    description: {
-                        validators: {
-                            stringLength: {
-                                max: 300,
-                                message: 'The description must be less than 300 characters long'
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const fv = FormValidation.formValidation(document.getElementById('productForm'), {
+                    fields: {
+                        name: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The name is required',
+                                },
                             },
-                            notEmpty: {
-                                message: 'The description is required'
-                            }
-                        }
-                    },
-                    price: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The price is required'
+                        },
+                        description: {
+                            validators: {
+                                stringLength: {
+                                    max: 300,
+                                    message: 'The description must be less than 300 characters long',
+                                },
+                                notEmpty: {
+                                    message: 'The description is required',
+                                },
                             },
-                            numeric: {
-                                message: 'The price must be a number'
-                            }
-                        }
-                    },
-                    'size': {
-                        validators: {
-                            notEmpty: {
-                                message: 'The size is required'
-                            }
-                        }
-                    },
-                    quantity: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The quantity is required'
+                        },
+                        price: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The price is required',
+                                },
+                                numeric: {
+                                    message: 'The price must be a number',
+                                },
                             },
-                            integer: {
-                                message: 'The quantity must be a number'
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    trigger: new FormValidation.plugins.Trigger(),
-                    submitButton: new FormValidation.plugins.SubmitButton(),
-                    bootstrap3: new FormValidation.plugins.Bootstrap3(),
-                    // We must register `MandatoryIcon` before `Icon` plugin
-                    mandatoryIcon: new FormValidation.plugins.MandatoryIcon({
-                        icon: 'glyphicon glyphicon-asterisk'
-                    }),
-                    icon: new FormValidation.plugins.Icon({
-                        valid: 'glyphicon glyphicon-ok',
-                        invalid: 'glyphicon glyphicon-remove',
-                        validating: 'glyphicon glyphicon-refresh'
-                    })
-                }
-            });
+                        },
+                        size: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The size is required',
+                                },
+                            },
+                        },
+                        quantity: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The quantity is required',
+                                },
+                                integer: {
+                                    message: 'The quantity must be a number',
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        bootstrap3: new FormValidation.plugins.Bootstrap3(),
+                        // We must register `MandatoryIcon` before `Icon` plugin
+                        mandatoryIcon: new FormValidation.plugins.MandatoryIcon({
+                            icon: 'glyphicon glyphicon-asterisk',
+                        }),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'glyphicon glyphicon-ok',
+                            invalid: 'glyphicon glyphicon-remove',
+                            validating: 'glyphicon glyphicon-refresh',
+                        }),
+                    },
+                });
 
-            document.getElementById('resetBtn').addEventListener('click', function() {
-                fv.resetForm(true);
+                document.getElementById('resetBtn').addEventListener('click', function () {
+                    fv.resetForm(true);
+                });
             });
-        });
         </script>
     </body>
 </html>

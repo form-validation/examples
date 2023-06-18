@@ -4,35 +4,42 @@
         <title>emailAddress validator - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body class="w-100 avenir">
         <div class="mw8 center w-100">
-            <form id="demoForm" method="POST"
+            <form
+                id="demoForm"
+                method="POST"
                 data-fvp-trigger="true"
                 data-fvp-trigger___class="FormValidation.plugins.Trigger"
-                
                 data-fvp-tachyons="true"
                 data-fvp-tachyons___class="FormValidation.plugins.Tachyons"
-
                 data-fvp-submit-button="true"
                 data-fvp-submit-button___class="FormValidation.plugins.SubmitButton"
-
                 data-fvp-icon="true"
                 data-fvp-icon___class="FormValidation.plugins.Icon"
                 data-fvp-icon___valid="fa fa-check"
                 data-fvp-icon___invalid="fa fa-times"
-                data-fvp-icon___validating="fa fa-refresh">
+                data-fvp-icon___validating="fa fa-refresh"
+            >
                 <div class="cf mb2">
                     <div class="fl w-100">
                         <div class="fl w-25 pa2">Email address(es)</div>
                         <div class="fl w-50">
-                            <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="email"
+                            <input
+                                type="text"
+                                class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                name="email"
                                 data-fv-email-address="true"
                                 data-fv-email-address___message="The email address is invalid"
-                                data-fv-email-address___multiple="true" />
+                                data-fv-email-address___multiple="true"
+                            />
                         </div>
                     </div>
                     <div class="fl w-100">
@@ -40,7 +47,7 @@
                         <div class="fl w-50">Use a comma (;) to separate multiple email addresses</div>
                     </div>
                 </div>
-            
+
                 <div class="cf mb2">
                     <div class="fl w-100">
                         <div class="fl w-25 pa2"></div>
@@ -50,20 +57,20 @@
                     </div>
                 </div>
             </form>
-        </div>    
+        </div>
 
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-tachyons/index.min.js"></script>
 
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            const form = document.getElementById('demoForm');
-            FormValidation.formValidation(form, {
-                plugins: {
-                    declarative: new FormValidation.plugins.Declarative()
-                }
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const form = document.getElementById('demoForm');
+                FormValidation.formValidation(form, {
+                    plugins: {
+                        declarative: new FormValidation.plugins.Declarative(),
+                    },
+                });
             });
-        });
         </script>
     </body>
 </html>

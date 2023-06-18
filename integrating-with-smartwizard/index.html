@@ -2,11 +2,17 @@
 <html lang="en">
     <head>
         <title>Integrating with SmartWizard - FormValidation</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="./smart_wizard.min.css">
-        <link rel="stylesheet" href="./smart_wizard_theme_arrows.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="./smart_wizard.min.css" />
+        <link rel="stylesheet" href="./smart_wizard_theme_arrows.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <div class="container">
@@ -54,14 +60,14 @@
                                 <input type="text" class="form-control" name="username" />
                             </div>
                         </div>
-                    
+
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Email address</label>
                             <div class="col-md-5">
                                 <input type="text" class="form-control" name="email" />
                             </div>
                         </div>
-                    
+
                         <div class="form-group row">
                             <label class="col-md-3 col-form-label">Password</label>
                             <div class="col-md-5">
@@ -78,145 +84,145 @@
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
         <script>
-        $(document).ready(function() {
-            const demoForm = document.getElementById('demoForm');
+            $(document).ready(function () {
+                const demoForm = document.getElementById('demoForm');
 
-            // Wizard
-            $(demoForm).smartWizard({
-                theme: 'arrows',
-                useURLhash: false,
-                showStepURLhash: false,
-            });
+                // Wizard
+                $(demoForm).smartWizard({
+                    theme: 'arrows',
+                    useURLhash: false,
+                    showStepURLhash: false,
+                });
 
-            // Get the Smart Wizard instance
-            const wizard = $(demoForm).data('smartWizard');
+                // Get the Smart Wizard instance
+                const wizard = $(demoForm).data('smartWizard');
 
-            // Create a FormValidation instance
-            const fv = FormValidation.formValidation(demoForm, {
-                fields: {
-                    firstName: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The first name is required'
-                            }
-                        }
+                // Create a FormValidation instance
+                const fv = FormValidation.formValidation(demoForm, {
+                    fields: {
+                        firstName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The first name is required',
+                                },
+                            },
+                        },
+                        lastName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The last name is required',
+                                },
+                            },
+                        },
+                        username: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The username is required',
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 30,
+                                    message: 'The username must be more than 6 and less than 30 characters long',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z0-9_]+$/,
+                                    message: 'The username can only consist of alphabetical, number and underscore',
+                                },
+                            },
+                        },
+                        email: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The email address is required',
+                                },
+                                emailAddress: {
+                                    message: 'The input is not a valid email address',
+                                },
+                            },
+                        },
+                        password: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The password is required',
+                                },
+                                stringLength: {
+                                    min: 8,
+                                    message: 'The password must have at least 8 characters',
+                                },
+                                different: {
+                                    message: 'The password cannot be the same as username',
+                                    compare: function () {
+                                        return demoForm.querySelector('[name="username"]').value;
+                                    },
+                                },
+                            },
+                        },
+                        gender: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The gender is required',
+                                },
+                            },
+                        },
+                        agree: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'You must agree with the terms and conditions',
+                                },
+                            },
+                        },
                     },
-                    lastName: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The last name is required'
-                            }
-                        }
+                    plugins: {
+                        // Validate the visible fields only
+                        // It will ignore the fields in another step which aren't visible
+                        excluded: new FormValidation.plugins.Excluded(),
+                        trigger: new FormValidation.plugins.Trigger(),
+                        bootstrap: new FormValidation.plugins.Bootstrap({
+                            rowSelector: function (field, ele) {
+                                switch (field) {
+                                    case 'firstName':
+                                    case 'lastName':
+                                        return '.col-md-4';
+                                    default:
+                                        return '.form-group';
+                                }
+                            },
+                        }),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
                     },
-                    username: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The username is required'
-                            },
-                            stringLength: {
-                                min: 6,
-                                max: 30,
-                                message: 'The username must be more than 6 and less than 30 characters long'
-                            },
-                            regexp: {
-                                regexp: /^[a-zA-Z0-9_]+$/,
-                                message: 'The username can only consist of alphabetical, number and underscore'
-                            }
-                        }
-                    },
-                    email: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The email address is required'
-                            },
-                            emailAddress: {
-                                message: 'The input is not a valid email address'
-                            }
-                        }
-                    },
-                    password: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The password is required'
-                            },
-                            stringLength: {
-                                min: 8,
-                                message: 'The password must have at least 8 characters'
-                            },
-                            different: {
-                                message: 'The password cannot be the same as username',
-                                compare: function() {
-                                    return demoForm.querySelector('[name="username"]').value;
+                });
+
+                $(demoForm)
+                    // Query the Next button
+                    .find('button.sw-btn-next')
+                    // Remove the click handler created by Smart Wizard plugin
+                    .off('click')
+                    // We will handle the click event
+                    .on('click', function () {
+                        // Validate the form when clicking the Next button
+                        // `fv` is the FormValidation instance created above
+                        fv.validate().then(function (result) {
+                            // `result` can be `Valid` or `Invalid`
+                            if (result === 'Valid') {
+                                // The current step is valid, let's move to the next one
+                                const currentStep = wizard.current_index;
+                                const totalSteps = wizard.steps.length;
+                                if (currentStep < totalSteps - 1) {
+                                    wizard.next();
+                                } else {
+                                    // All the steps are valid
+                                    // Do whatever you want here, such as submit the form
+                                    // or send data to the back-end
+                                    alert('Form is valid! Do whatever you want');
                                 }
                             }
-                        }
-                    },
-                    gender: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The gender is required'
-                            }
-                        }
-                    },
-                    agree: {
-                        validators: {
-                            notEmpty: {
-                                message: 'You must agree with the terms and conditions'
-                            }
-                        }
-                    }
-                },
-                plugins: {
-                    // Validate the visible fields only
-                    // It will ignore the fields in another step which aren't visible
-                    excluded: new FormValidation.plugins.Excluded(), 
-                    trigger: new FormValidation.plugins.Trigger(),
-                    bootstrap: new FormValidation.plugins.Bootstrap({
-                        rowSelector: function(field, ele) {
-                            switch (field) {
-                                case 'firstName': 
-                                case 'lastName':
-                                    return '.col-md-4';
-                                default:
-                                    return '.form-group';
-                            }
-                        }
-                    }),
-                    icon: new FormValidation.plugins.Icon({
-                        valid: 'fa fa-check',
-                        invalid: 'fa fa-times',
-                        validating: 'fa fa-refresh'
-                    }),
-                }
-            });
-
-            $(demoForm)
-                // Query the Next button
-                .find('button.sw-btn-next')
-                // Remove the click handler created by Smart Wizard plugin
-                .off('click')
-                // We will handle the click event
-                .on('click', function() {
-                    // Validate the form when clicking the Next button
-                    // `fv` is the FormValidation instance created above
-                    fv.validate().then(function(result) {
-                        // `result` can be `Valid` or `Invalid`
-                        if (result === 'Valid') {
-                            // The current step is valid, let's move to the next one
-                            const currentStep = wizard.current_index;
-                            const totalSteps = wizard.steps.length;
-                            if (currentStep < totalSteps - 1) {
-                                wizard.next();
-                            } else {
-                                // All the steps are valid
-                                // Do whatever you want here, such as submit the form
-                                // or send data to the back-end
-                                alert('Form is valid! Do whatever you want');
-                            }
-                        }
+                        });
                     });
-                });
-        });
+            });
         </script>
     </body>
 </html>

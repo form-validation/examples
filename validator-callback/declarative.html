@@ -8,10 +8,13 @@
     <body>
         <form id="testForm" method="post">
             <div>
-                <input type="text" name="pwd"
+                <input
+                    type="text"
+                    name="pwd"
                     data-fv-callback="true"
                     data-fv-callback___callback="validatePassword"
-                    data-fv-callback___message="Password is not valid" />
+                    data-fv-callback___message="Password is not valid"
+                />
             </div>
 
             <div>
@@ -21,53 +24,53 @@
 
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script>
-        function validatePassword(input) {
-            const value = input.value
-            if (value === '') {
-                return {valid: true}
+            function validatePassword(input) {
+                const value = input.value;
+                if (value === '') {
+                    return { valid: true };
+                }
+
+                if (value.length < 8) {
+                    return {
+                        valid: false,
+                        message: 'Password must have at least 8 characters',
+                    };
+                }
+
+                if (value === value.toLowerCase()) {
+                    return {
+                        valid: false,
+                        message: 'Password must have at least one uppercase character',
+                    };
+                }
+
+                if (value === value.toUpperCase()) {
+                    return {
+                        valid: false,
+                        message: 'Password must have at least one lowercase character',
+                    };
+                }
+
+                if (value.search(/[0-9]/) < 0) {
+                    return {
+                        valid: false,
+                        message: 'Password must have at least one digit',
+                    };
+                }
+
+                return { valid: true };
             }
 
-            if (value.length < 8) {
-                return {
-                    valid: false,
-                    message: 'Password must have at least 8 characters'
-                }
-            }
-
-            if (value === value.toLowerCase()) {
-                return {
-                    valid: false,
-                    message: 'Password must have at least one uppercase character'
-                }
-            }
-
-            if (value === value.toUpperCase()) {
-                return {
-                    valid: false,
-                    message: 'Password must have at least one lowercase character'
-                }
-            }
-
-            if (value.search(/[0-9]/) < 0) {
-                return {
-                    valid: false,
-                    message: 'Password must have at least one digit'
-                }
-            }
-
-            return {valid: true}
-        }
-
-        document.addEventListener('DOMContentLoaded', function(e) {
-            FormValidation.formValidation(document.getElementById('testForm'), {
-                plugins: {
-                    message: new FormValidation.plugins.Message(),
-                    trigger: new FormValidation.plugins.Trigger(),
-                    submitButton: new FormValidation.plugins.SubmitButton(),
-                    declarative: new FormValidation.plugins.Declarative()
-                }
+            document.addEventListener('DOMContentLoaded', function (e) {
+                FormValidation.formValidation(document.getElementById('testForm'), {
+                    plugins: {
+                        message: new FormValidation.plugins.Message(),
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        declarative: new FormValidation.plugins.Declarative(),
+                    },
+                });
             });
-        });
         </script>
     </body>
-    </html>
+</html>

@@ -4,9 +4,15 @@
         <title>Dependency plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <div class="container">
@@ -24,7 +30,7 @@
                         <input type="password" class="form-control" name="confirmPwd" />
                     </div>
                 </div>
-            
+
                 <div class="form-group row">
                     <div class="col-md-9 offset-md-3">
                         <button type="submit" class="btn btn-primary">Validate</button>
@@ -36,48 +42,48 @@
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            const form = document.getElementById('demoForm');
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const form = document.getElementById('demoForm');
 
-            const fv = FormValidation.formValidation(form, {
-                fields: {
-                    pwd: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The password is required'
-                            },
-                        }
-                    },
-                    confirmPwd: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The confirmation password is required'
-                            },
-                            identical: {
-                                compare: function() {
-                                    return form.querySelector('[name="pwd"]').value;
+                const fv = FormValidation.formValidation(form, {
+                    fields: {
+                        pwd: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The password is required',
                                 },
-                                message: 'The confirmation password must be the same as the original password'
-                            }
-                        }
+                            },
+                        },
+                        confirmPwd: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The confirmation password is required',
+                                },
+                                identical: {
+                                    compare: function () {
+                                        return form.querySelector('[name="pwd"]').value;
+                                    },
+                                    message: 'The confirmation password must be the same as the original password',
+                                },
+                            },
+                        },
                     },
-                },
-                plugins: {
-                    trigger: new FormValidation.plugins.Trigger(),
-                    submitButton: new FormValidation.plugins.SubmitButton(),
-                    bootstrap: new FormValidation.plugins.Bootstrap(),
-                    icon: new FormValidation.plugins.Icon({
-                        valid: 'fa fa-check',
-                        invalid: 'fa fa-times',
-                        validating: 'fa fa-refresh'
-                    }),
-                    dependency: new FormValidation.plugins.Dependency({
-                        pwd: 'confirmPwd',
-                        confirmPwd: 'pwd',
-                    }),
-                }
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        bootstrap: new FormValidation.plugins.Bootstrap(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                        dependency: new FormValidation.plugins.Dependency({
+                            pwd: 'confirmPwd',
+                            confirmPwd: 'pwd',
+                        }),
+                    },
+                });
             });
-        });
         </script>
     </body>
 </html>

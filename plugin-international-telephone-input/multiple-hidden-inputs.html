@@ -28,7 +28,7 @@
     </head>
     <body>
         <div class="container">
-            <form id="demoForm" method="POST" action="/demo/plugins/defaultSubmit.php">
+            <form id="demoForm" method="POST">
                 <div class="row mb-3">
                     <label class="col-md-3 col-form-label">Full name</label>
                     <div class="col-md-5">
@@ -40,9 +40,13 @@
                     <label class="col-md-3 col-form-label">Phone number</label>
                     <div class="col-md-5">
                         <input type="text" class="form-control" name="phone" />
+                    </div>
+                </div>
 
-                        <!-- The hidden input to store the full phone number -->
-                        <input type="hidden" name="fullPhoneNumber" />
+                <div class="row mb-3">
+                    <label class="col-md-3 col-form-label">Other phone number</label>
+                    <div class="col-md-5">
+                        <input type="text" class="form-control" name="otherPhone" />
                     </div>
                 </div>
 
@@ -55,7 +59,6 @@
         </div>
 
         <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/intlTelInput.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.35.3/es6-shim.min.js"></script>
 
         <!-- Replace with your path -->
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
@@ -65,8 +68,6 @@
         <script>
             document.addEventListener('DOMContentLoaded', function (e) {
                 const form = document.getElementById('demoForm');
-                const fullPhoneNumber = form.querySelector('[name="fullPhoneNumber"]');
-
                 const fv = FormValidation.formValidation(form, {
                     fields: {
                         fullName: {
@@ -87,7 +88,6 @@
                     plugins: {
                         trigger: new FormValidation.plugins.Trigger(),
                         submitButton: new FormValidation.plugins.SubmitButton(),
-                        defaultSubmit: new FormValidation.plugins.DefaultSubmit(),
                         bootstrap5: new FormValidation.plugins.Bootstrap5(),
                         icon: new FormValidation.plugins.Icon({
                             valid: 'fa fa-check',
@@ -95,37 +95,12 @@
                             validating: 'fa fa-refresh',
                         }),
                         internationalTelephoneInput: new FormValidation.plugins.InternationalTelephoneInput({
-                            field: 'phone',
+                            field: 'phone,otherPhone',
                             message: 'The phone number is not valid',
                             utilsScript: 'https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.3/js/utils.js',
+                            hiddenPhoneInput: ',fullOtherPhoneNumber',
                         }),
                     },
-                });
-
-                fv.on('core.validator.validated', function (event) {
-                    if (
-                        event.field === 'phone' &&
-                        event.validator === FormValidation.plugins.InternationalTelephoneInput.INT_TEL_VALIDATOR &&
-                        event.result
-                    ) {
-                        if (event.result.valid) {
-                            // Get the InternationalTelephoneInput plugin instance
-                            const internationalTelephoneInputPlugin = fv.getPlugin('internationalTelephoneInput');
-
-                            // Get the intl-tel-input instance
-                            // `phone` is the name of input
-                            const intlTelInstance = internationalTelephoneInputPlugin.intlTelInstances.get('phone');
-
-                            // Get the phone number including the country code
-                            // See https://github.com/jackocnr/intl-tel-input#public-methods
-                            const phoneNumber = intlTelInstance.getNumber();
-
-                            // Set the value for the hidden field
-                            fullPhoneNumber.value = phoneNumber;
-                        } else {
-                            fullPhoneNumber.value = '';
-                        }
-                    }
                 });
             });
         </script>

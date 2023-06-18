@@ -2,13 +2,19 @@
 <html lang="en">
     <head>
         <title>Integrating with Bootstrap Show Password - FormValidation</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.0/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
         <style>
-        .password-container i.fv-plugins-icon {
-            right: -22px !important;
-        }        
+            .password-container i.fv-plugins-icon {
+                right: -22px !important;
+            }
         </style>
     </head>
     <body>
@@ -17,10 +23,16 @@
                 <div class="form-group row password-container">
                     <label class="col-md-3 col-form-label">Password</label>
                     <div class="col-md-6">
-                        <input data-toggle="password" name="pwd" class="form-control" type="password" placeholder="Enter the password" />
+                        <input
+                            data-toggle="password"
+                            name="pwd"
+                            class="form-control"
+                            type="password"
+                            placeholder="Enter the password"
+                        />
                     </div>
                 </div>
-            
+
                 <div class="form-group row">
                     <div class="col-md-9 offset-md-3">
                         <button type="submit" class="btn btn-primary">Submit</button>
@@ -34,35 +46,35 @@
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            const demoForm = document.getElementById('demoForm');
-            const fv = FormValidation.formValidation(demoForm, {
-                fields: {
-                    pwd: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The password is required'
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const demoForm = document.getElementById('demoForm');
+                const fv = FormValidation.formValidation(demoForm, {
+                    fields: {
+                        pwd: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The password is required',
+                                },
+                                stringLength: {
+                                    min: 6,
+                                    max: 20,
+                                    message: 'The length of password must be between 6 and 20',
+                                },
                             },
-                            stringLength: {
-                                min: 6,
-                                max: 20,
-                                message: 'The length of password must be between 6 and 20'
-                            },
-                        }
+                        },
                     },
-                },
-                plugins: {
-                    trigger: new FormValidation.plugins.Trigger(),
-                    submitButton: new FormValidation.plugins.SubmitButton(),
-                    bootstrap: new FormValidation.plugins.Bootstrap(),
-                    icon: new FormValidation.plugins.Icon({
-                        valid: 'fa fa-check',
-                        invalid: 'fa fa-times',
-                        validating: 'fa fa-refresh'
-                    }),
-                }
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        bootstrap: new FormValidation.plugins.Bootstrap(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                    },
+                });
             });
-        });
         </script>
     </body>
 </html>

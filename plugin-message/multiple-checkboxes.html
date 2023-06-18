@@ -4,9 +4,15 @@
         <title>Message plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <div class="container">
@@ -73,32 +79,30 @@
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            const demoForm = document.getElementById('demoForm');
-            FormValidation.formValidation(
-                demoForm,
-                {
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const demoForm = document.getElementById('demoForm');
+                FormValidation.formValidation(demoForm, {
                     fields: {
                         name: {
                             validators: {
                                 notEmpty: {
-                                    message: 'The event name is required'
-                                }
-                            }
+                                    message: 'The event name is required',
+                                },
+                            },
                         },
                         alertDay: {
                             validators: {
                                 notEmpty: {
-                                    message: 'Please choose at least one checkbox'
-                                }
-                            }
+                                    message: 'Please choose at least one checkbox',
+                                },
+                            },
                         },
                     },
                     plugins: {
                         trigger: new FormValidation.plugins.Trigger(),
                         bootstrap: new FormValidation.plugins.Bootstrap({
                             defaultMessageContainer: false,
-                            rowSelector: function(field, ele) {
+                            rowSelector: function (field, ele) {
                                 return field === 'alertDay' ? '.js-alert-field-container' : '.form-group';
                             },
                         }),
@@ -107,7 +111,7 @@
                             valid: 'fa fa-check',
                             invalid: 'fa fa-times',
                             validating: 'fa fa-refresh',
-                            onPlaced: function(e) {
+                            onPlaced: function (e) {
                                 if (e.field === 'alertDay') {
                                     document.getElementById('alertDayIcon').appendChild(e.iconElement);
                                 }
@@ -115,16 +119,19 @@
                         }),
                         message: new FormValidation.plugins.Message({
                             clazz: 'fv-help-block',
-                            container: function(field, ele) {
+                            container: function (field, ele) {
                                 return field === 'alertDay'
-                                        ? document.getElementById('alertDayMessage')
-                                        : FormValidation.plugins.Message.getClosestContainer(ele, demoForm, /^(.*)(col|offset)-(xs|sm|md|lg)-[0-9]+(.*)$/);
+                                    ? document.getElementById('alertDayMessage')
+                                    : FormValidation.plugins.Message.getClosestContainer(
+                                          ele,
+                                          demoForm,
+                                          /^(.*)(col|offset)-(xs|sm|md|lg)-[0-9]+(.*)$/
+                                      );
                             },
                         }),
                     },
-                }
-            );
-        });
+                });
+            });
         </script>
     </body>
 </html>
