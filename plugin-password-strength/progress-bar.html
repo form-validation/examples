@@ -4,9 +4,15 @@
         <title>PasswordStrength plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <form id="demoForm" method="POST">
@@ -21,76 +27,91 @@
                     </div>
                 </div>
             </div>
-        
+
             <div class="form-group row">
                 <div class="col-md-9 offset-md-3">
                     <button type="submit" class="btn btn-primary">Validate</button>
                 </div>
             </div>
         </form>
-   
+
         <script src="https://cdnjs.cloudflare.com/ajax/libs/zxcvbn/4.4.2/zxcvbn.js"></script>
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-password-strength/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            const form = document.getElementById('demoForm');
-            const progressBar = document.getElementById('progressBar');
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const form = document.getElementById('demoForm');
+                const progressBar = document.getElementById('progressBar');
 
-            const fv = FormValidation.formValidation(form, {
-                fields: {
-                    pwd: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The password is required'
+                const fv = FormValidation.formValidation(form, {
+                    fields: {
+                        pwd: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The password is required',
+                                },
                             },
-                        }
+                        },
                     },
-                },
-                plugins: {
-                    trigger: new FormValidation.plugins.Trigger(),
-                    submitButton: new FormValidation.plugins.SubmitButton(),
-                    bootstrap: new FormValidation.plugins.Bootstrap(),
-                    icon: new FormValidation.plugins.Icon({
-                        valid: 'fa fa-check',
-                        invalid: 'fa fa-times',
-                        validating: 'fa fa-refresh'
-                    }),
-                    passwordStrength: new FormValidation.plugins.PasswordStrength({
-                        field: 'pwd',
-                        message: 'The password is weak',
-                        minimalScore: 3,
-                        onValidated: function(valid, message, score) {
-                            switch (score) {
-                                case 0:
-                                    progressBar.setAttribute('class', 'progress-bar progress-bar-striped progress-bar-danger');
-                                    progressBar.style.width = '1%';
-                                    break;
-                                case 1:
-                                    progressBar.setAttribute('class', 'progress-bar progress-bar-striped progress-bar-danger');
-                                    progressBar.style.width = '25%';
-                                    break;
-                                case 2:
-                                    progressBar.setAttribute('class', 'progress-bar progress-bar-striped progress-bar-danger');
-                                    progressBar.style.width = '50%';
-                                    break;
-                                case 3:
-                                    progressBar.setAttribute('class', 'progress-bar progress-bar-striped progress-bar-warning');
-                                    progressBar.style.width = '75%';
-                                    break;
-                                case 4:
-                                    progressBar.setAttribute('class', 'progress-bar progress-bar-striped progress-bar-success');
-                                    progressBar.style.width = '100%';
-                                    break;
-                                default:
-                                    break;
-                            }
-                        }
-                    }),
-                }
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        bootstrap: new FormValidation.plugins.Bootstrap(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                        passwordStrength: new FormValidation.plugins.PasswordStrength({
+                            field: 'pwd',
+                            message: 'The password is weak',
+                            minimalScore: 3,
+                            onValidated: function (valid, message, score) {
+                                switch (score) {
+                                    case 0:
+                                        progressBar.setAttribute(
+                                            'class',
+                                            'progress-bar progress-bar-striped progress-bar-danger'
+                                        );
+                                        progressBar.style.width = '1%';
+                                        break;
+                                    case 1:
+                                        progressBar.setAttribute(
+                                            'class',
+                                            'progress-bar progress-bar-striped progress-bar-danger'
+                                        );
+                                        progressBar.style.width = '25%';
+                                        break;
+                                    case 2:
+                                        progressBar.setAttribute(
+                                            'class',
+                                            'progress-bar progress-bar-striped progress-bar-danger'
+                                        );
+                                        progressBar.style.width = '50%';
+                                        break;
+                                    case 3:
+                                        progressBar.setAttribute(
+                                            'class',
+                                            'progress-bar progress-bar-striped progress-bar-warning'
+                                        );
+                                        progressBar.style.width = '75%';
+                                        break;
+                                    case 4:
+                                        progressBar.setAttribute(
+                                            'class',
+                                            'progress-bar progress-bar-striped progress-bar-success'
+                                        );
+                                        progressBar.style.width = '100%';
+                                        break;
+                                    default:
+                                        break;
+                                }
+                            },
+                        }),
+                    },
+                });
             });
-        });
         </script>
     </body>
 </html>

@@ -4,9 +4,12 @@
         <title>Wizard plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="https://unpkg.com/tachyons@4.10.0/css/tachyons.min.css" />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body class="w-100 avenir">
         <div class="mw8 center w-100">
@@ -57,29 +60,43 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="js-step">
                     <div class="cf mb2">
                         <div class="fl w-100">
                             <div class="fl w-25 pa2">Full name</div>
                             <div class="fl w-30 mr2">
-                                <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="firstName" placeholder="First name" />
+                                <input
+                                    type="text"
+                                    class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                    name="firstName"
+                                    placeholder="First name"
+                                />
                             </div>
                             <div class="fl w-30">
-                                <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="lastName" placeholder="Last name" />
+                                <input
+                                    type="text"
+                                    class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                    name="lastName"
+                                    placeholder="Last name"
+                                />
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="cf mb2">
                         <div class="fl w-100">
                             <div class="fl w-25 pa2">Phone number</div>
                             <div class="fl w-40">
-                                <input type="text" class="input-reset ba b--black-20 pa2 mb2 db w-100" name="cellPhone" />
+                                <input
+                                    type="text"
+                                    class="input-reset ba b--black-20 pa2 mb2 db w-100"
+                                    name="cellPhone"
+                                />
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="cf mb2">
                         <div class="fl w-100">
                             <div class="fl w-25 pa2">Street</div>
@@ -88,7 +105,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="cf mb2">
                         <div class="fl w-100">
                             <div class="fl w-25 pa2">City</div>
@@ -97,7 +114,7 @@
                             </div>
                         </div>
                     </div>
-        
+
                     <div class="cf mb2">
                         <div class="fl w-100">
                             <div class="fl w-25 pa2">Zipcode</div>
@@ -107,145 +124,149 @@
                         </div>
                     </div>
                 </div>
-        
+
                 <div class="cf mb2">
                     <div class="fl w-100">
                         <div class="fl w-25 pa2"></div>
                         <div class="fl w-50">
-                            <button type="button" class="ba b--black-20 bg-blue white ph3 pv2 br2" id="prevButton">Prev</button>
-                            <button type="button" class="ba b--black-20 bg-blue white ph3 pv2 br2" id="nextButton">Next</button>
+                            <button type="button" class="ba b--black-20 bg-blue white ph3 pv2 br2" id="prevButton">
+                                Prev
+                            </button>
+                            <button type="button" class="ba b--black-20 bg-blue white ph3 pv2 br2" id="nextButton">
+                                Next
+                            </button>
                         </div>
                     </div>
                 </div>
             </form>
-        </div>    
+        </div>
 
         <script src="/vendors/@form-validation/umd/bundle/full.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-tachyons/index.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-wizard/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            const demoForm = document.getElementById('demoForm');
-            const previousButton = document.getElementById('prevButton');
-            const nextButton = document.getElementById('nextButton');
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const demoForm = document.getElementById('demoForm');
+                const previousButton = document.getElementById('prevButton');
+                const nextButton = document.getElementById('nextButton');
 
-            const fv = FormValidation.formValidation(demoForm, {
-                fields: {
-                    'size[]': {
-                        validators: {
-                            notEmpty: {
-                                message: 'The size is required'
-                            }
-                        }
-                    },
-                    'color[]': {
-                        validators: {
-                            notEmpty: {
-                                message: 'The color is required'
-                            }
-                        }
-                    },
-                    firstName: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The first name is required'
+                const fv = FormValidation.formValidation(demoForm, {
+                    fields: {
+                        'size[]': {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The size is required',
+                                },
                             },
-                            regexp: {
-                                regexp: /^[a-zA-Z\s]+$/,
-                                message: 'The first name can only consist of alphabetical and space'
-                            }
-                        }
-                    },
-                    lastName: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The last name is required'
+                        },
+                        'color[]': {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The color is required',
+                                },
                             },
-                            regexp: {
-                                regexp: /^[a-zA-Z\s]+$/,
-                                message: 'The last name can only consist of alphabetical and space'
-                            }
-                        }
-                    },
-                    cellPhone: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The phone number is required'
+                        },
+                        firstName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The first name is required',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z\s]+$/,
+                                    message: 'The first name can only consist of alphabetical and space',
+                                },
                             },
-                            phone: {
-                                country: 'US',
-                                message: 'The value is not valid US phone number'
-                            }
-                        }
-                    },
-                    street: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The street is required'
-                            }
-                        }
-                    },
-                    city: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The city is required'
-                            }
-                        }
-                    },
-                    zipCode: {
-                        validators: {
-                            notEmpty: {
-                                message: 'The zip code is required'
+                        },
+                        lastName: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The last name is required',
+                                },
+                                regexp: {
+                                    regexp: /^[a-zA-Z\s]+$/,
+                                    message: 'The last name can only consist of alphabetical and space',
+                                },
                             },
-                            zipCode: {
-                                country: 'US',
-                                message: 'The value is not valid US zip code'
+                        },
+                        cellPhone: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The phone number is required',
+                                },
+                                phone: {
+                                    country: 'US',
+                                    message: 'The value is not valid US phone number',
+                                },
                             },
-                        }
-                    }
-                },
-                plugins: {
-                    trigger: new FormValidation.plugins.Trigger(),
-                    tachyons: new FormValidation.plugins.Tachyons(),
-                    submitButton: new FormValidation.plugins.SubmitButton(),
-                    icon: new FormValidation.plugins.Icon({
-                        valid: 'fa fa-check',
-                        invalid: 'fa fa-times',
-                        validating: 'fa fa-refresh'
-                    }),
-                    wizard: new FormValidation.plugins.Wizard({
-                        stepSelector: '.js-step',
-                        prevButton: '#prevButton',
-                        nextButton: '#nextButton',
-                    }),
-                }
-            })
-            .on('plugins.wizard.step.active', function(e) {
-                // Show or hide the previous button if we are at the first step
-                previousButton.style.display = e.step == 0 ? 'none' : 'inline-block';
+                        },
+                        street: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The street is required',
+                                },
+                            },
+                        },
+                        city: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The city is required',
+                                },
+                            },
+                        },
+                        zipCode: {
+                            validators: {
+                                notEmpty: {
+                                    message: 'The zip code is required',
+                                },
+                                zipCode: {
+                                    country: 'US',
+                                    message: 'The value is not valid US zip code',
+                                },
+                            },
+                        },
+                    },
+                    plugins: {
+                        trigger: new FormValidation.plugins.Trigger(),
+                        tachyons: new FormValidation.plugins.Tachyons(),
+                        submitButton: new FormValidation.plugins.SubmitButton(),
+                        icon: new FormValidation.plugins.Icon({
+                            valid: 'fa fa-check',
+                            invalid: 'fa fa-times',
+                            validating: 'fa fa-refresh',
+                        }),
+                        wizard: new FormValidation.plugins.Wizard({
+                            stepSelector: '.js-step',
+                            prevButton: '#prevButton',
+                            nextButton: '#nextButton',
+                        }),
+                    },
+                })
+                    .on('plugins.wizard.step.active', function (e) {
+                        // Show or hide the previous button if we are at the first step
+                        previousButton.style.display = e.step == 0 ? 'none' : 'inline-block';
 
-                nextButton.innerHTML = (e.step === e.numSteps - 1) ? 'Purchase' : 'Next';
-            })
-            .on('plugins.wizard.valid', function(e) {
-                nextButton.innerHTML = 'Done';
-            });
+                        nextButton.innerHTML = e.step === e.numSteps - 1 ? 'Purchase' : 'Next';
+                    })
+                    .on('plugins.wizard.valid', function (e) {
+                        nextButton.innerHTML = 'Done';
+                    });
 
-            // Get the Wizard plugin instance
-            // `fv` is the FormValidation instance created above
-            const wizardPlugin = fv.getPlugin('wizard');
+                // Get the Wizard plugin instance
+                // `fv` is the FormValidation instance created above
+                const wizardPlugin = fv.getPlugin('wizard');
 
-            // Automatically go to next step when selecting any `size[]` or `color[]` checkbox
-            demoForm.querySelectorAll('[name="size[]"]').forEach(function(ele) {
-                ele.addEventListener('change', function() {
-                    wizardPlugin.goToNextStep();
+                // Automatically go to next step when selecting any `size[]` or `color[]` checkbox
+                demoForm.querySelectorAll('[name="size[]"]').forEach(function (ele) {
+                    ele.addEventListener('change', function () {
+                        wizardPlugin.goToNextStep();
+                    });
+                });
+                demoForm.querySelectorAll('[name="color[]"]').forEach(function (ele) {
+                    ele.addEventListener('change', function () {
+                        wizardPlugin.goToNextStep();
+                    });
                 });
             });
-            demoForm.querySelectorAll('[name="color[]"]').forEach(function(ele) {
-                ele.addEventListener('change', function() {
-                    wizardPlugin.goToNextStep();
-                });
-            });
-        });
         </script>
     </body>
 </html>

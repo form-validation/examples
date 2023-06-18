@@ -3,14 +3,24 @@
         <title>Bootstrap plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
 
         <style>
-        /* You can customize the style for checkbox label when it's valid or invalid */
-        .checkbox-container.has-danger .form-check-label { color: #dc3545; }
-        .checkbox-container.has-success .form-check-label { color: #28a745; }
+            /* You can customize the style for checkbox label when it's valid or invalid */
+            .checkbox-container.has-danger .form-check-label {
+                color: #dc3545;
+            }
+            .checkbox-container.has-success .form-check-label {
+                color: #28a745;
+            }
         </style>
     </head>
     <body>
@@ -19,67 +29,74 @@
                 <label class="col-sm-4 col-form-label">Grades</label>
                 <div class="col-sm-6">
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck1" name="grade[]" value='1' checked>
+                        <input
+                            type="checkbox"
+                            class="form-check-input"
+                            id="customCheck1"
+                            name="grade[]"
+                            value="1"
+                            checked
+                        />
                         <label class="form-check-label" for="customCheck1">K</label>
                     </div>
 
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck2" name="grade[]" value='2' >
+                        <input type="checkbox" class="form-check-input" id="customCheck2" name="grade[]" value="2" />
                         <label class="form-check-label" for="customCheck2">1</label>
                     </div>
-                    
+
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck3" name="grade[]" value='3' >
+                        <input type="checkbox" class="form-check-input" id="customCheck3" name="grade[]" value="3" />
                         <label class="form-check-label" for="customCheck3">2</label>
                     </div>
-                    
+
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck4" name="grade[]" value='4' >
+                        <input type="checkbox" class="form-check-input" id="customCheck4" name="grade[]" value="4" />
                         <label class="form-check-label" for="customCheck4">3</label>
                     </div>
-                    
+
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck5" name="grade[]" value='5' >
+                        <input type="checkbox" class="form-check-input" id="customCheck5" name="grade[]" value="5" />
                         <label class="form-check-label" for="customCheck5">4</label>
                     </div>
-                    
+
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck6" name="grade[]" value='6' >
+                        <input type="checkbox" class="form-check-input" id="customCheck6" name="grade[]" value="6" />
                         <label class="form-check-label" for="customCheck6">5</label>
                     </div>
-                    
+
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck7" name="grade[]" value='7' >
+                        <input type="checkbox" class="form-check-input" id="customCheck7" name="grade[]" value="7" />
                         <label class="form-check-label" for="customCheck7">6</label>
                     </div>
-                    
+
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck8" name="grade[]" value='8' >
+                        <input type="checkbox" class="form-check-input" id="customCheck8" name="grade[]" value="8" />
                         <label class="form-check-label" for="customCheck8">7</label>
                     </div>
-                    
+
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck9" name="grade[]" value='9' >
+                        <input type="checkbox" class="form-check-input" id="customCheck9" name="grade[]" value="9" />
                         <label class="form-check-label" for="customCheck9">8</label>
                     </div>
-                    
+
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck10" name="grade[]" value='10' >
+                        <input type="checkbox" class="form-check-input" id="customCheck10" name="grade[]" value="10" />
                         <label class="form-check-label" for="customCheck10">9</label>
                     </div>
-                    
+
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck11" name="grade[]" value='11' >
+                        <input type="checkbox" class="form-check-input" id="customCheck11" name="grade[]" value="11" />
                         <label class="form-check-label" for="customCheck11">10</label>
                     </div>
-                    
+
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck12" name="grade[]" value='12' >
+                        <input type="checkbox" class="form-check-input" id="customCheck12" name="grade[]" value="12" />
                         <label class="form-check-label" for="customCheck12">11</label>
                     </div>
-                    
+
                     <div class="form-check form-check-inline">
-                        <input type="checkbox" class="form-check-input" id="customCheck13" name="grade[]" value='13' >
+                        <input type="checkbox" class="form-check-input" id="customCheck13" name="grade[]" value="13" />
                         <label class="form-check-label" for="customCheck13">12</label>
                     </div>
                 </div>
@@ -95,18 +112,16 @@
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            FormValidation.formValidation(
-                document.getElementById('demoForm'),
-                {
+            document.addEventListener('DOMContentLoaded', function (e) {
+                FormValidation.formValidation(document.getElementById('demoForm'), {
                     fields: {
                         'grade[]': {
                             validators: {
                                 notEmpty: {
-                                    message: 'The grade is required'
-                                }
-                            }
-                        }
+                                    message: 'The grade is required',
+                                },
+                            },
+                        },
                     },
                     plugins: {
                         trigger: new FormValidation.plugins.Trigger(),
@@ -115,12 +130,11 @@
                         icon: new FormValidation.plugins.Icon({
                             valid: 'fa fa-check',
                             invalid: 'fa fa-times',
-                            validating: 'fa fa-refresh'
+                            validating: 'fa fa-refresh',
                         }),
                     },
-                }
-            );
-        });
+                });
+            });
         </script>
     </body>
 </html>

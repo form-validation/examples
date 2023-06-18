@@ -4,9 +4,15 @@
         <title>Excluded plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.2/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <div class="container">
@@ -14,30 +20,36 @@
                 <div class="form-group">
                     <label>Which Javascript framework you like most?</label>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="framework" value="angular" /> <label>Angular</label>
+                        <input type="radio" class="form-check-input" name="framework" value="angular" />
+                        <label>Angular</label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="framework" value="ember" /> <label>Ember</label>
+                        <input type="radio" class="form-check-input" name="framework" value="ember" />
+                        <label>Ember</label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="framework" value="backbone" /> <label>Backbone</label>
+                        <input type="radio" class="form-check-input" name="framework" value="backbone" />
+                        <label>Backbone</label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="framework" value="react" /> <label>React</label>
+                        <input type="radio" class="form-check-input" name="framework" value="react" />
+                        <label>React</label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="framework" value="Knockout" /> <label>Knockout</label>
+                        <input type="radio" class="form-check-input" name="framework" value="Knockout" />
+                        <label>Knockout</label>
                     </div>
                     <div class="form-check">
-                        <input type="radio" class="form-check-input" name="framework" value="other" /> <label>Other</label>
+                        <input type="radio" class="form-check-input" name="framework" value="other" />
+                        <label>Other</label>
                     </div>
                 </div>
-            
+
                 <div class="form-group" id="otherOptionContainer">
                     <label>Please specify the framework:</label>
                     <input type="text" class="form-control" name="otherFramework" />
                 </div>
-            
+
                 <div class="form-group">
                     <button type="submit" class="btn btn-primary">Submit</button>
                 </div>
@@ -47,28 +59,27 @@
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-bootstrap/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            const demoForm = document.getElementById('demoForm');
+            document.addEventListener('DOMContentLoaded', function (e) {
+                const demoForm = document.getElementById('demoForm');
 
-            // Get the submit button element
-            const submitButton = demoForm.querySelector('[type="submit"]');
+                // Get the submit button element
+                const submitButton = demoForm.querySelector('[type="submit"]');
 
-            const fv = FormValidation
-                .formValidation(demoForm, {
+                const fv = FormValidation.formValidation(demoForm, {
                     fields: {
                         framework: {
                             validators: {
                                 notEmpty: {
-                                    message: 'Please select a framework'
-                                }
-                            }
+                                    message: 'Please select a framework',
+                                },
+                            },
                         },
                         otherFramework: {
                             validators: {
                                 notEmpty: {
                                     message: 'Please specific the framework',
-                                }
-                            }
+                                },
+                            },
                         },
                     },
                     plugins: {
@@ -76,12 +87,14 @@
                         submitButton: new FormValidation.plugins.SubmitButton(),
                         bootstrap: new FormValidation.plugins.Bootstrap(),
                         excluded: new FormValidation.plugins.Excluded({
-                            excluded: function(field, ele, eles) {
+                            excluded: function (field, ele, eles) {
                                 const selectedCheckbox = demoForm.querySelector('[name="framework"]:checked');
                                 const framework = selectedCheckbox ? selectedCheckbox.value : '';
-                                const ignored = (field === 'otherFramework' && framework !== 'other') || (field === 'framework' && framework === 'other');
+                                const ignored =
+                                    (field === 'otherFramework' && framework !== 'other') ||
+                                    (field === 'framework' && framework === 'other');
                                 return ignored;
-                            }
+                            },
                         }),
                         icon: new FormValidation.plugins.Icon({
                             valid: 'fa fa-check',
@@ -89,7 +102,7 @@
                             validating: 'fa fa-refresh',
                         }),
                         fieldStatus: new FormValidation.plugins.FieldStatus({
-                            onStatusChanged: function(areFieldsValid) {
+                            onStatusChanged: function (areFieldsValid) {
                                 if (areFieldsValid) {
                                     // Enable the submit button
                                     // so user has a chance to submit the form again
@@ -98,22 +111,21 @@
                                     // Disable the submit button
                                     submitButton.setAttribute('disabled', 'disabled');
                                 }
-                            }
+                            },
                         }),
                     },
-                })
-                .on('core.form.valid', function() {
+                }).on('core.form.valid', function () {
                     // This is for testing purpose
                     // You should see it when the form is valid
                     alert('Form is valid');
                 });
 
-            Array.from(demoForm.querySelectorAll('[name="framework"]')).forEach((ele) => {
-                ele.addEventListener('change', function(e) {
-                    fv.revalidateField('otherFramework');
+                Array.from(demoForm.querySelectorAll('[name="framework"]')).forEach((ele) => {
+                    ele.addEventListener('change', function (e) {
+                        fv.revalidateField('otherFramework');
+                    });
                 });
             });
-        });
         </script>
     </body>
 </html>

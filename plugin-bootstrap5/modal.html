@@ -4,23 +4,39 @@
         <title>Bootstrap5 plugin - FormValidation</title>
         <meta charset="utf-8" />
         <meta content="width=device-width,initial-scale=1" name="viewport" />
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha3/css/bootstrap.min.css">
-        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css">
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.0.0-alpha3/css/bootstrap.min.css"
+        />
+        <link rel="stylesheet" href="/vendors/@form-validation/umd/styles/index.min.css" />
     </head>
     <body>
         <div class="container mt-5">
-            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">
-                Login
-            </button>
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginModal">Login</button>
 
-            <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="loginModalLabel" aria-hidden="true">
+            <div
+                class="modal fade"
+                id="loginModal"
+                tabindex="-1"
+                role="dialog"
+                aria-labelledby="loginModalLabel"
+                aria-hidden="true"
+            >
                 <div class="modal-dialog">
                     <div class="modal-content">
                         <form id="loginForm" method="POST">
                             <div class="modal-header">
                                 <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+                                <button
+                                    type="button"
+                                    class="btn-close"
+                                    data-dismiss="modal"
+                                    aria-label="Close"
+                                ></button>
                             </div>
                             <div class="modal-body">
                                 <div class="mb-3 row">
@@ -55,60 +71,60 @@
         <script src="/vendors/@form-validation/umd/bundle/popular.min.js"></script>
         <script src="/vendors/@form-validation/umd/plugin-bootstrap5/index.min.js"></script>
         <script>
-        document.addEventListener('DOMContentLoaded', function(e) {
-            // Store the FormValidation instance
-            var fv;
+            document.addEventListener('DOMContentLoaded', function (e) {
+                // Store the FormValidation instance
+                var fv;
 
-            const loginForm = document.getElementById('loginForm');
-            const loginModal = document.getElementById('loginModal');
+                const loginForm = document.getElementById('loginForm');
+                const loginModal = document.getElementById('loginModal');
 
-            loginModal.addEventListener('shown.bs.modal', function(e) {
-                fv = FormValidation.formValidation(loginForm, {
-                    fields: {
-                        username: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The username is required'
+                loginModal.addEventListener('shown.bs.modal', function (e) {
+                    fv = FormValidation.formValidation(loginForm, {
+                        fields: {
+                            username: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The username is required',
+                                    },
+                                    stringLength: {
+                                        min: 6,
+                                        max: 30,
+                                        message: 'The username must be more than 6 and less than 30 characters long',
+                                    },
+                                    regexp: {
+                                        regexp: /^[a-zA-Z0-9_]+$/,
+                                        message: 'The username can only consist of alphabetical, number and underscore',
+                                    },
                                 },
-                                stringLength: {
-                                    min: 6,
-                                    max: 30,
-                                    message: 'The username must be more than 6 and less than 30 characters long'
+                            },
+                            password: {
+                                validators: {
+                                    notEmpty: {
+                                        message: 'The password is required',
+                                    },
                                 },
-                                regexp: {
-                                    regexp: /^[a-zA-Z0-9_]+$/,
-                                    message: 'The username can only consist of alphabetical, number and underscore'
-                                }
-                            }
+                            },
                         },
-                        password: {
-                            validators: {
-                                notEmpty: {
-                                    message: 'The password is required'
-                                }
-                            }
+                        plugins: {
+                            trigger: new FormValidation.plugins.Trigger(),
+                            submitButton: new FormValidation.plugins.SubmitButton(),
+                            bootstrap: new FormValidation.plugins.Bootstrap5(),
+                            icon: new FormValidation.plugins.Icon({
+                                valid: 'fa fa-check',
+                                invalid: 'fa fa-times',
+                                validating: 'fa fa-refresh',
+                            }),
                         },
-                    },
-                    plugins: {
-                        trigger: new FormValidation.plugins.Trigger(),
-                        submitButton: new FormValidation.plugins.SubmitButton(),
-                        bootstrap: new FormValidation.plugins.Bootstrap5(),
-                        icon: new FormValidation.plugins.Icon({
-                            valid: 'fa fa-check',
-                            invalid: 'fa fa-times',
-                            validating: 'fa fa-refresh'
-                        }),
-                    }
+                    });
+                });
+
+                loginModal.addEventListener('hidden.bs.modal', function (e) {
+                    fv.resetForm(true);
+
+                    // Destroy the FormValidation instance
+                    fv.destroy();
                 });
             });
-
-            loginModal.addEventListener('hidden.bs.modal', function(e) {
-                fv.resetForm(true);
-
-                // Destroy the FormValidation instance
-                fv.destroy();
-            });
-        });
         </script>
     </body>
 </html>
